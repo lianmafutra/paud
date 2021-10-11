@@ -20,9 +20,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::get('/', 'AdminController@index');
 
-Route::post('siswa/filepondUpload', 'SiswaController@filepondUpload');
-Route::delete('siswa/filepondCancel', 'SiswaController@filepondCancel');
-Route::resource('siswa', 'SiswaController');
+Route::resource('berita', 'BeritaController');
 
     Route::group(['middleware' => 'auth', 'prefix' => 'user_management',], function () {
         Route::group(['prefix' => 'user',], function () {
