@@ -32,18 +32,18 @@
                   <div class="col-lg-6 ">
                       <div class="form-group">
                           <label for="example-text-input" class="col-form-label">Judul</label>
-                          <input value="{{ $berita->judul }}" placeholder="" name="judul" type="text" id="judul"
+                          <input disabled value="{{ $berita->judul }}" placeholder="" name="judul" type="text" id="judul"
                               class="input form-control">
                       </div>
                       <div class="form-group">
                           <label>Isi Konten</label>
-                          <textarea id="isi" name="isi" class="ckeditor form-control" rows="3" placeholder=""
+                          <textarea disabled id="isi" name="isi" class="ckeditor form-control" rows="3" placeholder=""
                               style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("isi")}}</textarea>
                       </div>
                       <div class="form-group">
                           <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                                   file : jpg, png | Max : 1 MB)</span> </label>
-                          <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                          <input disabled type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
                               name="poster">
                       </div>
                   </div>
@@ -53,8 +53,6 @@
               <a class="btn btn-success waves-effect waves-light"
                   style="margin-right:10px; float:left ;right: 10px; z-index: 40"
                   href="{{ route('berita.index') }}">Kembali</a>
-              <button type="submit" class="btn_save btn btn-primary waves-effect waves-light"
-                  style="float:left ;right: 10px; z-index: 40">Simpan</button>
           </div>
           </form>
       </div>

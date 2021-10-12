@@ -19,7 +19,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::resource('berita', 'BeritaController');
+Route::get('pengaturan', 'AdminController@SettingNoWhatsapp');
+Route::post('pengaturan/update_nomor_wa', 'AdminController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
+
 
 
     Route::group(['middleware' => 'auth', 'prefix' => 'user_management',], function () {

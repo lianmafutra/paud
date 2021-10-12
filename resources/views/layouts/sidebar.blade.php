@@ -140,7 +140,7 @@
           <ul class="nav nav-treeview" style="display: none;">
           
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="{{ url('admin/pengaturan/') }}" class="nav-link">
                 <i class="nav-icon far fa-file"></i>
                 <p>
                 Atur Nomor Whatsapp 
