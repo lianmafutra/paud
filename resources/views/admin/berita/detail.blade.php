@@ -13,7 +13,7 @@
       <div class="card">
           <div class="card-header">
               <h3 style="padding-top: 10px" class="card-title">
-                  <i class="fas fa-chart-pie mr-1"></i> Detail Berita 
+                  <i class="fas fa-chart-pie mr-1"></i> Buat Berita Baru
               </h3>
           </div>
           <div class="card-body">
@@ -38,7 +38,7 @@
                       <div class="form-group">
                           <label>Isi Konten</label>
                           <textarea id="isi" name="isi" class="ckeditor form-control" rows="3" placeholder=""
-                              style="margin-top: 0px; margin-bottom: 0px; height: 99px;"></textarea>
+                              style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("isi")}}</textarea>
                       </div>
                       <div class="form-group">
                           <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
@@ -70,45 +70,35 @@
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-size.js') }} "></script>
 <script src="{{ URL::asset('js/ckeditor/ckeditor.js')}}"></script>
+<script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
+<script src="https://nielsboogaard.github.io/filepond-plugin-get-file/dist/filepond-plugin-get-file.js"></script>
 <script type="text/javascript">
 
-var editor = CKEDITOR.instances.isi;
-editor.setData('ssd'); 
-// CKEDITOR.instances.isi.resize('100%', 400, true);
+$(function(){
 
-FilePond.registerPlugin(
-    FilePondPluginFileMetadata,
-    FilePondPluginFileEncode,
-    FilePondPluginImagePreview,
-    FilePondPluginFileValidateType,
-    FilePondPluginFileValidateSize);
+    var editor = CKEDITOR.instances.isi;
+    editor.setData({!! json_encode($berita->isi) !!}); 
 
-const inputElements = document.querySelectorAll('input.filepond');
 
-Array.from(inputElements).forEach(inputElement => {
-    FilePond.create(inputElement, {
-    imageCropAspectRatio: '1:1',
-    allowImagePreview: true,
-    imagePreviewHeight: 150,
-    imagePreviewWidth: 50,
-    storeAsFile: true,
-    fileMetadataObject: {
-        'markup': [
-            [
-                'rect', {
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    height: '400px',
-                    backgroundColor: 'rgba(0,0,0,.5)'
-                },
-            ],
 
-        ]
-    }
 
+  FilePond.registerPlugin(FilePondPluginImagePreview,
+      FilePondPluginFileValidateType,FilePondPluginGetFile,
+      FilePondPluginFileValidateSize,FilePondPluginFilePoster ,FilePondPluginFileEncode );
+  
+    const pond_photo = FilePond.create( document.querySelector('input[name="poster"]'),{
+        storeAsFile: true,
+        files: [
+        {
+            source: '/uploads/'+{!! json_encode($berita->poster) !!},
+        },
+    ],  
     });
+        
+        
 });
+
+
 
 
 </script>

@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="{{ URL::asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
   <link rel="stylesheet"href="{{ URL::asset("plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css") }}">
   <link rel="stylesheet" href="{{ URL::asset("plugins/select2/css/select2.min.css")}}">
-
   <link rel="stylesheet" href="{{ URL::asset("plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
 @endpush()
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -55,7 +54,6 @@
 <script src="{{ URL::asset("plugins/jquery-validation/jquery.validate.min.js")}}"></script>
 <script src="{{ URL::asset("plugins/jquery-validation/additional-methods.min.js")}}"></script>
 <script src="{{ URL::asset("plugins/select2/js/select2.full.min.js")}}"></script>
-
 <script src="{{ URL::asset("plugins/moment/moment.min.js") }}"></script>
 <script src="{{ URL::asset("plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js") }}"></script>
 <script>

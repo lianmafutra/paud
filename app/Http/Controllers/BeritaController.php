@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Berita;
 use App\Http\Requests\BeritaStoreRequest;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\File;
 class BeritaController extends Controller
 {
     /**
@@ -73,8 +73,7 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        $berita =  Berita::find($id)->first();
-      
+        $berita =  Berita::find($id);
         return view("admin.berita.detail", compact('berita'));
     }
 
@@ -84,9 +83,10 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita)
+    public function edit($id)
     {
-        return view("admin.berita.edit");
+        $berita =  Berita::find($id);
+        return view("admin.berita.edit", compact('berita'));
     }
 
     /**
@@ -96,9 +96,43 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
+    public function update(BeritaStoreRequest $request)
     {
-        //
+        try {
+
+            $berita = Berita::find($request->id);
+            if($request->poster->getClientOriginalName() == $berita->poster){
+                $berita->update([
+                    'judul' => $request->judul,
+                    'isi' => $request->isi,
+                    'poster' =>  $berita->poster
+                ]);
+            }else{
+                $files = $request->file('poster');  
+             
+                $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
+              
+                $files->move('uploads', $name_uniqe);
+              
+                $filepath = public_path("/uploads".$berita->poster);
+        
+                if (File::exists($filepath)) {
+                   File::delete(  $filepath);
+                }
+           
+                $berita->update([
+                    'judul' => $request->judul,
+                    'isi' => $request->isi,
+                    'poster' => $name_uniqe
+                ]);
+            }
+          
+        toastr()->info('Data has been update successfully!');
+        return redirect()->route('berita.index');
+        } catch (\Throwable $th) {
+            toastr()->error('Gagal Mengupdate Data');
+        }
+      
     }
 
     /**
