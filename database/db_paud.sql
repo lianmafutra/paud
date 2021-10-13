@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
+-- Host:                         localhost
 -- Server version:               5.7.24 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
--- HeidiSQL Version:             11.0.0.5919
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,10 +11,20 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Dumping structure for table db_paud.admin_settings
+CREATE TABLE IF NOT EXISTS `admin_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `no_wa` varchar(16) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping database structure for db_paud
-CREATE DATABASE IF NOT EXISTS `db_paud` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `db_paud`;
+-- Dumping data for table db_paud.admin_settings: ~1 rows (approximately)
+/*!40000 ALTER TABLE `admin_settings` DISABLE KEYS */;
+INSERT INTO `admin_settings` (`id`, `no_wa`, `created_at`, `updated_at`) VALUES
+	(1, '+6289624379599', '0000-00-00 00:00:00', '2021-10-12 16:02:49');
+/*!40000 ALTER TABLE `admin_settings` ENABLE KEYS */;
 
 -- Dumping structure for table db_paud.berita
 CREATE TABLE IF NOT EXISTS `berita` (
@@ -25,18 +35,14 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_paud.berita: ~7 rows (approximately)
+-- Dumping data for table db_paud.berita: ~3 rows (approximately)
 /*!40000 ALTER TABLE `berita` DISABLE KEYS */;
 INSERT INTO `berita` (`id`, `judul`, `isi`, `poster`, `created_at`, `updated_at`) VALUES
 	(1, 'berita 1', 'No internetNo internetTry:Checking the network cables, modem, and routerReconnecting to Wi-FiRunning Windows Network DiagnosticsDNS_PROBE_FINISHED_NO_INTERNET', NULL, '2021-10-10 22:03:07', '2021-10-10 22:03:07'),
-	(3, 'berita 1', 'No internetNo internetTry:Checking the network cables, modem, and routerReconnecting to Wi-FiRunning Windows Network DiagnosticsDNS_PROBE_FINISHED_NO_INTERNET', NULL, '2021-10-10 22:03:07', '2021-10-10 22:03:07'),
-	(5, 'baru2', '<p>wqdqwdqwdwqdwqd</p>', '616310ea0937a-1633882346.png', '2021-10-10 16:12:26', '2021-10-10 16:12:26'),
-	(6, 'dqdwqd', '<p>wqdqwdqwd</p>', '6163114d7afcc-1633882445.png', '2021-10-10 16:14:05', '2021-10-10 16:14:05'),
-	(7, 'dwqdwqd', '<p>wqdqwdqd</p>', '616313a69a53b-1633883046.png', '2021-10-10 16:24:06', '2021-10-10 16:24:06'),
-	(8, 'dwqdwq', '<p>dqwdq</p>', '616313dbc02a7-1633883099.png', '2021-10-10 16:24:59', '2021-10-10 16:24:59'),
-	(9, 'xxxx', '<p>xxx</p>', NULL, '2021-10-10 16:25:14', '2021-10-10 16:25:14');
+	(8, 'dwqdwq2', '<p>dqwdq2</p>', 'C:\\Users\\Sekuntum_Rosela\\AppData\\Local\\Temp\\php1890.tmp', '2021-10-10 16:24:59', '2021-10-12 14:21:20'),
+	(11, 'fg', '<p>fg</p>', '6165a11e98df7-1634050334.png', '2021-10-12 14:32:34', '2021-10-12 14:52:14');
 /*!40000 ALTER TABLE `berita` ENABLE KEYS */;
 
 -- Dumping structure for table db_paud.failed_jobs
@@ -126,8 +132,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table db_paud.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `last_login_at`, `last_login_ip`) VALUES
-	(1, 'Admin Admin', NULL, 'admin@argon.com', '2021-10-09 10:00:24', '$2y$10$Cp76eNsYytIPJYQUhVdrcOua4d3/K4BePmaLCPCIU1gG45ttOKlrq', NULL, '2021-10-09 10:00:24', '2021-10-09 10:00:24', NULL, NULL),
-	(2, 'superadmin', 'admin', 'admin@admin.com', NULL, '$2y$10$52pCxBjEAJXnEIHPNUcDdePPcV93Q5qzIkfYRPao2RAdSBOXTaGne', NULL, '2021-10-09 10:01:06', '2021-10-10 14:03:32', '2021-10-10 14:03:32', '127.0.0.1');
+	(2, 'superadmin', 'admin', 'admin@admin.com', NULL, '$2y$10$52pCxBjEAJXnEIHPNUcDdePPcV93Q5qzIkfYRPao2RAdSBOXTaGne', NULL, '2021-10-09 10:01:06', '2021-10-12 13:16:08', '2021-10-12 13:16:08', '127.0.0.1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
