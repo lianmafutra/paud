@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_paud.berita: ~6 rows (approximately)
+-- Dumping data for table db_paud.berita: ~5 rows (approximately)
 /*!40000 ALTER TABLE `berita` DISABLE KEYS */;
 INSERT INTO `berita` (`id`, `judul`, `isi`, `poster`, `created_at`, `updated_at`) VALUES
 	(1, 'Contoh berita 2', '<h2>Why do we use it?</h2>\r\n\r\n<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>', '6166c91e30a1f-1634126110.jpg', '2021-10-10 22:03:07', '2021-10-13 11:56:06'),
@@ -125,15 +125,15 @@ CREATE TABLE IF NOT EXISTS `sliders` (
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_paud.sliders: ~3 rows (approximately)
+-- Dumping data for table db_paud.sliders: ~4 rows (approximately)
 /*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
 INSERT INTO `sliders` (`id`, `judul`, `text1`, `text2`, `text3`, `poster`, `created_at`, `updated_at`) VALUES
-	(1, 'slider 1', 'selamat datang', 'selamat datang', 'selamat datang', '6166fea5df05e-1634139813.jpg', '2021-10-13 22:29:22', '2021-10-13 22:29:23'),
-	(2, 'slider 2', 'selamat datang', 'selamat datang', 'selamat datang', '6166fea5df05e-1634139813.jpg', '2021-10-13 22:29:22', '2021-10-13 22:29:23'),
+	(1, 'slider 1', 'Selamat datang di', 'Website Yayasan Pendidikan Meccazia Junior', 'Taman Penitipan anak junior', '6166fea5df05e-1634139813.jpg', '2021-10-13 22:29:22', '2021-10-13 22:29:23'),
+	(2, 'slider 2', 'selamat datang', 'selamat datang', 'selamat datang', '6166c91e30a1f-1634126110.jpg', '2021-10-13 22:29:22', '2021-10-13 22:29:23'),
 	(4, 'slider 3', 'selamat datang', 'selamat datang', 'selamat datang', '6166fea5df05e-1634139813.jpg', '2021-10-13 22:29:22', '2021-10-13 22:29:23'),
-	(6, 'slider 4', 'dqwdwq', 'dwqdwq', 'dwqd', '6166fea5df05e-1634139813.jpg', '2021-10-13 15:43:33', '2021-10-13 15:43:33');
+	(6, 'slider 4', 'dqwdwq', 'dwqdwq', 'dwqd', '6166c91e30a1f-1634126110.jpg', '2021-10-13 15:43:33', '2021-10-13 15:43:33');
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
 -- Dumping structure for table db_paud.users
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table db_paud.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `last_login_at`, `last_login_ip`) VALUES
-	(2, 'superadmin', 'admin', 'admin@admin.com', NULL, '$2y$10$52pCxBjEAJXnEIHPNUcDdePPcV93Q5qzIkfYRPao2RAdSBOXTaGne', NULL, '2021-10-09 10:01:06', '2021-10-13 11:52:23', '2021-10-13 11:52:23', '127.0.0.1');
+	(2, 'superadmin', 'admin', 'admin@admin.com', NULL, '$2y$10$52pCxBjEAJXnEIHPNUcDdePPcV93Q5qzIkfYRPao2RAdSBOXTaGne', NULL, '2021-10-09 10:01:06', '2021-10-13 22:10:39', '2021-10-13 22:10:39', '127.0.0.1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
