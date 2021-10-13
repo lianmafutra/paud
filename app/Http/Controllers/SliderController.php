@@ -75,7 +75,8 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        $slider =  Slider::find($id);
+        return view("admin.slider.detail", compact('slider'));
     }
 
     /**
