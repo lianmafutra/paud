@@ -23,8 +23,6 @@ Route::get('pengaturan', 'AdminController@SettingNoWhatsapp');
 Route::post('pengaturan/update_nomor_wa', 'AdminController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
 
-
-
     Route::group(['middleware' => 'auth', 'prefix' => 'user_management',], function () {
         Route::group(['prefix' => 'user',], function () {
             Route::get('/', 'UserController@index')->name('user.index');
@@ -33,5 +31,6 @@ Route::get('/', 'AdminController@index');
         }); 
     });
   
-
 });
+
+Route::get('/', 'Frontend\\HomeController@index');

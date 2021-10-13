@@ -1,5 +1,4 @@
- <!-- Start footer -->
- <footer id="mu-footer">
+<footer id="mu-footer">
   <!-- start footer top -->
   <div class="mu-footer-top">
     <div class="container">
