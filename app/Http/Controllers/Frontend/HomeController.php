@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Berita;
 use App\Http\Controllers\Controller;
-
+use App\Slider;
 
 class HomeController extends Controller
 {
     public function index(){
         $berita = Berita::all();
-        return view('frontend.index', compact('berita'));
+        $slider = Slider::all();
+      
+        return view('frontend.index', compact(['berita','slider']));
     }
 
     public function visiMisi(){

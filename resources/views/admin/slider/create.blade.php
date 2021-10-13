@@ -31,36 +31,36 @@
                   @csrf
                   <div class="col-lg-6 ">
                       <div class="form-group">
-                          <label for="example-text-input" class="col-form-label">Judul</label>
-                          <input value="{{old("judul ") }}" placeholder="" name="judul" type="text" id="judul"
+                          <label for="example-text-input" class="col-form-label">Judul <span style="color: rgb(230, 67, 67)">*</span></label>
+                          <input required value="{{old("judul ") }}" placeholder="" name="judul" type="text" id="judul"
                               class="input form-control">
                       </div>
 
 
                       <div class="form-group">
-                        <label for="example-text-input" class="col-form-label">Text 1</label>
-                        <input value="{{old("text1") }}" placeholder="" name="text1" type="text" id="text1"
+                        <label for="example-text-input" class="col-form-label">Text 1 <span style="color: rgb(230, 67, 67)">*</span></label>
+                        <input required value="{{old("text1") }}" placeholder="" name="text1" type="text" id="text1"
                             class="input form-control">
                     </div>
 
 
                     <div class="form-group">
-                        <label for="example-text-input" class="col-form-label">Text 2</label>
-                        <input value="{{old("text2") }}" placeholder="" name="text2" type="text" id="text2"
+                        <label for="example-text-input" class="col-form-label">Text 2 <span style="color: rgb(230, 67, 67)">*</span></label>
+                        <input required value="{{old("text2") }}" placeholder="" name="text2" type="text" id="text2"
                             class="input form-control">
                     </div>
 
 
                     <div class="form-group">
-                        <label for="example-text-input" class="col-form-label">Text 3</label>
-                        <input value="{{old("text3") }}" placeholder="" name="text3" type="text" id="text3"
+                        <label for="example-text-input" class="col-form-label">Text 3 <span style="color: rgb(230, 67, 67)">*</span></label>
+                        <input required value="{{old("text3") }}" placeholder="" name="text3" type="text" id="text3"
                             class="input form-control">
                     </div>
                    
                       <div class="form-group">
-                          <label>Upload Gambar <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
+                          <label>Upload Gambar <span style="color: rgb(230, 67, 67)">*</span></span> <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                                   file : jpg, png | Max : 1 MB)</span> </label>
-                          <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                          <input required type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
                               name="poster">
                       </div>
                   </div>

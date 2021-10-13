@@ -30,6 +30,7 @@
                       <tr>
                            <th>No</th>
                             <th>Slider</th>
+                            <th>Poster</th>
                            <th>Created_At</th>
                            <th>Action</th>
                       </tr>
@@ -76,11 +77,8 @@
                     searchable: false
                 },
                 {data : 'judul'},
-
-                 {
-                    data: "created_at",
-                },
-
+                {data : 'poster'},
+                {data: "created_at"},
                 {
                     data: "action",
                     orderable: false,

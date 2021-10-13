@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SliderStoreRequest;
 use App\Slider;
 use Illuminate\Http\Request;
 
@@ -22,7 +21,11 @@ class SliderController extends Controller
                 ->addColumn('action', function($slider){
                     return view('admin.slider.action', compact('slider'));
                  })
-                ->rawColumns(["action"])
+                 ->addColumn('poster', function ($slider) {
+                        $poster = '<img src="'.$slider->getPoster().'" height="150px">';
+                        return $poster;
+                })
+                ->rawColumns(["action","poster"])
                 ->make(true);
         }
       

@@ -58,7 +58,7 @@
         </button>
         <!-- LOGO -->              
         <!-- TEXT BASED LOGO -->
-        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-university"></i><span>Varsity</span></a>
+        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-university"></i><span>Meccazia Junior</span></a>
         <!-- IMG BASED LOGO  -->
         <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
       </div>

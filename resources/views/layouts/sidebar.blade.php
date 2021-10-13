@@ -31,7 +31,7 @@
         {{-- start menu--}}
 
           <li class="nav-item ">
-            <a href="#" class="nav-link active">
+            <a href="{{ url('admin/dashboard/') }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -40,16 +40,16 @@
           </li>
       
           <li class="nav-item">
-            <a href="{{ route('berita.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita') ? 'active' : '' }}">
+              <i class="nav-icon <i far fa-newspaper"></i>
               <p>
               Berita
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('slider.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+            <a href="{{ route('slider.index') }}" class="nav-link {{ Request::is('admin/slider') ? 'active' : '' }}">
+              <i class="nav-icon far fa-images"></i>
               <p>
               Slider
               </p>
@@ -57,7 +57,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-user-friends"></i>
               <p>
              Pendaftaran
                 <i class="right fas fa-angle-left"></i>
@@ -77,7 +77,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon far fa-file-alt"></i>
               <p>
                Halaman
                 <i class="right fas fa-angle-left"></i>
@@ -137,8 +137,8 @@
         </li>
       
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
+          <a href="#" class="nav-link {{ Request::is('admin/pengaturan') ? 'active' : '' }}">
+            <i class="nav-icon fa fa-cog"></i>
             <p>
              Pengaturan
               <i class="right fas fa-angle-left"></i>

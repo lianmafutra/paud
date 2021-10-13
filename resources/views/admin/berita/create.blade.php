@@ -31,12 +31,12 @@
                   @csrf
                   <div class="col-lg-6 ">
                       <div class="form-group">
-                          <label for="example-text-input" class="col-form-label">Judul</label>
+                          <label for="example-text-input" class="col-form-label">Judul <span style="color: rgb(230, 67, 67)">*</span></label>
                           <input value="{{old("judul ") }}" placeholder="" name="judul" type="text" id="judul"
                               class="input form-control">
                       </div>
                       <div class="form-group">
-                          <label>Isi Konten</label>
+                          <label>Isi Konten <span style="color: rgb(230, 67, 67)">*</span></label>
                           <textarea id="isi" name="isi" class="ckeditor form-control" rows="3" placeholder=""
                               style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("isi")}}</textarea>
                       </div>

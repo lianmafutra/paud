@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::resource('berita', 'BeritaController');
 Route::resource('slider', 'SliderController');
+Route::get('dashboard', 'DashboardController@index');
 Route::get('pengaturan', 'AdminController@SettingNoWhatsapp');
 Route::post('pengaturan/update_nomor_wa', 'AdminController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
