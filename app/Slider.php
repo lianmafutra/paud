@@ -4,17 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Berita extends Model
+class Slider extends Model
 {
-    protected $table = 'berita';
+    protected $table = 'sliders';
 
-    protected $fillable = ['judul','isi','poster'];
 
+    protected $guarded = [];
     protected function getCreatedAtAttribute()
     {
         return \Carbon\Carbon::parse($this->attributes["created_at"])->format("d-m-Y H:i:s");
     }
-
-    
-
 }

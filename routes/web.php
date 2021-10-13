@@ -19,6 +19,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::resource('berita', 'BeritaController');
+Route::resource('slider', 'SliderController');
 Route::get('pengaturan', 'AdminController@SettingNoWhatsapp');
 Route::post('pengaturan/update_nomor_wa', 'AdminController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
@@ -34,3 +35,9 @@ Route::get('/', 'AdminController@index');
 });
 
 Route::get('/', 'Frontend\\HomeController@index');
+Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');
+Route::get('/latar-belakang', 'Frontend\\HomeController@latarBelakang');
+Route::get('/struktur-organisasi', 'Frontend\\HomeController@strukturOrganisasi');
+Route::get('/artikel', 'Frontend\\HomeController@artikel');
+Route::get('/galeri', 'Frontend\\HomeController@galeri');
+Route::get('/pendaftaran', 'Frontend\\HomeController@pendaftaran');

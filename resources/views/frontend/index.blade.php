@@ -494,66 +494,7 @@
   <!-- End our teacher -->
 
   <!-- Start testimonial -->
-  <section id="mu-testimonial">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mu-testimonial-area">
-            <div id="mu-testimonial-slide" class="mu-testimonial-content">
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="{{ URL::asset('template/assets/img/testimonial-1.png')}}" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>John Doe</h4>
-                  <span>Happy Student</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="{{ URL::asset('template/assets/img/testimonial-3.png')}}" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Rebaca Michel</h4>
-                  <span>Happy Parent</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="{{ URL::asset('template/assets/img/testimonial-2.png')}}" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Stev Smith</h4>
-                  <span>Happy Student</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
   <!-- End testimonial -->
 
   <!-- Start from blog -->
@@ -564,70 +505,40 @@
           <div class="mu-from-blog-area">
             <!-- start title -->
             <div class="mu-title">
-              <h2>From Blog</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vitae quae vero ut natus. Dolore!</p>
+              <h2>Artikel</h2>
+              {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vitae quae vero ut natus. Dolore!</p> --}}
             </div>
             <!-- end title -->  
             <!-- start from blog content   -->
             <div class="mu-from-blog-content">
               <div class="row">
-                <div class="col-md-4 col-sm-4">
+
+                @foreach ($berita as $item)
+                <div style="margin-top: 30px" class="col-md-4 col-sm-4">
                   <article class="mu-blog-single-item">
                     <figure class="mu-blog-single-img">
-                      <a href="#"><img src="{{ URL::asset('template/assets/img/blog/blog-1.jpg')}}" alt="img"></a>
+                      <a href="#"><img src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img"></a>
                       <figcaption class="mu-blog-caption">
-                        <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                        <h3><a href="#">{{ $item->judul }}</a></h3>
                       </figcaption>                      
                     </figure>
                     <div class="mu-blog-meta">
                       <a href="#">By Admin</a>
-                      <a href="#">02 June 2016</a>
+                      <a href="#">{{ $item->created_at }}</a>
                       <span><i class="fa fa-comments-o"></i>87</span>
                     </div>
                     <div class="mu-blog-description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ipsum non voluptatum eum repellendus quod aliquid. Vitae, dolorum voluptate quis repudiandae eos molestiae dolores enim.</p>
-                      <a class="mu-read-more-btn" href="#">Read More</a>
+                      {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}
+                      <a class="mu-read-more-btn" href="#">Selengkapnya</a>
                     </div>
                   </article>
                 </div>
-                <div class="col-md-4 col-sm-4">
-                  <article class="mu-blog-single-item">
-                    <figure class="mu-blog-single-img">
-                      <a href="#"><img src="{{ URL::asset('template/assets/img/blog/blog-2.jpg')}}" alt="img"></a>
-                      <figcaption class="mu-blog-caption">
-                        <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                      </figcaption>                      
-                    </figure>
-                    <div class="mu-blog-meta">
-                      <a href="#">By Admin</a>
-                      <a href="#">02 June 2016</a>
-                      <span><i class="fa fa-comments-o"></i>87</span>
-                    </div>
-                    <div class="mu-blog-description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ipsum non voluptatum eum repellendus quod aliquid. Vitae, dolorum voluptate quis repudiandae eos molestiae dolores enim.</p>
-                      <a class="mu-read-more-btn" href="#">Read More</a>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                  <article class="mu-blog-single-item">
-                    <figure class="mu-blog-single-img">
-                      <a href="#"><img src="{{ URL::asset('template/assets/img/blog/blog-3.jpg')}}" alt="img"></a>
-                      <figcaption class="mu-blog-caption">
-                        <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                      </figcaption>                      
-                    </figure>
-                    <div class="mu-blog-meta">
-                      <a href="#">By Admin</a>
-                      <a href="#">02 June 2016</a>
-                      <span><i class="fa fa-comments-o"></i>87</span>
-                    </div>
-                    <div class="mu-blog-description">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ipsum non voluptatum eum repellendus quod aliquid. Vitae, dolorum voluptate quis repudiandae eos molestiae dolores enim.</p>
-                      <a class="mu-read-more-btn" href="#">Read More</a>
-                    </div>
-                  </article>
-                </div>
+                @endforeach
+
+
+               
+               
+               
               </div>
             </div>     
             <!-- end from blog content   -->   

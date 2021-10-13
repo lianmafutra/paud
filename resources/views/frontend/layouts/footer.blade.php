@@ -59,7 +59,7 @@
   <div class="mu-footer-bottom">
     <div class="container">
       <div class="mu-footer-bottom-area">
-        <p>&copy; All Right Reserved. Designed by <a href="http://www.markups.io/" rel="nofollow">MarkUps.io</a></p>
+        <p>&copy; All Right Reserved. Paud </p>
       </div>
     </div>
   </div>
