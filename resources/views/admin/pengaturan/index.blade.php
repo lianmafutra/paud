@@ -30,7 +30,7 @@
           <div class="col-lg-6 ">
               <div class="form-group">
                   <label for="example-text-input" class="col-form-label">Nomor</label>
-                  <input maxlength="16" minlength="10" value="{{ $admin_setting->no_wa }}" pattern="^\d{10}$" required placeholder="" name="no_wa" type="tel" id="no_wa"
+                  <input style="font-size: 20px" maxlength="16" minlength="10" value="{{ $admin_setting->no_wa }}"  required placeholder="" name="no_wa" type="tel" id="no_wa"
                       class="input form-control">
               </div>
              

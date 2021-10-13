@@ -127,7 +127,7 @@ class BeritaController extends Controller
                 ]);
             }
           
-        toastr()->info('Data has been update successfully!');
+        toastr()->info('Berita Berhasil diperbarui');
         return redirect()->route('berita.index');
         } catch (\Throwable $th) {
             toastr()->error('Gagal Mengupdate Data');
