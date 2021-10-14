@@ -40,7 +40,7 @@
           </li>
       
           <li class="nav-item">
-            <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita') ? 'active' : '' }}">
+            <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}">
               <i class="nav-icon <i far fa-newspaper"></i>
               <p>
               Berita
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('slider.index') }}" class="nav-link {{ Request::is('admin/slider') ? 'active' : '' }}">
+            <a href="{{ route('slider.index') }}" class="nav-link {{ Request::is('admin/slider*') ? 'active' : '' }}">
               <i class="nav-icon far fa-images"></i>
               <p>
               Slider
@@ -137,7 +137,7 @@
         </li>
       
         <li class="nav-item">
-          <a href="#" class="nav-link {{ Request::is('admin/pengaturan') ? 'active' : '' }}">
+          <a href="#" class="nav-link {{ Request::is('admin/pengaturan*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-cog"></i>
             <p>
              Pengaturan
