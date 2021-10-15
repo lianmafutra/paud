@@ -1,14 +1,11 @@
 @extends('layouts.master')
 
 @push('css')
-<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
-<link href="https://nielsboogaard.github.io/filepond-plugin-get-file/dist/filepond-plugin-get-file.css" rel="stylesheet" />
 
-<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-    rel="stylesheet"/>
-    <link
-    href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css"
-    rel="stylesheet"
+<link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/>
+<link href="{{ URL::asset('plugins/filepond/filepond-plugin-get-file.css')}}" rel="stylesheet" />
+<link href="{{ URL::asset('plugins/filepond/filepond-plugin-file-poster.css')}}" rel="stylesheet"
 />
 
 @endpush()
@@ -74,7 +71,7 @@
               <div class="form-group">
                 <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                         file : jpg, png | Max : 1 MB)</span> </label>
-                <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                <input required type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
                     name="poster">
             </div>
         </div>
@@ -98,14 +95,17 @@
 
 @endsection
 @push('js')
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
-<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-<script src="https://nielsboogaard.github.io/filepond-plugin-get-file/dist/filepond-plugin-get-file.js"></script>
+
+
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.js') }}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond.js') }}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-metadata.js') }}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-encode.js') }}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-size.js') }} "></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-get-file.js')}}"></script>
 <script src="{{ URL::asset('js/ckeditor/ckeditor.js')}}"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-poster.js')}}"></script>
 <script type="text/javascript">
 
 $(function(){
@@ -115,14 +115,13 @@ $(function(){
       FilePondPluginFileValidateType,FilePondPluginGetFile,
       FilePondPluginFileValidateSize,FilePondPluginFilePoster ,FilePondPluginFileEncode );
 
-
-    const pond = FilePond.create( document.querySelector('input[name="poster"]'),{
+    const pond = FilePond.create(document.querySelector('input[name="poster"]'),{
         storeAsFile: true,
         files: [
         {
             source: '/uploads/'+{!! json_encode($slider->poster) !!},
-        },
-    ],
+        }
+    ]
 
     });
 

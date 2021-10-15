@@ -23,7 +23,7 @@ class SliderController extends Controller
                     return view('admin.slider.action', compact('slider'));
                  })
                  ->addColumn('poster', function ($slider) {
-                        $poster = '<img src="'.$slider->getPoster().'" height="150px">';
+                        $poster = '<img src="'.$slider->getPoster().'" height="150px" width="150px">';
                         return $poster;
                 })
                 ->rawColumns(["action","poster"])
@@ -51,20 +51,27 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
 
-                   $array=['poster'];
-                    foreach ($array as $key => $value) {
-                        if($request->has($value)){
-                                $files = $request->file($value);
-                                $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
-                                $files->move('uploads', $name_uniqe);
-                                $input[$value] = $name_uniqe;
-                        }
-                   }
-                    Slider::create($input);
-                    toastr()->success('Data Berhasil Disimpan!');
-                    return redirect()->route('slider.index');
+        try {
+            $input = $request->all();
+
+            $array=['poster'];
+             foreach ($array as $key => $value) {
+                 if($request->has($value)){
+                         $files = $request->file($value);
+                         $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
+                         $files->move('uploads', $name_uniqe);
+                         $input[$value] = $name_uniqe;
+                 }
+            }
+             Slider::create($input);
+             toastr()->success('Data Berhasil Disimpan!');
+             return redirect()->route('slider.index');
+        } catch (\Throwable $th) {
+            toastr()->error('Gagal Menambah Data');
+            return redirect()->back();
+        }
+
 
     }
 
@@ -138,6 +145,7 @@ class SliderController extends Controller
         return redirect()->route('slider.index');
         } catch (\Throwable $th) {
             toastr()->error('Gagal Mengupdate Data');
+            return redirect()->back();
         }
     }
 
