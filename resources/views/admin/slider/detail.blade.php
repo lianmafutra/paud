@@ -3,7 +3,7 @@
 @push('css')
 <link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/>
-  
+
 @endpush()
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('title') Admin Dashboard @endsection
@@ -54,7 +54,7 @@
                         <input disabled value="{{ $slider->text3 }}" placeholder="" name="text3" type="text" id="text3"
                             class="input form-control">
                     </div>
-                   
+
                       <div class="form-group">
                           <label>Upload Gambar  </label>
                           <input disabled  type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
@@ -67,7 +67,7 @@
               <a class="btn btn-success waves-effect waves-light"
                   style="margin-right:10px; float:left ;right: 10px; z-index: 40"
                   href="{{ route('slider.index') }}">Kembali</a>
-             
+
           </div>
           </form>
       </div>
@@ -83,8 +83,8 @@
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-encode.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-size.js') }} "></script>
-<script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
-<script src="https://nielsboogaard.github.io/filepond-plugin-get-file/dist/filepond-plugin-get-file.js"></script>
+<script src="{{ URL::asset('plugins/filepond-plugin-file-poster.js')}}"></script>
+<script src="{{ URL::asset('plugins/filepond-plugin-get-file.js')}}"></script>
 <script type="text/javascript">
 
 FilePond.registerPlugin(
@@ -101,17 +101,17 @@ const inputElements = document.querySelectorAll('input.filepond');
 FilePond.registerPlugin(FilePondPluginImagePreview,
       FilePondPluginFileValidateType,FilePondPluginGetFile,
       FilePondPluginFileValidateSize,FilePondPluginFilePoster ,FilePondPluginFileEncode);
-  
+
     const pond_photo = FilePond.create( document.querySelector('input[name="poster"]'),{
         storeAsFile: true,
         files: [
         {
             source: '/uploads/'+{!! json_encode($slider->poster) !!},
         },
-    ],  
+    ],
     });
-        
-        
+
+
 
 
 
