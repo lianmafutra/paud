@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SliderController extends Controller
 {
@@ -28,7 +29,7 @@ class SliderController extends Controller
                 ->rawColumns(["action","poster"])
                 ->make(true);
         }
-      
+
         return view('admin.slider.index');
     }
 
@@ -51,20 +52,20 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-                
+
                    $array=['poster'];
                     foreach ($array as $key => $value) {
                         if($request->has($value)){
-                                $files = $request->file($value);  
+                                $files = $request->file($value);
                                 $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
                                 $files->move('uploads', $name_uniqe);
                                 $input[$value] = $name_uniqe;
                         }
-                   }        
+                   }
                     Slider::create($input);
                     toastr()->success('Data Berhasil Disimpan!');
                     return redirect()->route('slider.index');
-                
+
     }
 
     /**
@@ -87,7 +88,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slider =  Slider::find($id);
+        return view("admin.slider.edit", compact('slider'));
     }
 
     /**
@@ -99,7 +101,44 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+
+            $slider = Slider::find($request->id);
+            if($request->poster->getClientOriginalName() == $slider->poster){
+                $slider->update([
+                    'judul' => $request->judul,
+                    'text1' => $request->text1,
+                    'text2' => $request->text2,
+                    'text3' => $request->text3,
+                    'poster' =>  $slider->poster
+                ]);
+            }else{
+                $files = $request->file('poster');
+
+                $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
+
+                $files->move('uploads', $name_uniqe);
+
+                $filepath = public_path("/uploads".$slider->poster);
+
+                if (File::exists($filepath)) {
+                   File::delete(  $filepath);
+                }
+
+                $slider->update([
+                    'judul' => $request->judul,
+                    'text1' => $request->text1,
+                    'text2' =>  $request->text2,
+                    'text3' =>  $request->text3,
+                    'poster' => $name_uniqe
+                ]);
+            }
+
+        toastr()->info('Slider Berhasil diperbarui');
+        return redirect()->route('slider.index');
+        } catch (\Throwable $th) {
+            toastr()->error('Gagal Mengupdate Data');
+        }
     }
 
     /**
