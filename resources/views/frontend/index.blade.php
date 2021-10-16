@@ -28,8 +28,8 @@
       </div>
     </div>
     @endforeach
-   
-  
+
+
   </section>
   <!-- End Slider -->
   <!-- Start service  -->
@@ -71,13 +71,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="mu-about-us-area">           
+          <div class="mu-about-us-area">
             <div class="row">
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-left">
                   <!-- Start Title -->
                   <div class="mu-title">
-                    <h2>About Us</h2>              
+                    <h2>About Us</h2>
                   </div>
                   <!-- End Title -->
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum pariatur fuga eveniet soluta aspernatur rem, nam voluptatibus voluptate voluptates sapiente, inventore. Voluptatem, maiores esse molestiae.</p>
@@ -92,10 +92,10 @@
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
-                <div class="mu-about-us-right">                            
+                <div class="mu-about-us-right">
                 <a id="mu-abtus-video" href="https://www.youtube.com/embed/HN3pm9qYAUs" target="mutube-video">
                   <img src="{{ URL::asset('template/assets/img/about-us.jpg')}}" alt="img">
-                </a>                
+                </a>
                 </div>
               </div>
             </div>
@@ -392,7 +392,7 @@
                         <a href="#"><span class="fa fa-linkedin"></span></a>
                         <a href="#"><span class="fa fa-google-plus"></span></a>
                       </div>
-                    </figure>                    
+                    </figure>
                     <div class="mu-ourteacher-single-content">
                       <h4>Brian Dean</h4>
                       <span>Math Teacher</span>
@@ -410,7 +410,7 @@
                         <a href="#"><span class="fa fa-linkedin"></span></a>
                         <a href="#"><span class="fa fa-google-plus"></span></a>
                       </div>
-                    </figure>                    
+                    </figure>
                     <div class="mu-ourteacher-single-content">
                       <h4>James Hein</h4>
                       <span>Physics Teacher</span>
@@ -428,7 +428,7 @@
                         <a href="#"><span class="fa fa-linkedin"></span></a>
                         <a href="#"><span class="fa fa-google-plus"></span></a>
                       </div>
-                    </figure>                    
+                    </figure>
                     <div class="mu-ourteacher-single-content">
                       <h4>Rebeca Michel</h4>
                       <span>English Teacher</span>
@@ -446,7 +446,7 @@
                         <a href="#"><span class="fa fa-linkedin"></span></a>
                         <a href="#"><span class="fa fa-google-plus"></span></a>
                       </div>
-                    </figure>                    
+                    </figure>
                     <div class="mu-ourteacher-single-content">
                       <h4>John Doe</h4>
                       <span>Biology Teacher</span>
@@ -455,8 +455,8 @@
                   </div>
                 </div>
               </div>
-            </div> 
-            <!-- End our teacher content -->           
+            </div>
+            <!-- End our teacher content -->
           </div>
         </div>
       </div>
@@ -479,7 +479,7 @@
               <h2>Artikel</h2>
               {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vitae quae vero ut natus. Dolore!</p> --}}
             </div>
-            <!-- end title -->  
+            <!-- end title -->
             <!-- start from blog content   -->
             <div class="mu-from-blog-content">
               <div class="row">
@@ -491,7 +491,7 @@
                       <a href="#"><img src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img"></a>
                       <figcaption class="mu-blog-caption">
                         <h3><a href="#">{{ $item->judul }}</a></h3>
-                      </figcaption>                      
+                      </figcaption>
                     </figure>
                     <div class="mu-blog-meta">
                       <a href="#">By Admin</a>
@@ -507,12 +507,12 @@
                 @endforeach
 
 
-               
-               
-               
+
+
+
               </div>
-            </div>     
-            <!-- end from blog content   -->   
+            </div>
+            <!-- end from blog content   -->
           </div>
         </div>
       </div>

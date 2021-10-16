@@ -25,7 +25,7 @@
                 <li><a href="#">My Questions</a></li>
                 <li><a href="">Download Files</a></li>
                 <li><a href="">Latest Course</a></li>
-                <li><a href="">Academic News</a></li>                  
+                <li><a href="">Academic News</a></li>
               </ul>
             </div>
           </div>
@@ -36,17 +36,17 @@
               <form class="mu-subscribe-form">
                 <input type="email" placeholder="Type your Email">
                 <button class="mu-subscribe-btn" type="submit">Subscribe!</button>
-              </form>               
+              </form>
             </div>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
             <div class="mu-footer-widget">
               <h4>Contact</h4>
               <address>
-                <p>P.O. Box 320, Ross, California 9495, USA</p>
-                <p>Phone: (415) 453-1568 </p>
-                <p>Website: www.markups.io</p>
-                <p>Email: info@markups.io</p>
+                <p>{{$contents->alamat}}</p>
+                <p>Kontak: {{$contents->no_kontak}} </p>
+                <p>WhatsApp: {{$contents->no_wa}}</p>
+                <p>Email:{{$contents->email}}</p>
               </address>
             </div>
           </div>

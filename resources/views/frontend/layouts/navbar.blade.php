@@ -5,6 +5,7 @@
     color: white;
     padding: 10px;
 }
+
 </style>
 <header id="mu-header">
   <div class="container">
@@ -16,11 +17,11 @@
               <div class="mu-header-top-left">
                 <div class="mu-top-email">
                   <i class="fa fa-envelope"></i>
-                  <span>info@markups.io</span>
+                  <span>{{$contents->email}}</span>
                 </div>
                 <div class="mu-top-phone">
                   <i class="fa fa-phone"></i>
-                  <span>(568) 986 652</span>
+                  <span>{{$contents->no_kontak}}</span>
                 </div>
               </div>
             </div>
@@ -28,8 +29,8 @@
               <div class="mu-header-top-right">
                 <nav>
                   <ul class="mu-top-social-nav">
-                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                    <li><a href="{{$contents->facebook}}" target="_blank"><span class="fa fa-facebook"></span></a></li>
+                    <li><a href="{{$contents->instagram}}" target="_blank"><span class="fa fa-instagram"></span></a></li>
 
                     <li><a href="#"><span class="fa fa-youtube"></span></a></li>
                   </ul>
@@ -45,7 +46,7 @@
 <!-- End header  -->
 <!-- Start menu -->
 <section id="mu-menu">
-  <nav class="navbar navbar-default" role="navigation">  
+  <nav class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
@@ -55,7 +56,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <!-- LOGO -->              
+        <!-- LOGO -->
         <!-- TEXT BASED LOGO -->
         <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-university"></i><span>Meccazia Junior</span></a>
         <!-- IMG BASED LOGO  -->
@@ -63,36 +64,36 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-          <li class="active"><a href="{{ url('/') }}">Home</a></li>            
+          <li class="active"><a href="{{ url('/') }}">Home</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <span class="fa fa-angle-down"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>        
-              <li><a href="{{ url('visi-misi') }}">Visi & Misi</a></li>     
-              <li><a href="course.html">Program & Layanan</a></li>            
-              <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>                
+              <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>
+              <li><a href="{{ url('visi-misi') }}">Visi & Misi</a></li>
+              <li><a href="course.html">Program & Layanan</a></li>
+              <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
             </ul>
-          </li>           
+          </li>
           <li><a href="{{ url('artikel') }}">Artikel</a></li>
           <li><a href="{{ url('galeri') }}">Galeri</a></li>
           <li><a href="{{ url('pendaftaran') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
           <li><a href="contact.html">Kontak</a></li>
-                 
+
           <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
-        </ul>                     
-      </div><!--/.nav-collapse -->        
-    </div>     
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
   </nav>
 </section>
 
 <div id="mu-search">
-  <div class="mu-search-area">      
+  <div class="mu-search-area">
     <button class="mu-search-close"><span class="fa fa-close"></span></button>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">            
+        <div class="col-md-12">
           <form class="mu-search-form">
-            <input type="search" placeholder="Cari...">              
+            <input type="search" placeholder="Cari...">
           </form>
         </div>
       </div>

@@ -21,18 +21,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 Route::resource('berita', 'BeritaController');
 Route::resource('slider', 'SliderController');
 Route::get('dashboard', 'DashboardController@index');
-Route::get('pengaturan', 'AdminController@SettingNoWhatsapp');
-Route::post('pengaturan/update_nomor_wa', 'AdminController@UpdateNoWhatsapp');
+Route::get('pengaturan', 'DataPaudController@index');
+Route::post('pengaturan/update_nomor_wa', 'DataPaudController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
 
     Route::group(['middleware' => 'auth', 'prefix' => 'user_management',], function () {
         Route::group(['prefix' => 'user',], function () {
             Route::get('/', 'UserController@index')->name('user.index');
             Route::post('password', 'UserController@ubahPassword')->name('user.updatepass');
-         
-        }); 
+
+        });
     });
-  
+
 });
 
 Route::get('/', 'Frontend\\HomeController@index');

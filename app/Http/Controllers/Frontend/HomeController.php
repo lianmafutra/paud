@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Berita;
+use App\DataPaud;
 use App\Http\Controllers\Controller;
 use App\Slider;
+
 
 class HomeController extends Controller
 {
     public function index(){
         $berita = Berita::all();
         $slider = Slider::all();
-      
+
+
         return view('frontend.index', compact(['berita','slider']));
     }
 
@@ -40,5 +43,5 @@ class HomeController extends Controller
         return view('frontend.pendaftaran');
     }
 
-    
+
 }
