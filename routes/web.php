@@ -21,6 +21,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 Route::resource('berita', 'BeritaController');
 Route::resource('slider', 'SliderController');
 Route::get('dashboard', 'DashboardController@index');
+Route::group(['prefix' => 'halaman',], function () {
+    Route::get('visi-misi', 'DataPaudController@indexVisiMisi');
+    Route::post('visi-misi/update', 'DataPaudController@updateVisiMisi');
+
+    Route::get('latar-belakang', 'DataPaudController@indexLatarBelakang');
+    Route::post('latar-belakang/update', 'DataPaudController@updateLatarBelakang');
+});
+
 Route::get('pengaturan', 'DataPaudController@index');
 Route::post('pengaturan/update_nomor_wa', 'DataPaudController@UpdateNoWhatsapp');
 Route::get('/', 'AdminController@index');
@@ -34,11 +42,13 @@ Route::get('/', 'AdminController@index');
     });
 
 });
-
+Route::group(['prefix' => 'profil',], function () {
+    Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');
+    Route::get('/latar-belakang', 'Frontend\\HomeController@latarBelakang');
+    Route::get('/struktur-organisasi', 'Frontend\\HomeController@strukturOrganisasi');
+});
 Route::get('/', 'Frontend\\HomeController@index');
-Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');
-Route::get('/latar-belakang', 'Frontend\\HomeController@latarBelakang');
-Route::get('/struktur-organisasi', 'Frontend\\HomeController@strukturOrganisasi');
+
 Route::get('/artikel', 'Frontend\\HomeController@artikel');
 Route::get('/galeri', 'Frontend\\HomeController@galeri');
 Route::get('/pendaftaran', 'Frontend\\HomeController@pendaftaran');

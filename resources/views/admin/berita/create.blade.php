@@ -4,7 +4,7 @@
 <link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/>
 
-  
+
 @endpush()
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('title') Admin Dashboard @endsection

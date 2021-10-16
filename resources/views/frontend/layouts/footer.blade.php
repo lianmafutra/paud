@@ -41,7 +41,7 @@
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
             <div class="mu-footer-widget">
-              <h4>Contact</h4>
+              <h4>Kontak</h4>
               <address>
                 <p>{{$contents->alamat}}</p>
                 <p>Kontak: {{$contents->no_kontak}} </p>

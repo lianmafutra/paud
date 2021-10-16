@@ -76,7 +76,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link  {{ Request::is('admin/halaman/*') ? 'active' : '' }}">
               <i class="nav-icon far fa-file-alt"></i>
               <p>
                Halaman
@@ -85,10 +85,10 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ url('admin/halaman/latar-belakang') }}" class="nav-link">
                   <i class="nav-icon far fa-file"></i>
                   <p>
-                  Profil Sekolah
+                  Latar Belakang
                   </p>
                 </a>
               </li>
@@ -111,7 +111,7 @@
               </li>
 
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{ url('admin/halaman/visi-misi') }}" class="nav-link ">
                     <i class="nav-icon far fa-file"></i>
                     <p>
                     Visi & Misi

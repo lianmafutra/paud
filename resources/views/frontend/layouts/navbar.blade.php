@@ -64,20 +64,20 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-          <li class="active"><a href="{{ url('/') }}">Home</a></li>
-          <li class="dropdown">
+          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
+          <li class="dropdown {{ Request::is('profil/*') ? 'active' : '' }}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <span class="fa fa-angle-down"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>
-              <li><a href="{{ url('visi-misi') }}">Visi & Misi</a></li>
+              <li><a href="{{ url('profil/latar-belakang') }}">Latar Belakang</a></li>
+              <li><a href="{{ url('profil/visi-misi') }}">Visi & Misi</a></li>
               <li><a href="course.html">Program & Layanan</a></li>
-              <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
+              <li><a href="{{ url('profil/struktur-organisasi') }}">Struktur Organisasi</a></li>
             </ul>
           </li>
-          <li><a href="{{ url('artikel') }}">Artikel</a></li>
-          <li><a href="{{ url('galeri') }}">Galeri</a></li>
-          <li><a href="{{ url('pendaftaran') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
-          <li><a href="contact.html">Kontak</a></li>
+          <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ url('artikel') }}">Artikel</a></li>
+          <li class="{{ Request::is('galeri') ? 'active' : '' }}"><a href="{{ url('galeri') }}">Galeri</a></li>
+          <li class="{{ Request::is('pendaftaran') ? 'active' : '' }}"><a href="{{ url('pendaftaran') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
+          <li><a href="#">Kontak</a></li>
 
           <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
         </ul>

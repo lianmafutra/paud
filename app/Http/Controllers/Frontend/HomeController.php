@@ -6,7 +6,7 @@ use App\Berita;
 use App\DataPaud;
 use App\Http\Controllers\Controller;
 use App\Slider;
-
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class HomeController extends Controller
 {
@@ -19,7 +19,8 @@ class HomeController extends Controller
     }
 
     public function visiMisi(){
-        return view('frontend.visi_misi');
+        $data_paud = DataPaud::first();
+        return view('frontend.visi_misi', compact('data_paud'));
     }
 
     public function artikel(){
@@ -32,7 +33,8 @@ class HomeController extends Controller
     }
 
     public function  latarBelakang(){
-        return view('frontend.latar_belakang');
+        $data_paud = DataPaud::first();
+        return view('frontend.latar_belakang',  compact('data_paud'));
     }
 
     public function  galeri(){
