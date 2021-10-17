@@ -24,7 +24,7 @@
         <span></span>
         <h2>{{ $item->text2 }}</h2>
         <p>{{ $item->text3 }}</p>
-        <a href="#" class="mu-read-more-btn">Selengkapnya</a>
+        <a href="" class="mu-read-more-btn">Selengkapnya</a>
       </div>
     </div>
     @endforeach
@@ -500,7 +500,7 @@
                     </div>
                     <div class="mu-blog-description">
                       {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}
-                      <a class="mu-read-more-btn" href="#">Selengkapnya</a>
+                      <a class="mu-read-more-btn" href="{{ url('artikel/detail/'.$item->id) }}">Selengkapnya</a>
                     </div>
                   </article>
                 </div>

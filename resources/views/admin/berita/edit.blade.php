@@ -1,15 +1,16 @@
 @extends('layouts.master')
 
 @push('css')
-<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
+{{-- <link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/> --}}
+
 <link href="https://nielsboogaard.github.io/filepond-plugin-get-file/dist/filepond-plugin-get-file.css" rel="stylesheet" />
 
-<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
-    rel="stylesheet"/>
-    <link
-    href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css"
-    rel="stylesheet"
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"/>
+<link href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css" rel="stylesheet"
 />
+
+
 
 @endpush()
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,7 +29,7 @@
           <div class="alert alert-danger">
               <strong>Gagal,</strong> Terjadi Kesalahan, Periksa inputan dengan benar<br><br>
               <ul>
-                
+
                   @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                   @endforeach
@@ -51,6 +52,7 @@
               <textarea id="isi" name="isi" class="ckeditor form-control" rows="3" placeholder=""
                   style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("isi")}}</textarea>
           </div>
+
           <div class="form-group">
             <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                     file : jpg, png | Max : 1 MB)</span> </label>
@@ -59,10 +61,10 @@
         </div>
 
              </div>
-        
+
        </div>
             </div>
-       
+
       </div>
       <div class="card-footer">
                 <a class="btn btn-success waves-effect waves-light" style="margin-right:10px; float:left ;right: 10px; z-index: 40" href="{{ route('berita.index') }}">Kembali</a>
@@ -88,8 +90,8 @@
 
 $(function(){
   var editor = CKEDITOR.instances.isi;
-    editor.setData({!! json_encode($berita->isi) !!}); 
-  
+    editor.setData({!! json_encode($berita->isi) !!});
+
   FilePond.registerPlugin(FilePondPluginImagePreview,
       FilePondPluginFileValidateType,FilePondPluginGetFile,
       FilePondPluginFileValidateSize,FilePondPluginFilePoster ,FilePondPluginFileEncode );
@@ -102,14 +104,14 @@ $(function(){
             source: '/uploads/'+{!! json_encode($berita->poster) !!},
         },
     ],
-       
+
     });
-        
- 
+
+
 
 });
 
 
-  
+
   </script>
   @endpush

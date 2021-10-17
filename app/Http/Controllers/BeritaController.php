@@ -25,7 +25,7 @@ class BeritaController extends Controller
                 ->rawColumns(["action"])
                 ->make(true);
         }
-      
+
         return view("admin.berita.index");
     }
 
@@ -49,16 +49,16 @@ class BeritaController extends Controller
     {
         $input = $request->all();
                 $validated = $request->validated();
-                if($validated){  
+                if($validated){
                    $array=['poster'];
                     foreach ($array as $key => $value) {
                         if($request->has($value)){
-                                $files = $request->file($value);  
+                                $files = $request->file($value);
                                 $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
                                 $files->move('uploads', $name_uniqe);
                                 $input[$value] = $name_uniqe;
                         }
-                   }        
+                   }
                     Berita::create($input);
                     toastr()->success('Data Berhasil Disimpan!');
                     return redirect()->route('berita.index')->with('success','Data Berhasil Disimpan');
@@ -108,31 +108,31 @@ class BeritaController extends Controller
                     'poster' =>  $berita->poster
                 ]);
             }else{
-                $files = $request->file('poster');  
-             
+                $files = $request->file('poster');
+
                 $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$files->getClientOriginalExtension();
-              
+
                 $files->move('uploads', $name_uniqe);
-              
+
                 $filepath = public_path("/uploads".$berita->poster);
-        
+
                 if (File::exists($filepath)) {
                    File::delete(  $filepath);
                 }
-           
+
                 $berita->update([
                     'judul' => $request->judul,
                     'isi' => $request->isi,
                     'poster' => $name_uniqe
                 ]);
             }
-          
+
         toastr()->info('Berita Berhasil diperbarui');
         return redirect()->route('berita.index');
         } catch (\Throwable $th) {
             toastr()->error('Gagal Mengupdate Data');
         }
-      
+
     }
 
     /**

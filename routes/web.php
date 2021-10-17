@@ -20,6 +20,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::resource('berita', 'BeritaController');
 Route::resource('slider', 'SliderController');
+Route::resource('galeri-album', 'GaleriAlbumController');
+Route::post('galeri/destroy-multi', 'GaleriController@destroyMulti');
+Route::resource('galeri', 'GaleriController');
 Route::get('dashboard', 'DashboardController@index');
 Route::group(['prefix' => 'halaman',], function () {
     Route::get('visi-misi', 'DataPaudController@indexVisiMisi');
@@ -49,6 +52,9 @@ Route::group(['prefix' => 'profil',], function () {
 });
 Route::get('/', 'Frontend\\HomeController@index');
 
+Route::get('/artikel/detail/{id}', 'Frontend\\HomeController@artikelDetail');
 Route::get('/artikel', 'Frontend\\HomeController@artikel');
+
+
 Route::get('/galeri', 'Frontend\\HomeController@galeri');
 Route::get('/pendaftaran', 'Frontend\\HomeController@pendaftaran');

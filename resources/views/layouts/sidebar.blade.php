@@ -56,6 +56,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('galeri-album.index') }}" class="nav-link {{ Request::is('admin/galeri*') ? 'active' : '' }}">
+              <i class="nav-icon far fa-images"></i>
+              <p>
+              Galeri
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
@@ -291,9 +299,6 @@ $(function() {
       }
 
   });
-
-
-
 
 var validator = $("#form_ubah_password").validate({
         rules: {

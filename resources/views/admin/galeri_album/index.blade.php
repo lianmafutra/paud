@@ -17,20 +17,20 @@
         <div class="card">
             <div class="card-header">
                 <h3 style="padding-top: 10px" class="card-title">
-                    <i class="fas fa-chart-pie mr-1"></i>Berita</h3>
-               <a href="{{ route('berita.create') }}"><button type="button" class="btn_tambah btn btn-primary waves-effect waves-light"
-                    style="float:right ;right: 10px; z-index: 40">Tambah Berita</button></a>
+                    <i class="fas fa-chart-pie mr-1"></i> Album Galeri</h3>
+               <a href="{{ route('galeri-album.create') }}"><button type="button" class="btn_tambah btn btn-primary waves-effect waves-light"
+                    style="float:right ;right: 10px; z-index: 40">Tambah Album Galeri</button></a>
             </div>
             <div class="card-body">
 
                 <div class="table-responsive">
-                  <table id="tabel_berita" class="table-bordered table table-hover row-border nowrap"
+                  <table id="tabel_galeri_album" class="table-bordered table table-hover row-border nowrap"
                     style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
                     <thead style="background-color: #f1f1f1">
                       <tr>
                            <th>No</th>
-                            <th>judul</th>
-                           <th>Created_At</th>
+                            <th>Nama</th>
+                           <th>Foto</th>
                            <th>Action</th>
                       </tr>
                     </thead>
@@ -65,20 +65,20 @@
         }
     });
 
-        let table_berita = $("#tabel_berita").DataTable({
+        let table_galeri_album = $("#tabel_galeri_album").DataTable({
             processing: true,
             deferRender: true,
             serverSide: true,
-            ajax: `{{ route('berita.index')}}`,
+            ajax: `{{ route('galeri-album.index')}}`,
             columns: [{
                     data: "DT_RowIndex",
                     orderable: false,
                     searchable: false
                 },
-                {data : 'judul'},
+                {data : 'nama'},
 
                  {
-                    data: "created_at",
+                    data: "jumlah_foto",
                 },
 
                 {
@@ -96,7 +96,7 @@
         //destroy
            $(document).on('click', '.btn_delete', function (e) {
             e.preventDefault();
-            let data =  $('#tabel_berita').DataTable().row( $(this).parents('tr')).data();
+            let data =  $('#tabel_galeri_album').DataTable().row( $(this).parents('tr')).data();
             let url = $(this).attr('href');
             Swal.fire({
                 title: 'Apakah anda yakin Menghapus Data ?',
@@ -112,7 +112,7 @@
                         url: url,
                         type: 'DELETE',
                         success: function(data, textStatus, jqXHR) {
-                            table_berita.draw();
+                            table_galeri_album.draw();
                             toastr.success('Data Berhasil Dihapus');
                         },
                         error: function(jqXHR, textStatus, errorThrown) {

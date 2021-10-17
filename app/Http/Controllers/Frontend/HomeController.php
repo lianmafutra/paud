@@ -13,8 +13,6 @@ class HomeController extends Controller
     public function index(){
         $berita = Berita::all();
         $slider = Slider::all();
-
-
         return view('frontend.index', compact(['berita','slider']));
     }
 
@@ -28,22 +26,29 @@ class HomeController extends Controller
         return view('frontend.artikel', compact('berita'));
     }
 
+    public function artikelDetail($id){
+        $berita = Berita::find($id);
+        return view('frontend.artikel_detail', compact('berita'));
+    }
+
     public function strukturOrganisasi(){
         return view('frontend.struktur_organisasi');
     }
 
-    public function  latarBelakang(){
+    public function latarBelakang(){
         $data_paud = DataPaud::first();
         return view('frontend.latar_belakang',  compact('data_paud'));
     }
 
-    public function  galeri(){
+    public function galeri(){
         return view('frontend.galeri');
     }
 
-    public function  pendaftaran(){
+    public function pendaftaran(){
         return view('frontend.pendaftaran');
     }
+
+
 
 
 }
