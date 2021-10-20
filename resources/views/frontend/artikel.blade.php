@@ -9,7 +9,7 @@
         <div class="mu-page-breadcrumb-area">
           <h2>Artikel</h2>
           <ol class="breadcrumb">
-           <li><a href="#">Home</a></li>            
+           <li><a href="#">Home</a></li>
            <li class="active">Artikel</li>
          </ol>
         </div>
@@ -21,9 +21,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-      
-           
-            <!-- end title -->  
+
+
+            <!-- end title -->
             <!-- start from blog content   -->
             <div class="mu-from-blog-content">
               <div class="row">
@@ -35,7 +35,7 @@
                       <a href="#"><img src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img"></a>
                       <figcaption class="mu-blog-caption">
                         <h3><a href="#">{{ $item->judul }}</a></h3>
-                      </figcaption>                      
+                      </figcaption>
                     </figure>
                     <div class="mu-blog-meta">
                       <a href="#">By Admin</a>
@@ -44,15 +44,15 @@
                     </div>
                     <div class="mu-blog-description">
                       {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}
-                      <a class="mu-read-more-btn" href="#">Selengkapnya</a>
+                      <a class="mu-read-more-btn" href="{{ url('artikel/detail/'.$item->id) }}">Selengkapnya</a>
                     </div>
                   </article>
                 </div>
                 @endforeach
               </div>
-            </div>     
-            <!-- end from blog content   -->   
-         
+            </div>
+            <!-- end from blog content   -->
+
         </div>
       </div>
     </div>

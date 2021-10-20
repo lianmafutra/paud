@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Login Admin</title>
 
   @include('layouts.head')
 <style>
@@ -17,7 +17,7 @@ body {
 		border-color: #ddd;
 	}
 	.form-control:focus {
-		border-color: #4aba70; 
+		border-color: #4aba70;
 	}
 	.login-form {
         width: 350px;
@@ -58,7 +58,7 @@ body {
     }
 	.login-form .form-control, .login-form .btn {
 		min-height: 40px;
-		border-radius: 2px; 
+		border-radius: 2px;
         transition: all 0.5s;
 	}
 	.login-form .close {
@@ -95,7 +95,7 @@ body {
     @include('sweetalert::alert')
 
 
-<div class="login-form">    
+<div class="login-form">
     <form method="POST" action="{{ route('login') }}">
     @csrf
 		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
@@ -105,7 +105,7 @@ body {
         @error('username')
           <span class="invalid-feedback" role="alert">
            <strong>User atau password anda salah</strong> </span>
-        @enderror        
+        @enderror
         </div>
         <div class="form-group">
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
@@ -118,10 +118,10 @@ body {
         <div class="form-group small clearfix">
             {{-- <label class="checkbox-inline"><input type="checkbox"> Remember me</label> --}}
             {{-- <a href="#" class="forgot-link">Forgot Password?</a> --}}
-        </div> 
-        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
-    </form>			
-    <div class="text-center small">Developed By Diskominfo Kota Jambi</div> </div>
+        </div>
+        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+    </form>
+    <div class="text-center small">Developed By : </div> </div>
 </div>
 <!-- /.login-box -->
 

@@ -9,7 +9,7 @@
           <div class="mu-page-breadcrumb-area">
             <h2>Latar Belakang</h2>
             <ol class="breadcrumb">
-             <li><a href="#">Home</a></li>            
+             <li><a href="#">Home</a></li>
              <li class="active">Latar Belakang</li>
            </ol>
           </div>
@@ -17,22 +17,19 @@
       </div>
     </div>
   </section>
-  
+
   <section id="mu-about-us">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="mu-about-us-area">           
+          <div class="mu-about-us-area">
             <div class="row">
-              <div class="col-lg-6 col-md-6">
+              <div class="col-lg-12 col-md-12">
                 <div class="mu-about-us-left">
-                  <!-- Start Title -->
-                
-                  <!-- End Title -->
-                 
+                  {!! $data_paud->latar_belakang !!}
                 </div>
               </div>
-            
+
             </div>
           </div>
         </div>

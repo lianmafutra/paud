@@ -19,24 +19,63 @@
       <div class="card-header">
         <h3 style="padding-top: 10px" class="card-title">
           <i class="fas fa-chart-pie mr-1"></i>
-         Nomor WhastApp Admin
+   Data Profil Paud
         </h3>
-   
+
 
       </div>
       <div class="card-body">
         <form action="{{ url('admin/pengaturan/update_nomor_wa') }}" method="POST" enctype="multipart/form-data">
           @csrf
+
+          <div class="col-lg-6 ">
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Alamat</label>
+                <input style="font-size: 20px"  value="{{ $data_paud->alamat }}"  required placeholder="" name="alamat"
+                    class="input form-control">
+            </div>
+        </div>
+
+
+          <div class="col-lg-6 ">
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Email</label>
+                <input style="font-size: 20px"  value="{{ $data_paud->email }}"  required placeholder="" name="email" type="email"
+                    class="input form-control">
+            </div>
+        </div>
+
+          <div class="col-lg-6 ">
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Nomor Kontak</label>
+                <input style="font-size: 20px" maxlength="16" minlength="10" value="{{ $data_paud->no_kontak }}"  required placeholder="" name="no_kontak" type="tel"
+                    class="input form-control">
+            </div>
+        </div>
+
           <div class="col-lg-6 ">
               <div class="form-group">
-                  <label for="example-text-input" class="col-form-label">Nomor</label>
-                  <input style="font-size: 20px" maxlength="16" minlength="10" value="{{ $admin_setting->no_wa }}"  required placeholder="" name="no_wa" type="tel" id="no_wa"
+                  <label for="example-text-input" class="col-form-label">Nomor WA</label>
+                  <input style="font-size: 20px" maxlength="16" minlength="10" value="{{ $data_paud->no_wa }}"  required placeholder="" name="no_wa" type="tel" id="no_wa"
                       class="input form-control">
               </div>
-             
-             
           </div>
-       
+
+          <div class="col-lg-6 ">
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Facebook</label>
+                <input style="font-size: 20px"  value="{{ $data_paud->facebook }}"   placeholder="" name="facebook"
+                    class="input form-control">
+            </div>
+        </div>
+
+        <div class="col-lg-6 ">
+            <div class="form-group">
+                <label for="example-text-input" class="col-form-label">Instagram</label>
+                <input style="font-size: 20px"  value="{{ $data_paud->instagram }}"   placeholder="" name="instagram"
+                    class="input form-control">
+            </div>
+        </div>
 
       </div>
       <div class="card-footer">
@@ -45,7 +84,7 @@
   </form>
     </div>
 
-  
+
   </section>
 </div>
 

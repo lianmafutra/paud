@@ -13,7 +13,7 @@
       style="opacity: .8">
     <span class="brand-text font-weight-light">App</span>
   </a>
-  
+
 
   <!-- Sidebar -->
   <div class="sidebar ">
@@ -38,7 +38,7 @@
               </p>
             </a>
           </li>
-      
+
           <li class="nav-item">
             <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}">
               <i class="nav-icon <i far fa-newspaper"></i>
@@ -52,6 +52,14 @@
               <i class="nav-icon far fa-images"></i>
               <p>
               Slider
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('galeri-album.index') }}" class="nav-link {{ Request::is('admin/galeri*') ? 'active' : '' }}">
+              <i class="nav-icon far fa-images"></i>
+              <p>
+              Galeri
               </p>
             </a>
           </li>
@@ -76,7 +84,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link  {{ Request::is('admin/halaman/*') ? 'active' : '' }}">
               <i class="nav-icon far fa-file-alt"></i>
               <p>
                Halaman
@@ -85,10 +93,10 @@
             </a>
             <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ url('admin/halaman/latar-belakang') }}" class="nav-link">
                   <i class="nav-icon far fa-file"></i>
                   <p>
-                  Profil Sekolah
+                  Latar Belakang
                   </p>
                 </a>
               </li>
@@ -105,13 +113,13 @@
                 <a href="" class="nav-link">
                   <i class="nav-icon far fa-file"></i>
                   <p>
-                Lokasi 
+                Lokasi
                   </p>
                 </a>
               </li>
-              
+
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{ url('admin/halaman/visi-misi') }}" class="nav-link ">
                     <i class="nav-icon far fa-file"></i>
                     <p>
                     Visi & Misi
@@ -129,13 +137,13 @@
 
             </ul>
           </li>
-        
 
-       
+
+
         </li>
-      
+
         </li>
-      
+
         <li class="nav-item">
           <a href="#" class="nav-link {{ Request::is('admin/pengaturan*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-cog"></i>
@@ -146,16 +154,16 @@
           </a>
 
           <ul class="nav nav-treeview" style="display: none;">
-          
+
             <li class="nav-item">
               <a href="{{ url('admin/pengaturan/') }}" class="nav-link">
                 <i class="nav-icon far fa-file"></i>
                 <p>
-                Atur Nomor Whatsapp 
+                Profil Paud
                 </p>
               </a>
             </li>
-            
+
           <li class="btn_ubah_password nav-item">
             <a href="javascript:void(0)" class="nav-link">
                  <i class="nav-icon far fa-file"></i>
@@ -167,7 +175,7 @@
           </ul>
         </li>
 
-       
+
         <li class="nav-item">
           <a  onclick="logout()" href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -175,7 +183,7 @@
             Logout
             </p>
           </a>
-        </li>   
+        </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -219,7 +227,7 @@
                   <label for="example-text-input" class="col-md-12 col-form-label">Password Konfirmasi</label>
                   <input required  placeholder="Password Konfirmasi" name="pass_baru_conf" type="password"
                     id="pass_baru_conf" class="input form-control">
-                </div>               
+                </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" data-dismiss="modal" class="btn_kembali btn btn-secondary">Batal</button>
                   <button  value="Validate" class="btn btn-primary">Ubah</button>
@@ -250,7 +258,7 @@ $(function() {
     });
 
   $('.btn_ubah_password').click(function(e) {
-        e.preventDefault();        
+        e.preventDefault();
         $('.modal_ubah_password').modal('show');
         $('#form_ubah_password').trigger("reset");
         validator.resetForm();
@@ -289,11 +297,8 @@ $(function() {
               }
           });
       }
-     
-  });    
 
-
-
+  });
 
 var validator = $("#form_ubah_password").validate({
         rules: {
@@ -310,7 +315,7 @@ var validator = $("#form_ubah_password").validate({
                 equalTo : "#pass_baru",
                 minlength : 8,
             },
-            
+
         },
         messages: {
             pass_lama: {
