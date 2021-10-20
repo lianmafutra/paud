@@ -72,7 +72,8 @@
               <li><a href="course.html">Program & Layanan</a></li>            
               <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>                
             </ul>
-          </li>           
+          </li>     
+          <li><a href="{{ url('artikel') }}">Program</a></li>
           <li><a href="{{ url('artikel') }}">Artikel</a></li>
           <li><a href="{{ url('galeri') }}">Galeri</a></li>
           <li><a href="{{ url('pendaftaran') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
