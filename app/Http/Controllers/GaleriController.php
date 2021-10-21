@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Galeri;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class GaleriController extends Controller
 {
@@ -88,10 +88,10 @@ class GaleriController extends Controller
     {
         try {
             $galeri = Galeri::whereIn('id', $request->id)->delete();
-            toastr()->success('File Berhasil Diupload!');
-            return redirect()->back();
+           
+            return redirect()->back()->with('message', 'Data Berhasil Dihapus');
         } catch (\Throwable $th) {
-            toastr()->success('Gagal Berhasil Diupload!');
+            toastr()->success('Gagal Berhasil Dihapus!');
             return redirect()->back();
         }
 

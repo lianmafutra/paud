@@ -24,12 +24,40 @@
         <div class="col-md-12">
           <div class="mu-about-us-area">           
             <div class="row">
-              <div class="col-lg-6 col-md-6">
+              <div class="col-lg-12 col-md-12">
                 <div class="mu-about-us-left">
-                  <!-- Start Title -->
-                
-                  <!-- End Title -->
                  
+                  <div class="mu-from-blog-content">
+                    <div class="row">
+      
+                      @foreach ($galeri as $item)
+                      <div style="margin-top: 30px" class="col-md-4 col-sm-4">
+                        <article class="mu-blog-single-item">
+                          <figure class="mu-blog-single-img">
+                            <a href="{{ url('/galeri-detail/'.$item->id) }}"><img src="{{URL::asset('/uploads/'.$item->gambar)}}" alt="img"></a>
+                            <figcaption class="mu-blog-caption">
+                              <h3><a href="{{ url('/galeri-detail/'.$item->id) }}">{{ $item->nama }}</a></h3>
+                            </figcaption>
+                          </figure>
+                          <div class="mu-blog-meta">
+                           
+                            <a href="{{ url('/galeri-detail/'.$item->id) }}">{{ $item->created_at }}</a>
+                            <span><i class="fa fa-file-image-o"></i>{{ $item->jumlah_foto }} foto</span>
+                          </div>
+                          <div class="mu-blog-description">
+                            {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}
+                            {{-- <a class="mu-read-more-btn" href="{{ url('artikel/detail/'.$item->id) }}">Selengkapnya</a> --}}
+                          </div>
+                        </article>
+                      </div>
+                      @endforeach
+      
+      
+      
+      
+      
+                    </div>
+                  </div>
                 </div>
               </div>
             

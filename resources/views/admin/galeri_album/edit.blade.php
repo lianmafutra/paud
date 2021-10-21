@@ -119,6 +119,7 @@
           </div>
           <div class="modal-body">
 
+          
 
               <div class="col-12">
                   <form id="form_upload" action="{{ route('galeri-album.store') }}" enctype="multipart/form-data" method="POST">
@@ -171,7 +172,7 @@ $(function(){
     });
 
     $array_id_galeri=[];
-
+ 
 
     var editor = CKEDITOR.instances.deskripsi;
     editor.setData({!! json_encode($galeri_album->deskripsi) !!});
@@ -216,7 +217,7 @@ $(function(){
                         url:"{{ url('admin/galeri/destroy-multi') }}",
                         type: 'POST',
                         success: function(data, textStatus, jqXHR) {
-                            toastr.success('Data Berhasil Dihapus');
+                          location.reload();
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
                             toastr.success('Data Gagal Dihapus'+errorThrown);

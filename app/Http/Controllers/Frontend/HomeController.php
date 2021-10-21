@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Berita;
 use App\DataPaud;
+use App\Galeri;
+use App\GaleriAlbum;
 use App\Http\Controllers\Controller;
 use App\Slider;
-use Symfony\Component\VarDumper\Cloner\Data;
+
 
 class HomeController extends Controller
 {
@@ -41,7 +43,14 @@ class HomeController extends Controller
     }
 
     public function galeri(){
-        return view('frontend.galeri');
+        $galeri = GaleriAlbum::with('galeri')->get();
+        return view('frontend.galeri', compact('galeri'));
+    }
+
+    public function galeriDetail($id){
+        $galeri = Galeri::where('galeri_album_id', $id)->get();
+    
+        return view('frontend.galeri_detail', compact('galeri'));
     }
 
     public function pendaftaran(){
