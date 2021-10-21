@@ -49,8 +49,8 @@ class HomeController extends Controller
 
     public function galeriDetail($id){
         $galeri = Galeri::where('galeri_album_id', $id)->get();
-    
-        return view('frontend.galeri_detail', compact('galeri'));
+        $galeri_album = GaleriAlbum::find($id);
+        return view('frontend.galeri_detail', compact('galeri','galeri_album'));
     }
 
     public function pendaftaran(){

@@ -9,7 +9,7 @@
           <div class="mu-page-breadcrumb-area">
             <h2>Galeri</h2>
             <ol class="breadcrumb">
-             <li><a href="#">Home</a></li>            
+             <li><a href="{{ url('/') }}">Home</a></li>            
              <li class="active">Galeri</li>
            </ol>
           </div>
@@ -34,14 +34,14 @@
                       <div style="margin-top: 30px" class="col-md-4 col-sm-4">
                         <article class="mu-blog-single-item">
                           <figure class="mu-blog-single-img">
-                            <a href="{{ url('/galeri-detail/'.$item->id) }}"><img src="{{URL::asset('/uploads/'.$item->gambar)}}" alt="img"></a>
+                            <a href="{{ url('/galeri/detail/'.$item->id) }}"><img src="{{URL::asset('/uploads/'.$item->gambar)}}" alt="img"></a>
                             <figcaption class="mu-blog-caption">
-                              <h3><a href="{{ url('/galeri-detail/'.$item->id) }}">{{ $item->nama }}</a></h3>
+                              <h3><a href="{{ url('/galeri/detail/'.$item->id) }}">{{ $item->nama }}</a></h3>
                             </figcaption>
                           </figure>
                           <div class="mu-blog-meta">
                            
-                            <a href="{{ url('/galeri-detail/'.$item->id) }}">{{ $item->created_at }}</a>
+                            <a href="{{ url('/galeri/detail/'.$item->id) }}">{{ $item->created_at }}</a>
                             <span><i class="fa fa-file-image-o"></i>{{ $item->jumlah_foto }} foto</span>
                           </div>
                           <div class="mu-blog-description">

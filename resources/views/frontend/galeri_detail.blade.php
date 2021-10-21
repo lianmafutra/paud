@@ -9,9 +9,9 @@
       <div class="row">
         <div class="col-md-12">
           <div class="mu-page-breadcrumb-area">
-            <h2>Galeri</h2>
+            <h2>Galeri : {{ $galeri_album->nama }}</h2>
             <ol class="breadcrumb">
-             <li><a href="#">Home</a></li>  
+             <li><a href="{{ url('/') }}">Home</a></li>  
              <li><a href="{{ url('/galeri') }}">Galeri</a></li>            
              <li class="active">Galeri Detail</li>
            </ol>
