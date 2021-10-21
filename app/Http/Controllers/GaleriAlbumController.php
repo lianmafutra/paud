@@ -48,6 +48,7 @@ class GaleriAlbumController extends Controller
      */
     public function store(Request $request)
     {
+      
         try {
             $input = $request->all();
 
@@ -103,10 +104,17 @@ class GaleriAlbumController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+       $gambar =  $request->file('gambar');
+       $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$gambar->getClientOriginalExtension();
+       $gambar->move('uploads', $name_uniqe);
+    
         $galeri_album = GaleriAlbum::find($id)->update([
+            "nama"      => $request->nama,
+            "gambar"    => $name_uniqe,
             "deskripsi" => $request->deskripsi
         ]);
-        toastr()->success('File Berhasil Diupload!');
+        toastr()->success('Data Album Berhasil Diperbarui');
         return redirect()->back();
     }
 

@@ -54,18 +54,27 @@
              <div class="form-group">
            <input name="id" value="{{ $galeri_album->id }}" hidden>
           </div>
-            <div class="col-lg-12">
-
+          
 
                 <div class="col-lg-6 form-group">
                     <label for="example-text-input" class="col-form-label">Nama Album</label>
-                    <input disabled value="{{ $galeri_album->nama }}"  placeholder="Input Judul Berita" name="nama" type="text" id="nama" class="input form-control">
+                    <input  value="{{ $galeri_album->nama }}"  placeholder="Nama Album" name="nama" type="text" id="nama" class="input form-control">
                 </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Isi Konten <span style="color: rgb(230, 67, 67)">*</span></label>
+                    <textarea id="deskripsi" name="deskripsi" class="ckeditor form-control" rows="3" placeholder=""
+                        style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("deskripsi")}}</textarea>
+                </div>
+                </div>
+           
 
-             <div class="form-group">
-                <label>Isi Konten <span style="color: rgb(230, 67, 67)">*</span></label>
-                <textarea id="deskripsi" name="deskripsi" class="ckeditor form-control" rows="3" placeholder=""
-                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("deskripsi")}}</textarea>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>Upload Poster Album<span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
+                        file : jpg, png | Max : 1 MB)</span> </label>
+                <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                    name="gambar">
             </div>
             <div class="card-footer">
                 <a class="btn btn-success waves-effect waves-light" style="margin-right:10px; float:left ;right: 10px; z-index: 40" href="{{ route('galeri-album.index') }}">Kembali</a>
@@ -234,9 +243,23 @@ $(function(){
     FilePondPluginFileValidateType,
     FilePondPluginFileValidateSize);
 
+    const pond = FilePond.create( document.querySelector('input[name="gambar"]'),{
+        storeAsFile: true,
+        files: [
+        {
+            source: '/uploads/'+{!! json_encode($galeri_album->gambar) !!},
+        },
+    ],
+
+    });
 
 
 const inputElements = document.querySelectorAll('input.filepond');
+
+
+
+
+
 Array.from(inputElements).forEach(inputElement => {
     FilePond.create(inputElement, {
     imageCropAspectRatio: '1:1',
