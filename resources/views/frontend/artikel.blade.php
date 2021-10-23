@@ -9,7 +9,7 @@
         <div class="mu-page-breadcrumb-area">
           <h2>Artikel</h2>
           <ol class="breadcrumb">
-           <li><a href="#">Home</a></li>
+           <li><a href="{{ url('/') }}">Home</a></li>
            <li class="active">Artikel</li>
          </ol>
         </div>

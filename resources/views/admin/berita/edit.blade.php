@@ -29,7 +29,6 @@
           <div class="alert alert-danger">
               <strong>Gagal,</strong> Terjadi Kesalahan, Periksa inputan dengan benar<br><br>
               <ul>
-
                   @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                   @endforeach
@@ -59,9 +58,7 @@
             <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
                 name="poster">
         </div>
-
              </div>
-
        </div>
             </div>
 
