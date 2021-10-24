@@ -17,6 +17,7 @@ body {
 			 -moz-transition: all .3s ease;
 			-o-transition:  all .3s ease;
 			-webkit-transition:  all .3s ease;
+			box-shadow: 0px 0px 30px rgba(0,0,0, .2);
 		}
 		.panel.price:hover{
 			box-shadow: 0px 0px 30px rgba(0,0,0, .2);
@@ -225,7 +226,47 @@ body {
       </div>
     </div>
   </section>
- 
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLongTitle">Paket Pilihan Biaya TPA Junior</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<p><strong>A. Paket Bulanan 1 (senin - sabtu) pukul 07:00 - 13.00</strong></p>
+
+			<ul>
+				<li>pendaftaran : Rp. 100.000</li>
+				<li>SPP/bulan : Rp. 400.000</li>
+			</ul>
+			
+			<p>&nbsp;</p>
+			
+			<p><strong>B.&nbsp;Paket Bulanan 2 (senin - sabtu) pukul 07:00 - 16.00</strong></p>
+			
+			<ul>
+				<li>pendaftaran : Rp. 100.000</li>
+				<li>SPP/bulan : Rp. 550.000</li>
+			</ul>
+			
+			<p>&nbsp;</p>
+			
+			<ul>
+			</ul>
+		</div>
+		<div class="modal-footer">
+		  <button aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-secondary  dropdown-toggle" data-dismiss="modal">Tutup</button>
+		  {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+		</div>
+	  </div>
+	</div>
+  </div>
   <section id="mu-about-us">
     <div class="container">
       <div class="row">
@@ -234,7 +275,7 @@ body {
             <div class="row">
               <div class="col-lg-12 col-md-12">
                 <div class="mu-title">
-                  <h2>Pilih Jenis Pendaftaran</h2>
+                  <h3>Pilih Jenis Pendaftaran</h3><br>
                 </div>
                 <div style="margin-top: 20px" class="mu-about-us-left">
                   <div class="container">
@@ -296,7 +337,7 @@ body {
                               </div>
                               <div style="margin: 20px" class="col-12">
                                 <p>Tedapat 6 Paket Pilihan Biaya TPA Junior : </p>
-                                <a  class="btn btn-sm  btn-success" href="#">Lihat Detail Paket Biaya</a>
+                                <a data-toggle="modal" data-target="#exampleModalLong"  class="btn btn-sm  btn-success" href="#">Lihat Detail Paket Biaya</a>
                             
                               </div>
                               
