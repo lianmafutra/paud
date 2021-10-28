@@ -58,4 +58,10 @@ Route::get('/artikel', 'Frontend\\HomeController@artikel');
 
 Route::get('/galeri', 'Frontend\\HomeController@galeri');
 Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
-Route::get('/pendaftaran', 'Frontend\\HomeController@pendaftaran');
+
+Route::group(['prefix' => 'pendaftaran',], function () {
+    Route::get('pilih', 'Frontend\\PendaftaranController@pilihPendaftaran');
+    Route::get('proses/{jenis}', 'Frontend\\PendaftaranController@prosesPendaftaran');
+    Route::post('kirim', 'Frontend\\PendaftaranController@kirimPendaftaran');
+
+});

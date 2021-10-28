@@ -77,7 +77,7 @@
           <li><a href="{{ url('artikel') }}">Program</a></li>
           <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ url('artikel') }}">Artikel</a></li>
           <li class="{{ Request::is('galeri','galeri/*') ? 'active' : '' }}"><a href="{{ url('galeri') }}">Galeri</a></li>
-          <li class="{{ Request::is('pendaftaran') ? 'active' : '' }}"><a href="{{ url('pendaftaran') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
+          <li class="{{ Request::is('pendaftaran') ? 'active' : '' }}"><a href="{{ url('pendaftaran/pilih') }}"><span class="pendaftaran">Pendaftaran</span></a></li>
           <li><a href="#">Kontak</a></li>
 
           <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>

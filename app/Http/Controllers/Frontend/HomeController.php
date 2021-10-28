@@ -53,9 +53,7 @@ class HomeController extends Controller
         return view('frontend.galeri_detail', compact('galeri','galeri_album'));
     }
 
-    public function pendaftaran(){
-        return view('frontend.pendaftaran');
-    }
+  
 
 
 

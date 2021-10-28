@@ -106,59 +106,8 @@
   </section>
   <!-- End about us -->
 
-  <!-- Start about us counter -->
-  <section id="mu-abtus-counter">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mu-abtus-counter-area">
-            <div class="row">
-              <!-- Start counter item -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="mu-abtus-counter-single">
-                  <span class="fa fa-book"></span>
-                  <h4 class="counter">568</h4>
-                  <p>Subjects</p>
-                </div>
-              </div>
-              <!-- End counter item -->
-              <!-- Start counter item -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="mu-abtus-counter-single">
-                  <span class="fa fa-users"></span>
-                  <h4 class="counter">3500</h4>
-                  <p>Students</p>
-                </div>
-              </div>
-              <!-- End counter item -->
-              <!-- Start counter item -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="mu-abtus-counter-single">
-                  <span class="fa fa-flask"></span>
-                  <h4 class="counter">65</h4>
-                  <p>Modern Lab</p>
-                </div>
-              </div>
-              <!-- End counter item -->
-              <!-- Start counter item -->
-              <div class="col-lg-3 col-md-3 col-sm-3">
-                <div class="mu-abtus-counter-single no-border">
-                  <span class="fa fa-user-secret"></span>
-                  <h4 class="counter">250</h4>
-                  <p>Teachers</p>
-                </div>
-              </div>
-              <!-- End counter item -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End about us counter -->
-
   <!-- Start features section -->
-  <section id="mu-features">
+  {{-- <section id="mu-features">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -227,11 +176,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- End features section -->
 
   <!-- Start latest course section -->
-  <section id="mu-latest-courses">
+  {{-- <section id="mu-latest-courses">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -364,7 +313,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- End latest course section -->
 
   <!-- Start our teacher -->
@@ -469,6 +418,8 @@
   <!-- End testimonial -->
 
   <!-- Start from blog -->
+
+  
   <section id="mu-from-blog">
     <div class="container">
       <div class="row">
@@ -482,21 +433,21 @@
             <!-- end title -->
             <!-- start from blog content   -->
             <div class="mu-from-blog-content">
-              <div class="row">
+              <div class="row justify-content-end">
 
                 @foreach ($berita as $item)
-                <div style="margin-top: 30px" class="col-md-4 col-sm-4">
-                  <article class="mu-blog-single-item">
-                    <figure class="mu-blog-single-img">
-                      <a href="#"><img src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img"></a>
-                      <figcaption class="mu-blog-caption">
-                        <h3><a href="#">{{ $item->judul }}</a></h3>
-                      </figcaption>
-                    </figure>
-                    <div class="mu-blog-meta">
+                <div style="margin-top: 20px" class="col-sm-4">
+                  <div class="poster">
+                    <img style="width: 100%; height: 250px;" src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img">
+
+                  </div>
+              
+                  <article style="margin-bottom: 5px !important" class="mu-blog-single-item">
+              
+                    <div style="margin-bottom: 5px !important" class="mu-blog-meta">
                       <a href="#">By Admin</a>
                       <a href="#">{{ $item->created_at }}</a>
-                      <span><i class="fa fa-comments-o"></i>87</span>
+                      {{-- <span><i class="fa fa-comments-o"></i>87</span> --}}
                     </div>
                     <div class="mu-blog-description">
                       {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}
@@ -504,6 +455,7 @@
                     </div>
                   </article>
                 </div>
+               
                 @endforeach
 
 

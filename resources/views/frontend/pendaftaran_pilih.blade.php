@@ -1,16 +1,11 @@
 @extends('frontend.layouts.master')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <style>
-  @import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&subset=latin,latin-ext");
 
 body {
-        padding-top: 40px;
         padding-bottom: 40px;
-    	
       }
-	
-	/* COMMON PRICING STYLES */
+
 		.panel.price,
 		.panel.price>.panel-heading{
 			border-radius:0px;
@@ -285,7 +280,7 @@ body {
                             <!-- PRICE ITEM -->
                             <div class="panel price panel-red">
                               <div class="panel-heading  text-center">
-                           <h3>KB(Kelompok Bermain)</h3>
+                           <h3>KB (Kelompok Bermain)</h3>
                               </div>
                               <ul style="margin-top:10px">
                                 <li>Usia : 2-4 Tahun </li>
@@ -296,7 +291,7 @@ body {
                               </ul>  
                             
                               <div class="panel-footer">
-                                <a class="btn btn-lg btn-block btn-danger" href="#">Daftar</a>
+                                <a class="btn btn-lg btn-block btn-danger" href="{{ url('pendaftaran/proses/kb') }}">Daftar</a>
                               </div>
                             </div>
                             <!-- /PRICE ITEM -->
@@ -320,7 +315,7 @@ body {
                                 <li>Baju : Putih biru, Batik, Olahraga, Polisi</li>
                               </ul>  
                               <div class="panel-footer">
-                                <a class="btn btn-lg btn-block btn-info" href="#">Daftar</a>
+                                <a class="btn btn-lg btn-block btn-info" href="{{ url('pendaftaran/proses/tk') }}">Daftar</a>
                               </div>
                             </div>
                             <!-- /PRICE ITEM -->
@@ -344,7 +339,7 @@ body {
                            
                             
                               <div class="panel-footer">
-                                <a class="btn btn-lg btn-block btn-success" href="#">Daftar</a>
+                                <a class="btn btn-lg btn-block btn-success" href="{{ url('pendaftaran/proses/tpa') }}">Daftar</a>
                               </div>
                             </div>
                             <!-- /PRICE ITEM -->

@@ -38,6 +38,26 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-friends"></i>
+              <p>
+             Pendaftaran
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="nav-icon far fa-file"></i>
+                  <p>
+                    TK
+                  </p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
 
           <li class="nav-item">
             <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}">
@@ -63,26 +83,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-friends"></i>
-              <p>
-             Pendaftaran
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="display: none;">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="nav-icon far fa-file"></i>
-                  <p>
-                    TK
-                  </p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
+         
           <li class="nav-item">
             <a href="#" class="nav-link  {{ Request::is('admin/halaman/*') ? 'active' : '' }}">
               <i class="nav-icon far fa-file-alt"></i>
