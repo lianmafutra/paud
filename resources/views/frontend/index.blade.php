@@ -419,7 +419,7 @@
 
   <!-- Start from blog -->
 
-  
+
   <section id="mu-from-blog">
     <div class="container">
       <div class="row">
@@ -441,9 +441,9 @@
                     <img style="width: 100%; height: 250px;" src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img">
 
                   </div>
-              
+
                   <article style="margin-bottom: 5px !important" class="mu-blog-single-item">
-              
+
                     <div style="margin-bottom: 5px !important" class="mu-blog-meta">
                       <a href="#">By Admin</a>
                       <a href="#">{{ $item->created_at }}</a>
@@ -455,7 +455,7 @@
                     </div>
                   </article>
                 </div>
-               
+
                 @endforeach
 
 
