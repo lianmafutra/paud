@@ -76,10 +76,17 @@
                                     <div class="container">
                                         <p> <strong>A. Isi Data calon peserta didik pada kolom di bawah ini :</strong> </p>
                                         <br>
-                                        <div class="form-group">
+                                        <div style="display: none" class="form-group">
                                             <input hidden name="jenis_pendaftaran" type="text" class="form-control"
                                                 value="{{ $jenis }}">
                                         </div>
+                                     
+
+                                        <div  class="form-group">
+                                            <p>Paket TPA Junior <span class="simbol_wajib">*</span></p>
+                                            <input disabled name="paket_tpa"  id="paket_tpa"  type="text" class="form-control" value="{{ $data->nama }}">
+                                        </div>
+
                                         <div class="form-group">
                                             <p>Nama Lengkap Anak <span class="simbol_wajib">*</span></p>
                                             <input name="nama_lengkap" type="text" class="form-control">
@@ -95,6 +102,17 @@
                                         <div class="form-group">
                                             <p>Tanggal Lahir<span class="simbol_wajib">*</span></p>
                                             <input name="tanggal_lahir" type="date" class="form-control">
+                                        </div>
+                                        
+                                        <div style="display: none" id="jenis_tk" class="form-group">
+                                            <p for="exampleFormControlSelect12">Jenis TK<span
+                                                    class="simbol_wajib">*</span> </p>
+                                            <select name="jenis_tk" class="form-control"
+                                                id="exampleFormControlSelect12">
+                                                <option hidden>Pilih Jenis TK sesuai umur anak</option>
+                                                <option value="A">TK A (Untuk Umur 3-4 Tahun)</option>
+                                                <option value="B">TK B (Untuk Umur 5-6 Tahun)</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <p>Anak ke-<span class="simbol_wajib">*</span></p>
@@ -442,6 +460,22 @@
                 colorLight: "#ffffff",
             });
         }
+
+        if (jenis == 'kb') {
+           
+        }
+        if (jenis == 'tk') {
+            $('#jenis_tk').css('display','block');
+          
+        }
+        if (jenis == 'tpa') {
+            $('.form_paket_tpa').css('display','block');
+        }
+
+
+        $("#paket_tpa").click(function(e) {
+         
+        });
     </script>
 
 

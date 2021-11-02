@@ -3,20 +3,24 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\PaketTPA;
 use App\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use RealRashid\SweetAlert\Facades\Alert;
+
 
 class PendaftaranController extends Controller
 {
     public function pilihPendaftaran(){
-        return view('frontend.pendaftaran_pilih');
+       $paket_tpa = PaketTPA::all();
+        return view('frontend.pendaftaran_pilih', compact('paket_tpa'));
     }
 
-    public function prosesPendaftaran($jenis){
+    public function prosesPendaftaran($jenis, $paket_tpa=""){
 
-        return view('frontend.pendaftaran_proses', compact('jenis'));
+        $data = PaketTPA::find($paket_tpa);
+
+        return view('frontend.pendaftaran_proses', compact(['jenis','data']));
     }
 
     public function kirimPendaftaran(Request $request){

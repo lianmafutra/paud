@@ -62,5 +62,6 @@ Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
 Route::group(['prefix' => 'pendaftaran',], function () {
     Route::get('pilih', 'Frontend\\PendaftaranController@pilihPendaftaran');
     Route::get('proses/{jenis}', 'Frontend\\PendaftaranController@prosesPendaftaran');
+    Route::get('proses/{jenis}/{paket_tpa}', 'Frontend\\PendaftaranController@prosesPendaftaran');
     Route::post('kirim', 'Frontend\\PendaftaranController@kirimPendaftaran');
 });
