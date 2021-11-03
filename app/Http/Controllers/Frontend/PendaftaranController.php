@@ -44,6 +44,7 @@ class PendaftaranController extends Controller
 
                 return redirect()->back()->with( ['kode_pendaftaran' => $kode_pendaftaran, 'jenis_pendaftaran' => $request->jenis_pendaftaran] );
             }
+            
         }
 
 

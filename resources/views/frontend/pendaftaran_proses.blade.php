@@ -349,16 +349,14 @@
     </div>
 </section>
 
-<div id="modal_pendaftaran" class="modal" tabindex="-1" role="dialog">
+<div id="modal_pendaftaran" class="modal" tabindex="-1" role="dialog"  data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">
                     <center><strong>Anda Telah Berhasil Mendaftar</strong></center>
                 </h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+              
             </div>
             <div class="modal-body">
                 <center>Berikut adalah Nomor Pendaftaran Anda : </center><br>
@@ -386,8 +384,8 @@
 
 @endsection
 @push('js')
-<script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
-<script src="https://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+<script src="{{ URL::asset('plugins/canvas/html2canvas.js') }}"></script>
+<script src="{{ URL::asset('plugins/canvas/canvas2image.js') }}"></script>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -451,6 +449,7 @@
         }
 
 
+
         if (jenis == 'kb' && localStorage.getItem('kode_pendaftaran_kb') != null) {
             showModalPendaftaran('kode_pendaftaran_kb');
         }
@@ -465,31 +464,6 @@
             $('#modal_pendaftaran').modal('show');
             $('#nomor_pendaftaran').html(localStorage.getItem(key));
             showQrCode(key);
-            // Swal.fire({
-            //     title: '<strong>Anda Telah Berhasil Mendaftar</strong>',
-            //     icon: 'info',
-            //     width: 450,
-            //     padding: '3em',
-            //     html: 'Berikut adalah Nomor Pendaftaran Anda :<br><br>' + '<span style="font-size: 40px">' +
-            //         localStorage.getItem(key) + '</span>' +
-            //         ' <center><div style="margin-top: 10px;" id="qrcode"></div> <center>' +
-            //         ' <br><br> <strong>Pastikan Simpan bukti pendaftaran anda untuk verifikasi daftar ulang berikutnya</strong></strong>',
-            //     showCloseButton: false,
-            //     allowOutsideClick: false,
-            //     showCancelButton: false,
-            //     focusConfirm: false,
-            //     confirmButtonColor: '#42ba96',
-            //     cancelButtonColor: '#ffc107',
-            //     confirmButtonText: '<i  id="btn_download fa fa-thumbs-up"></i> Download',
-            //     cancelButtonText: '<i class="fa fa-thumbs-up"></i> Cetak',
-            // }).then((result) => {
-            //     /* Read more about isConfirmed, isDenied below */
-            //     if (result.isConfirmed) {
-            //         Swal.fire('Saved!', '', 'success')
-            //     } else if (result.isDenied) {
-            //         Swal.fire('Changes are not saved', '', 'info')
-            //     }
-            // });
         }
 
         function showQrCode(key) {
@@ -531,8 +505,22 @@
         $("#btn_halaman_pengumuman").click(function(e) {
 
         });
-        $("#btn_daftar_ulang").click(function(e) {
 
+        $("#btn_daftar_ulang").click(function(e) {
+            if (confirm('Pastikan anda sudah menyimpan bukti pendaftaran anda, karena data session akan dihapus')) {
+                if (jenis == 'kb') {
+                localStorage.removeItem('kode_pendaftaran_kb');
+            }
+            if (jenis == 'tk') {
+                localStorage.removeItem('kode_pendaftaran_tk');
+            }
+            if (jenis == 'paud') {
+                localStorage.removeItem('kode_pendaftaran_paud');
+              
+            }
+            } else {
+                location.reload();
+            }
         });
 
 });
