@@ -83,13 +83,19 @@
 
                                     <div style="display: none" class="form_paket_tpa form-group">
                                         <p>Paket TPA Junior <span class="simbol_wajib">*</span></p>
-                                        <input disabled name="paket_tpa" id="paket_tpa" type="text" class="form-control"
+                                        <input  type="text" class="form-control"
                                             value="{{ $data->nama ?? ""}}">
+                                    </div>
+
+                                    <div style="display: none" class="form_paket_tpa form-group">
+                                        <p>Paket TPA Junior <span class="simbol_wajib">*</span></p>
+                                        <input  name="paket_tpa_id" type="text" class="form-control"
+                                            value="{{ $data->id ?? ""}}">
                                     </div>
 
                                     <div class="form-group">
                                         <p>Nama Lengkap Anak <span class="simbol_wajib">*</span></p>
-                                        <input name="nama_lengkap" type="text" class="form-control">
+                                        <input required id="nama_lengkap" name="nama_lengkap" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Nama Panggilan<span class="simbol_wajib">*</span></p>
@@ -108,7 +114,7 @@
                                         <p for="exampleFormControlSelect12">Jenis TK<span class="simbol_wajib">*</span>
                                         </p>
                                         <select name="jenis_tk" class="form-control" id="exampleFormControlSelect12">
-                                            <option hidden>Pilih Jenis TK sesuai umur anak</option>
+                                            <option value="" hidden>Pilih Jenis TK sesuai umur anak</option>
                                             <option value="A">TK A (Untuk Umur 3-4 Tahun)</option>
                                             <option value="B">TK B (Untuk Umur 5-6 Tahun)</option>
                                         </select>
@@ -309,7 +315,7 @@
                                             accept="image/jpeg, image/png" name="file_kk">
                                     </div>
                                     <div style="margin-top: 120px" class="form-group">
-                                        <button type="submit" id="btn_daftar" class="btn btn-lg  btn-success"
+                                        <button id="btn_daftar" class="btn btn-lg  btn-success"
                                             href="#">Daftar</button>
                                     </div>
 
@@ -410,9 +416,15 @@
             });
         });
 
+        $("#nama_lengkap").prop('required',true);
+
         $("#btn_daftar").click(function(e) {
-            e.preventDefault();
-            let timerInterval
+
+            if(("#form_pendaftaran").valid()){
+
+
+             
+                let timerInterval
             Swal.fire({
                 title: 'Mohon Tunggu',
                 html: 'Sedang Mengirim Data...',
@@ -429,6 +441,9 @@
                     $("#form_pendaftaran").submit();
                 }
             })
+              
+            }
+           
         });
 
         const kode_pendaftaran = {!! json_encode(session()->get('kode_pendaftaran')) !!};
@@ -443,8 +458,8 @@
             if (jenis_pendaftaran == 'tk') {
                 localStorage.setItem("kode_pendaftaran_tk", kode_pendaftaran);
             }
-            if (jenis_pendaftaran == 'paud') {
-                localStorage.setItem("kode_pendaftaran_paud", kode_pendaftaran);
+            if (jenis_pendaftaran == 'tpa') {
+                localStorage.setItem("kode_pendaftaran_tpa", kode_pendaftaran);
             }
         }
 
@@ -456,8 +471,8 @@
         if (jenis == 'tk' && localStorage.getItem('kode_pendaftaran_tk') != null) {
             showModalPendaftaran('kode_pendaftaran_tk');
         }
-        if (jenis == 'paud' && localStorage.getItem('kode_pendaftaran_paud') != null) {
-            showModalPendaftaran('kode_pendaftaran_paud');
+        if (jenis == 'tpa' && localStorage.getItem('kode_pendaftaran_tpa') != null) {
+            showModalPendaftaran('kode_pendaftaran_tpa');
         }
 
         function showModalPendaftaran(key) {
@@ -514,8 +529,8 @@
             if (jenis == 'tk') {
                 localStorage.removeItem('kode_pendaftaran_tk');
             }
-            if (jenis == 'paud') {
-                localStorage.removeItem('kode_pendaftaran_paud');
+            if (jenis == 'tpa') {
+                localStorage.removeItem('kode_pendaftaran_tpa');
               
             }
             } else {
