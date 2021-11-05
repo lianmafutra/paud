@@ -70,7 +70,7 @@
                             {{-- <h3>Pilih Jenis Pendaftaran</h3><br> --}}
                         </div>
                         <div style="margin-top: 20px">
-                            <form id="form_pendaftaran" method="POST" action="{{ url('pendaftaran/kirim') }}">
+                            <form id="form_pendaftaran" method="POST" action="{{ url('pendaftaran/kirim') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="container">
                                     <p> <strong>A. Isi Data calon peserta didik pada kolom di bawah ini :</strong> </p>
