@@ -45,6 +45,7 @@ Route::get('/', 'AdminController@index');
     });
 
 Route::get('pendaftaran', 'PendaftaranController@index');
+Route::delete('pendaftaran/destroy/{id}', 'PendaftaranController@destroy');
 
 });
 Route::group(['prefix' => 'profil',], function () {
