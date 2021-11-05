@@ -44,6 +44,8 @@ Route::get('/', 'AdminController@index');
         });
     });
 
+Route::get('pendaftaran', 'PendaftaranController@index');
+
 });
 Route::group(['prefix' => 'profil',], function () {
     Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');

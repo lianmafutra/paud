@@ -38,20 +38,20 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item  {{ Request::is('admin/pendaftaran*') ? ' menu-is-opening menu-open' : '' }}">
+            <a href="#" class="nav-link   {{ Request::is('admin/pendaftaran*') ? 'active' : '' }}" >
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
              Pendaftaran
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview" style="display: none;">
+            <ul class="nav nav-treeview" style="display: {{ Request::is('admin/pendaftaran*') ? 'block' : 'none' }};">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
                   <i class="nav-icon far fa-file"></i>
                   <p>
-                    TK
+                    Pendaftaran Masuk
                   </p>
                 </a>
               </li>
