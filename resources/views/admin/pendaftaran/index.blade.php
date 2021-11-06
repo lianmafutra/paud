@@ -22,7 +22,40 @@
                     style="float:right ;right: 10px; z-index: 40">Tambah ...</button></a> --}}
             </div>
             <div class="card-body">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class=" form-group">
+                                <label>Filter Jenis Pendaftaran</label>
+                                <select  name="filter_jenis_pendaftaran" class="filter_jenis_pendaftaran form-control">
+                                  <option value="">Semua</option>
+                                  <option value="kb">KB (Kelompok Bermain)</option>
+                                  <option value="tk">TK (Tamakan Kanak-kanak)</option>
+                                  <option value="tpa">TPA (Taman Penitipan Anak)</option>
+                                </select>
+                              </div>
+                        </div>
 
+                        <div class="col-md-4">
+                            <div class=" form-group">
+                                <label>Filter Status</label>
+                                <select  name="filter_status_pendaftaran" class="filter_status_pendaftaran form-control">
+                                <option value="">Semua</option>
+                                  <option value="diproses">diproses</option>
+                                  <option value="disetujui">disetujui</option>
+                                  <option value="ditolak"> ditolak</option>
+                                </select>
+                              </div>
+                        </div>
+                 
+                    </div>
+
+             
+                      
+                      
+                
+                    
+                </div>
                 <div class="tbl_pendaftaran">
                     <table id="tbl_pendaftaran" class="table-bordered table table-hover row-border nowrap"
                       style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
@@ -65,12 +98,18 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
+    let filter_jenis_pendaftaran, filter_status_pendaftaran;
     let tbl_pendaftaran = $("#tbl_pendaftaran").DataTable({
             processing: true,
             deferRender: true,
             serverSide: true,
-            ajax: `{{ url('admin/pendaftaran/')}}`,
+            ajax: {
+            url: `{{ url('admin/pendaftaran/')}}`,
+                data: function (e) {
+                    e.jenis_pendaftaran = filter_jenis_pendaftaran,
+                    e.status_pendaftaran = filter_status_pendaftaran
+                }
+            },
             columns: [{
                     data: "DT_RowIndex",
                     orderable: false,
@@ -92,6 +131,18 @@
 
         });
 
+    
+        $('.filter_jenis_pendaftaran').on('change', function () {
+           filter_jenis_pendaftaran = $('.filter_jenis_pendaftaran').val();
+           
+            tbl_pendaftaran.draw();
+        });
+
+        $('.filter_status_pendaftaran').on('change', function () {
+           filter_status_pendaftaran = $('.filter_status_pendaftaran').val();
+            tbl_pendaftaran.draw();
+        });
+
          //destroy
          $(document).on('click', '.btn_delete', function (e) {
             e.preventDefault();
@@ -110,13 +161,14 @@
                 if (result.value) {
                     $.ajax({
                         url: url,
-                        type: 'DELETE',
+                        type: 'POST',
                         success: function(data, textStatus, jqXHR) {
-                            tbl_pendaftaran.draw();
+                            // tbl_pendaftaran.draw();
+                            tbl_pendaftaran.ajax.reload(null, false);
                             toastr.success('Data Berhasil Dihapus');
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
-                            toastr.success('Data Gagal Dihapus'+errorThrown);
+                            toastr.success('Data Gagal Dihapus'+ jqXHR.error);
                         }
                     });
                 }
