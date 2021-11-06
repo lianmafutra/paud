@@ -24,7 +24,7 @@
             <div class="card-body">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class=" form-group">
                                 <label>Filter Jenis Pendaftaran</label>
                                 <select  name="filter_jenis_pendaftaran" class="filter_jenis_pendaftaran form-control">
@@ -36,7 +36,7 @@
                               </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class=" form-group">
                                 <label>Filter Status</label>
                                 <select  name="filter_status_pendaftaran" class="filter_status_pendaftaran form-control">
@@ -45,6 +45,11 @@
                                   <option value="disetujui">disetujui</option>
                                   <option value="ditolak"> ditolak</option>
                                 </select>
+                              </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class=" form-group">
+                                 <a href="javascript:void(0)"><button type="button" style="margin-top: 26px" class="btn_reset_filter btn btn-primary waves-effect waves-light">Reset</button></a>
                               </div>
                         </div>
                  
@@ -134,12 +139,20 @@
     
         $('.filter_jenis_pendaftaran').on('change', function () {
            filter_jenis_pendaftaran = $('.filter_jenis_pendaftaran').val();
-           
             tbl_pendaftaran.draw();
         });
 
         $('.filter_status_pendaftaran').on('change', function () {
            filter_status_pendaftaran = $('.filter_status_pendaftaran').val();
+            tbl_pendaftaran.draw();
+        });
+
+        $(".btn_reset_filter").click(function(e) {
+            e.preventDefault();
+            filter_jenis_pendaftaran = "";
+            filter_status_pendaftaran = "";
+            $('.filter_jenis_pendaftaran').prop('selectedIndex',0);
+            $('.filter_status_pendaftaran').prop('selectedIndex',0);
             tbl_pendaftaran.draw();
         });
 
