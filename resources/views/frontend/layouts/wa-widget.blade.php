@@ -1,8 +1,8 @@
 <div id='whatsapp-chat' class='hide'>
   <div class='header-chat'>
     <div class='head-home'>
-      <div class='info-avatar'><img src='https://files.elfsight.com/storage/9274ed8b-a2e8-4cf8-a4cf-fad383377f2b/7b75090c-19a2-452b-9d6b-c2a51ad4916f.jpeg' /></div>
-      <p><span class="whatsapp-name">Admin</span><br><small>Typically replies within an hour</small></p>
+      <div class='info-avatar'><img src='{{ asset('image/admin.png') }}' /></div>
+      <p><span class="whatsapp-name">Admin </span><br><small>Typically replies within an hour</small></p>
 
     </div>
     <div class='get-new hide'>
@@ -24,8 +24,8 @@
           </div>
         </div>
         <div style="opacity: 1;" class="WhatsappChat__Message-sc-1wqac52-4 kAZgZq">
-          <div class="WhatsappChat__Author-sc-1wqac52-3 bMIBDo">Admin</div>
-          <div class="WhatsappChat__Text-sc-1wqac52-2 iSpIQi">Hi there 👋<br><br>Ada yang bisa kami bantu ?</div>
+          <div class="WhatsappChat__Author-sc-1wqac52-3 bMIBDo">Admin MECCAZIA JUNIOR</div>
+          <div class="WhatsappChat__Text-sc-1wqac52-2 iSpIQi">Hi there 👋<br><br>Tim CS kami ada di sini untuk menjawab pertanyaan Anda. Tanya kami apa saja </div>
           {{-- <div class="WhatsappChat__Time-sc-1wqac52-5 cqCDVm">1:40</div> --}}
         </div>
       </div>

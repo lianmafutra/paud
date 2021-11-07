@@ -49,6 +49,8 @@ Route::post('pendaftaran/destroy/{id}', 'PendaftaranController@destroy');
 Route::get('pendaftaran/detail/{id}', 'PendaftaranController@detail');
 Route::post('pendaftaran/update-status/', 'PendaftaranController@updateStatus');
 
+Route::resource('tahun-ajaran', 'TahunAjaranController');
+
 });
 Route::group(['prefix' => 'profil',], function () {
     Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');

@@ -48,21 +48,29 @@
             </a>
             <ul class="nav nav-treeview" style="display: {{ Request::is('admin/pendaftaran*') ? 'block' : 'none' }};">
               <li class="nav-item">
+                <a href="{{ route('tahun-ajaran.index') }}" class="nav-link ">
+                  <i class="nav-icon far fa-file"></i>
+                  <p>
+                   Tahun Ajaran
+                  </p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
                 <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
                   <i class="nav-icon far fa-file"></i>
                   <p>
                     Pendaftaran Masuk
                   </p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
                   <i class="nav-icon far fa-file"></i>
                   <p>
                   Atur Waktu Pendaftaran
                   </p>
                 </a>
-              </li>
+              </li> --}}
 
             </ul>
           </li>

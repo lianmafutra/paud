@@ -22,7 +22,7 @@
               </h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            {{-- <div class="card-body">
             
             
               <div class="callout callout-warning">
@@ -35,13 +35,17 @@
               
               </div>
              
-            </div>
+            </div> --}}
             <!-- /.card-body -->
           </div>
         <div class="card">
             <div class="card-header">
-                <h3 style="padding-top: 10px" class="card-title">
-                    <i class="fas fa-chart-pie mr-1"></i>Data Pendaftaran</h3>
+                <h2 style="padding-top: 10px" class="card-title">
+                    <i class="fas fa-chart-pie mr-1"></i>
+                    <strong>
+                      Data Pendaftaran Tahun Ajaran {{ $tahun_ajaran->priode_tahun }} ({{ $tahun_ajaran->priode_bulan }})
+                    </strong>
+                    </h2>
                {{-- <a href="{{ route('slider.create') }}"><button type="button" class="btn_tambah btn btn-primary waves-effect waves-light"
                     style="float:right ;right: 10px; z-index: 40">Tambah ...</button></a> --}}
             </div>
@@ -131,7 +135,7 @@
             deferRender: true,
             serverSide: true,
             ajax: {
-            url: `{{ url('admin/pendaftaran/')}}`,
+            url: "/admin/tahun-ajaran/"+{!! json_encode($tahun_ajaran->id) !!},
                 data: function (e) {
                     e.jenis_pendaftaran = filter_jenis_pendaftaran,
                     e.status_pendaftaran = filter_status_pendaftaran

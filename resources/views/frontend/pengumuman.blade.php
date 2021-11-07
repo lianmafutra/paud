@@ -25,8 +25,10 @@
           <div class="mu-about-us-area">
             <div class="row">
               <div class="col-lg-12 col-md-12">
-                <div class="mu-about-us-left">
-                 
+                <div style=" text-align: center " class="mu-about-us-left">
+                 <h4>
+                  <span>Hasil Seleksi Penerimaan Siswa Baru KB (Kelompok Bermain) dan TK (Taman Kanak-Kanak) <br><br>akan di umumkan pada tanggal 09-11-2021</span>  
+                </h4>
                 </div>
               </div>
 
