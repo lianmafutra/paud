@@ -231,7 +231,11 @@ jQuery(function($){
 
     jQuery(window).scroll(function(){
       if (jQuery(this).scrollTop() > 300) {
-        jQuery('.scrollToTop').fadeIn();
+        if($("#whatsapp-chat").is(":visible")){
+        }else{
+          jQuery('.scrollToTop').fadeIn();
+        }
+       
       } else {
         jQuery('.scrollToTop').fadeOut();
       }

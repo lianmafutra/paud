@@ -9,7 +9,9 @@
   <!-- Fancybox slider -->
   <link rel="stylesheet" href="{{ URL::asset('template/assets/css/jquery.fancybox.css')}}" type="text/css" media="screen" /> 
   <!-- Theme color -->
-  <link id="switcher" href="{{ URL::asset('template/assets/css/theme-color/default-theme.css')}}" rel="stylesheet">          
+  <link id="switcher" href="{{ URL::asset('template/assets/css/theme-color/default-theme.css')}}" rel="stylesheet">        
+  
+  <link href="{{ URL::asset('plugins/wa-widget/wa.scss')}}" rel="stylesheet">     
 
   <!-- Main style sheet -->
   <link href="{{ URL::asset('template/assets/css/style.css')}}" rel="stylesheet">    

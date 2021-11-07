@@ -55,6 +55,14 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
+                  <i class="nav-icon far fa-file"></i>
+                  <p>
+                  Atur Waktu Pendaftaran
+                  </p>
+                </a>
+              </li>
 
             </ul>
           </li>

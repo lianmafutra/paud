@@ -14,6 +14,30 @@
 
 <div style="padding-top: 20px" class="row">
     <section class="col-lg-12 ">
+        <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title">
+                <i class="fas fa-bullhorn"></i>
+                Informasi Pendaftaran
+              </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+            
+            
+              <div class="callout callout-warning">
+
+              
+               - Pendaftaran Masuk : <span style="font-size: 17px"><strong>{{ $total }} </strong></span>Siswa ( KB = 20  , TK = 20 , TPA = 20 ) <br>
+               - Diproses : <span style="font-size: 17px"><strong>{{ $jumlah_diproses }} </strong></span>Siswa<br>
+               - Diterima : <span style="font-size: 17px"><strong>{{ $jumlah_diterima }} </strong></span>Siswa<br>
+               - Ditolak :  <span style="font-size: 17px"><strong>{{ $jumlah_ditolak }} </strong></span>Siswa<br>
+              
+              </div>
+             
+            </div>
+            <!-- /.card-body -->
+          </div>
         <div class="card">
             <div class="card-header">
                 <h3 style="padding-top: 10px" class="card-title">
@@ -21,6 +45,7 @@
                {{-- <a href="{{ route('slider.create') }}"><button type="button" class="btn_tambah btn btn-primary waves-effect waves-light"
                     style="float:right ;right: 10px; z-index: 40">Tambah ...</button></a> --}}
             </div>
+         
             <div class="card-body">
                 <div class="col-md-12">
                     <div class="row">
@@ -42,22 +67,19 @@
                                 <select  name="filter_status_pendaftaran" class="filter_status_pendaftaran form-control">
                                 <option value="">Semua</option>
                                   <option value="diproses">diproses</option>
-                                  <option value="disetujui">disetujui</option>
+                                  <option value="diterima">diterima</option>
                                   <option value="ditolak"> ditolak</option>
                                 </select>
                               </div>
                         </div>
                         <div class="col-md-2">
                             <div class=" form-group">
-                                 <a href="javascript:void(0)"><button type="button" style="margin-top: 26px" class="btn_reset_filter btn btn-primary waves-effect waves-light">Reset</button></a>
+                                 <a href="javascript:void(0)"><button type="button" style="margin-top: 26px" class="btn_reset_filter btn btn-secondary waves-effect waves-light">Reset</button></a>
                               </div>
                         </div>
                  
                     </div>
 
-             
-                      
-                      
                 
                     
                 </div>
@@ -123,7 +145,21 @@
                 {data : 'kode_pendaftaran'},
                 {data : 'status_pendaftaran'},
                 {data: "nama_lengkap"},
-                {data: "jenis_pendaftaran"},
+                {
+                    data: "jenis_pendaftaran" ,  
+                    render: function (data) {
+                        if(data=="kb"){
+                          return "KB";  
+                        }
+                        if(data=="tk"){
+                          return "TK";  
+                        }
+                        if(data=="tpa"){
+                          return "TPA";  
+                        }
+                }
+                },
+            
                 {data:"created_at"},
                 {
                     data: "action",

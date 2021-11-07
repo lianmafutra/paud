@@ -19,9 +19,17 @@
         <div class="card">
             <div class="card-header">
                 <h3 style="padding-top: 10px" class="card-title">
-                    <i class="fas fa-chart-pie mr-1"></i>Detail Pendaftaran <strong> ( {{ $pendaftaran->kode_pendaftaran }} )</strong></h3>
-           
+                    <i class="fas fa-chart-pie mr-1"></i>Detail Pendaftaran 
+                    <strong> ( {{ $pendaftaran->kode_pendaftaran }} )</strong>
+                   - Status Pendaftaran  :  <span style="font-weight: bold; color: blue">{{ $pendaftaran->status_pendaftaran }} </span><br> 
+                </h3>
+                    <a href=""><button type="button" class="btn_tolak btn btn-danger waves-effect waves-light"
+                        style="float:right ;right: 10px; z-index: 40">Tolak</button></a>
+                    <a href=""><button type="button" class="btn_setujui btn btn-success waves-effect waves-light"
+                        style="float:right ; margin-right: 3px; right: 10px; z-index: 40">Setujui</button></a>
+                      
             </div>
+           
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -33,11 +41,11 @@
                             </div>
                            
                             <div style="font-size: 15px" class="card-body">
-                                Kode Pendaftaran : {{ $pendaftaran->kode_pendaftaran }} <br></p>
+                                Kode Pendaftaran : {{ $pendaftaran->kode_pendaftaran }} <br>
                                 Tanggal Pendaftaran : {{ $pendaftaran->created_at }} <br>
                                 Jenis Pendaftaran   : {{ $pendaftaran->jenis_pendaftaran }} <br>
-                                Status Pendaftaran  : {{ $pendaftaran->status_pendaftaran }} <br> 
-                                File Akte Kelahiran :  <a href="{{ url('admin/pendaftaran/detail', $pendaftaran->id) }}"><button data-file="akte" type="button" class="btn_preview btn btn-success waves-effect waves-light "><i class="fas fa-edit"> Detail</i></i></button></a> <br> 
+                            
+                                File Akte Kelahiran :  <a href="{{ url('admin/pendaftaran/detail', $pendaftaran->id) }}"><button data-file="akte" type="button" style="margin-top: 2px" class="btn_preview btn btn-success waves-effect waves-light "><i class="fas fa-edit"> Detail</i></i></button></a> <br> 
                                 File KK (Kartu Keluarga) :   <a  href="{{ url('admin/pendaftaran/detail', $pendaftaran->id) }}"><button  data-file="kk" style="margin-top: 2px" type="button" class="btn_preview btn btn-success waves-effect waves-light "><i class="fas fa-edit"> Detail</i></i></button></a>
                             </div>
                         </div>
@@ -180,6 +188,15 @@
 <script src="{{ URL::asset('plugins/lightgallery/js/lg-rotate.min.js')}}"></script>
 <script>
     
+
+    let status_pendaftaran =  {!! json_encode($pendaftaran->status_pendaftaran) !!} ;
+    if(status_pendaftaran=="diterima"){
+        $(".btn_setujui").css('display','none');
+    }else{
+
+    }
+
+
     $(".btn_preview").click(function(e) {
         e.preventDefault();
      
@@ -195,6 +212,66 @@
 
     lightGallery(document.getElementById('lightgallery'), {
         selector: 'a' 
+    });
+
+    $(".btn_setujui").click(function(e) {
+        e.preventDefault();
+            Swal.fire({
+                title: 'Apakah anda yakin Menyetujui Pendaftaran ',
+                html: "<strong><h2>"+ {!! json_encode($pendaftaran->kode_pendaftaran) !!}+"</h2></strong><h2>("+{!! json_encode($pendaftaran->nama_lengkap) !!}+")</h2>",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Setujui',
+                cancelButtonText: 'Batal'
+                }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: '{{ url("admin/pendaftaran/update-status/") }}',
+                        data: {
+                            id: {!! json_encode($pendaftaran->id) !!}, 
+                            status_pendaftaran: "diterima"},
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR) {
+                            location.reload();
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            toastr.success('Pendaftaran Gagal Disetujui'+ jqXHR.error);
+                        }
+                    });
+                }
+                });
+    });
+
+    $(".btn_tolak").click(function(e) {
+        e.preventDefault();
+            Swal.fire({
+                title: 'Apakah anda yakin Menolak Pendaftaran ',
+                html: "<strong><h2>"+ {!! json_encode($pendaftaran->kode_pendaftaran) !!}+"</h2></strong><h2>("+{!! json_encode($pendaftaran->nama_lengkap) !!}+")</h2>",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Tolak',
+                cancelButtonText: 'Batal'
+                }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: '{{ url("admin/pendaftaran/update-status/") }}',
+                        data: {
+                            id: {!! json_encode($pendaftaran->id) !!}, 
+                            status_pendaftaran: "ditolak"},
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR) {
+                           location.reload();
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            toastr.success('Pendaftaran Gagal Disetujui'+ jqXHR.error);
+                        }
+                    });
+                }
+                });
     });
 
 </script>

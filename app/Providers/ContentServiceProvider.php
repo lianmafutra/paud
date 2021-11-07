@@ -26,9 +26,11 @@ class ContentServiceProvider extends ServiceProvider
     {
 
         $this->data_paud = DataPaud::first();
-
+     
         view()->composer('frontend.layouts.master', function($view) {
             $view->with(['contents' => $this->data_paud]);
         });
+
+
     }
 }

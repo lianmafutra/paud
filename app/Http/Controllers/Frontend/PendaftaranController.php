@@ -67,9 +67,9 @@ class PendaftaranController extends Controller
             }
             
         }
-       
-        
+    }
 
-
+    public function pengumuman(){
+        return view('frontend.pengumuman');
     }
 }
