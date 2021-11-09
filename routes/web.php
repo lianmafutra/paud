@@ -74,4 +74,5 @@ Route::group(['prefix' => 'pendaftaran',], function () {
     Route::get('proses/{jenis}/{paket_tpa}', 'Frontend\\PendaftaranController@prosesPendaftaran');
     Route::post('kirim', 'Frontend\\PendaftaranController@kirimPendaftaran');
     Route::get('pengumuman', 'Frontend\\PendaftaranController@pengumuman');
+    Route::get('pengumuman/detail/{id}', 'Frontend\\PendaftaranController@pengumumanDetail');
 });

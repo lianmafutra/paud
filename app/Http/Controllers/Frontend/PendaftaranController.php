@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\PaketTPA;
 use App\Pendaftaran;
+use App\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -70,6 +71,12 @@ class PendaftaranController extends Controller
     }
 
     public function pengumuman(){
-        return view('frontend.pengumuman');
+        $tahun_ajaran = TahunAjaran::latest()->get();
+        return view('frontend.pengumuman', compact(['tahun_ajaran']));
+    }
+
+    public function pengumumanDetail($id){
+        // $tahun_ajaran = TahunAjaran::latest()->get();
+        return view('frontend.pengumuman_detail');
     }
 }
