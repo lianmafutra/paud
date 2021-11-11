@@ -1,12 +1,23 @@
 @extends('frontend.layouts.master')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-@push("css")
-  <link rel="stylesheet" href="{{ URL::asset("plugins/datatables-bs4/css/dataTables.bootstrap4.min.css") }}">
-  <link rel="stylesheet" href="{{ URL::asset("plugins/datatables-responsive/css/responsive.bootstrap4.min.css") }}">
-  <link rel="stylesheet" href="{{ URL::asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
-  <link rel="stylesheet"href="{{ URL::asset("plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css") }}">
-  <link rel="stylesheet" href="{{ URL::asset("plugins/select2/css/select2.min.css")}}">
-  <link rel="stylesheet" href="{{ URL::asset("plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
+@push('css')
+    <link rel="stylesheet" href="{{ URL::asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ URL::asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <style>
+        .filter-form {
+  margin-bottom: 30px;
+}
+
+.filter-form div {
+  margin-bottom: 10px;
+}
+
+    </style>
 @endpush()
 @section('content')
     <section id="mu-page-breadcrumb">
@@ -33,6 +44,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div style=" text-align: center " class="mu-about-us-left">
+                                    <span  style="font-size:20px; margin-bottom: 20px">Berikut adalah hasil nama nama siswa yang lolos seleksi tahun ajaran: {{ $tahun_ajaran->priode_tahun }} </span>
                                     <h4>
                                         <!-- CSS Code: Place this code in the document's head (between the <head> -- </head> tags) -->
                                         <style>
@@ -87,21 +99,32 @@
 
                                         </style>
 
-                                        <span>Berikut adalah hasil nama nama siswa yang lolos seleksi : </span>
-                                        <div style="margin-top: 40px" class="table-responsive">
-                                          <table id="tabel_berita" class="table-bordered table table-hover row-border nowrap"
-                                            style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
-                                            <thead style="background-color: #f1f1f1">
-                                              <tr>
-                                                   <th>No</th>
-                                                    <th>Kode Pendaftaran</th>
-                                                   <th>Nama</th>
-                                                   <th>Alamat</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                          </table>
+
+                                        <div style="overflow-y: hidden;"  class="table-responsive">
+                                            <table  id="tabel_pengumuman_detail"
+                                                class="table-bordered table table-hover row-border"
+                                                style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
+                                                <thead style="background-color: #f1f1f1">
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Kode Pendaftaran</th>
+                                                        <th style="min-width: 200px">Nama Siswa</th>
+                                                        <th>Tanggal Lahir</th>
+                                                        <th>Alamat</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($pendaftaran as $index => $item)
+                                                        <tr>
+                                                            <td>{{ $index+1 }}</td>
+                                                            <td>{{ $item->kode_pendaftaran }}</td>
+                                                            <td>{{ $item->nama_lengkap }}</td>
+                                                            <td>{{ $item->tanggal_lahir }}</td>
+                                                            <td>{{ $item->alamat }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </h4>
                                 </div>
@@ -115,44 +138,63 @@
     </section>
 
 @endsection
-@push("js")
-<script src="{{ URL::asset("plugins/datatables/jquery.dataTables.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/datatables-bs4/js/dataTables.bootstrap4.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/datatables-responsive/js/dataTables.responsive.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/datatables-responsive/js/responsive.bootstrap4.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/bs-custom-file-input/bs-custom-file-input.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/jquery-validation/jquery.validate.min.js")}}"></script>
-<script src="{{ URL::asset("plugins/jquery-validation/additional-methods.min.js")}}"></script>
-<script src="{{ URL::asset("plugins/select2/js/select2.full.min.js")}}"></script>
-<script src="{{ URL::asset("plugins/moment/moment.min.js") }}"></script>
-<script src="{{ URL::asset("plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js") }}"></script>
-<script>
-     });
+@push('js')
 
-let table_berita = $("#tabel_berita").DataTable({
-    processing: true,
-    deferRender: true,
-    serverSide: true,
-    ajax: `{{ route('berita.index')}}`,
-    columns: [{
-            data: "DT_RowIndex",
-            orderable: false,
-            searchable: false
-        },
-        {data : 'judul'},
 
-         {
-            data: "created_at",
-        },
+    <script src="{{ URL::asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ URL::asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script>
 
-        {
-            data: "action",
-            orderable: false,
-            searchable: false,
-            width: "40px"
+    $('#tabel_pengumuman_detail').dataTable( {
+        searching: true,
+        paginate: false,
 
-        },
-    ]
+    } );
 
-});
-</script>
+
+            // DataTable
+            // alert();
+
+        // let tabel_pengumuman_detail = $("#tabel_pengumuman_detail").DataTable({
+        //     processing: true,
+        //     deferRender: true,
+        //     serverSide: true,
+        //     paginate: false,
+        //     info: false,
+
+        //     ajax : "{{ url('pendaftaran/pengumuman/detail/') }}",
+        //     columns: [{
+        //             data: "DT_RowIndex",
+        //             orderable: false,
+        //             searchable: false
+        //         },
+        //         {
+        //             data: 'kode_pendaftaran'
+        //         },
+        //         {
+        //             data: 'nama_lengkap'
+        //         },
+        //         {
+        //             data: 'tanggal_lahir'
+        //         },
+        //         {
+        //             data: 'alamat',
+        //         },
+        //     ]
+
+        // });
+
+
+
+
+    </script>
+
+@endpush

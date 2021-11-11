@@ -52,6 +52,7 @@ Route::post('pendaftaran/update-status/', 'PendaftaranController@updateStatus');
 Route::resource('tahun-ajaran', 'TahunAjaranController');
 
 });
+
 Route::group(['prefix' => 'profil',], function () {
     Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');
     Route::get('/latar-belakang', 'Frontend\\HomeController@latarBelakang');
@@ -62,13 +63,12 @@ Route::get('/', 'Frontend\\HomeController@index');
 Route::get('/artikel/detail/{id}', 'Frontend\\HomeController@artikelDetail');
 Route::get('/artikel', 'Frontend\\HomeController@artikel');
 
-
 Route::get('/galeri', 'Frontend\\HomeController@galeri');
 Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
 
 Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
 
-Route::group(['prefix' => 'pendaftaran',], function () {
+Route::group(['prefix' => 'pendaftaran'], function () {
     Route::get('pilih', 'Frontend\\PendaftaranController@pilihPendaftaran');
     Route::get('proses/{jenis}', 'Frontend\\PendaftaranController@prosesPendaftaran');
     Route::get('proses/{jenis}/{paket_tpa}', 'Frontend\\PendaftaranController@prosesPendaftaran');

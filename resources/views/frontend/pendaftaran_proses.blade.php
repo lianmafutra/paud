@@ -79,6 +79,10 @@
                                         <input hidden name="jenis_pendaftaran" type="text" class="form-control"
                                             value="{{ $jenis }}">
                                     </div>
+                                    <div style="display: none" class="form-group">
+                                        <input hidden name="tahun_ajaran_id" type="text" class="form-control"
+                                            value="{{ $tahun_ajaran->id }}">
+                                    </div>
 
 
                                     <div style="display: none" class="form_paket_tpa form-group">
@@ -362,7 +366,7 @@
                 <h3 class="modal-title">
                     <center><strong>Anda Telah Berhasil Mendaftar</strong></center>
                 </h3>
-              
+
             </div>
             <div class="modal-body">
                 <center>Berikut adalah Nomor Pendaftaran Anda : </center><br>
@@ -423,7 +427,7 @@
             if(("#form_pendaftaran").valid()){
 
 
-             
+
                 let timerInterval
             Swal.fire({
                 title: 'Mohon Tunggu',
@@ -441,9 +445,9 @@
                     $("#form_pendaftaran").submit();
                 }
             })
-              
+
             }
-           
+
         });
 
         const kode_pendaftaran = {!! json_encode(session()->get('kode_pendaftaran')) !!};
@@ -492,11 +496,11 @@
         }
 
         if (jenis == 'kb') {
-           
+
         }
         if (jenis == 'tk') {
             $('#jenis_tk').css('display','block');
-          
+
         }
         if (jenis == 'tpa') {
             $('.form_paket_tpa').css('display','block');
@@ -514,8 +518,8 @@
                   .appendTo("body")[0].click()
                 }
   });
-     
-  
+
+
         });
         $("#btn_halaman_pengumuman").click(function(e) {
 
@@ -531,7 +535,7 @@
             }
             if (jenis == 'tpa') {
                 localStorage.removeItem('kode_pendaftaran_tpa');
-              
+
             }
             } else {
                 location.reload();
@@ -539,7 +543,7 @@
         });
 
 });
-  
+
 
 </script>
 
