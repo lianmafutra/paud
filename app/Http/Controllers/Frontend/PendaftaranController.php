@@ -83,8 +83,7 @@ class PendaftaranController extends Controller
     }
 
     public function pengumumanDetail(Request $request, $id){
-
-        $tahun_ajaran = TahunAjaran::find($request->segment(4))->first();
+        $tahun_ajaran = TahunAjaran::find($request->segment(4));
         $pendaftaran = Pendaftaran::where('tahun_ajaran_id', $request->segment(4))->latest()->get();
         return view('frontend.pengumuman_detail', compact('pendaftaran','tahun_ajaran'));
     }

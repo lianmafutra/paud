@@ -17,6 +17,62 @@
   margin-bottom: 10px;
 }
 
+/* search */
+
+
+
+
+.search {
+    margin: auto;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+  width: 60%;
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 10px;
+
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+    padding: 10px;
+  width: 40px;
+  height: 48px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#tabel_pengumuman_detail_filter {
+    display: none;
+}
     </style>
 @endpush()
 @section('content')
@@ -100,7 +156,15 @@
                                         </style>
 
 
+
+
                                         <div style="overflow-y: hidden;"  class="table-responsive">
+                                            <div class="search">
+                                                <input type="text" id="myInputTextField" class="searchTerm" placeholder="Cari Nama Siswa Disini...">
+                                                <button type="submit" class="searchButton">
+                                                  <i class="fa fa-search"></i>
+                                               </button>
+                                             </div>
                                             <table  id="tabel_pengumuman_detail"
                                                 class="table-bordered table table-hover row-border"
                                                 style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
@@ -153,11 +217,17 @@
     <script src="{{ URL::asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script>
 
-    $('#tabel_pengumuman_detail').dataTable( {
+  let tabel = $('#tabel_pengumuman_detail').DataTable( {
         searching: true,
         paginate: false,
+        info: false,
 
     } );
+
+    // oTable = $('#tabel_pengumuman_detail').DataTable();   //pay attention to capital D, which is mandatory to retrieve "api" datatables' object, as @Lionel said
+$('#myInputTextField').keyup(function(){
+    tabel.search($(this).val()).draw() ;
+})
 
 
             // DataTable
