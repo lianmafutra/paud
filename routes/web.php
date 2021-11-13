@@ -50,6 +50,7 @@ Route::get('pendaftaran/detail/{id}', 'PendaftaranController@detail');
 Route::post('pendaftaran/update-status/', 'PendaftaranController@updateStatus');
 
 Route::resource('tahun-ajaran', 'TahunAjaranController');
+Route::post('tahun-ajaran/selesai/{id}', 'TahunAjaranController@selesai');
 
 });
 

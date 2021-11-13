@@ -98,7 +98,13 @@
       <tr>
         <td  style="text-align: center">{{ $item+1 }}</td>
         <td  style="text-align: center">{{ $value->priode_tahun }} ( {{ $value->priode_bulan }} )</td>
+
+        @if ($value->status_pengumuman=="selesai")
         <td style="text-align: center"><a href="{{ url('pendaftaran/pengumuman/detail/'.$value->id) }}"><button style="bac" class="button2">Lihat Hasil</button></a></td>
+        @else
+        <td style="text-align: center"><a href=""><button disabled style="" class="">Menunggu</button></a></td>
+        @endif
+      
       </tr>
       @endforeach
 

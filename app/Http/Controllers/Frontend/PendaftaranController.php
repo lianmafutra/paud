@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\PaketTPA;
 use App\Pendaftaran;
 use App\TahunAjaran;
+use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-
-use Throwable;
 
 class PendaftaranController extends Controller
 {
@@ -31,7 +31,7 @@ class PendaftaranController extends Controller
         try {
 
             $input = $request->all();
-
+         
 
             $last_id = Pendaftaran::latest()->first();
             $last_id = $last_id->id+1;
@@ -60,7 +60,7 @@ class PendaftaranController extends Controller
             return redirect()->back()->with( ['kode_pendaftaran' => $kode_pendaftaran, 'jenis_pendaftaran' => $request->jenis_pendaftaran] );
 
 
-        } catch(\Illuminate\Database\QueryException $e){
+        } catch(QueryException $e){
             $errorCode = $e->errorInfo[1];
             if($errorCode == '1062'){
                 $last_id = Pendaftaran::latest()->first();
@@ -68,12 +68,12 @@ class PendaftaranController extends Controller
                 $kode_pendaftaran = $request->jenis_pendaftaran.'-'.$last_id.'-'.Carbon::now()->format('d').Carbon::now()->format('m').Carbon::now()->format('y');
                 $request->request->add(['kode_pendaftaran' =>  $kode_pendaftaran]);
                 $pendaftaran = Pendaftaran::create($request->all());
-
                 return redirect()->back()->with( ['kode_pendaftaran' => $kode_pendaftaran, 'jenis_pendaftaran' => $request->jenis_pendaftaran] );
+            }else{
+                return back()->with('error', $e->getMessage());
             }
-
-        } catch(Throwable $e){
-            dd($e);
+        } catch(Exception $e){
+            return back()->with('error', $e->getMessage());
         }
     }
 
@@ -84,7 +84,7 @@ class PendaftaranController extends Controller
 
     public function pengumumanDetail(Request $request, $id){
         $tahun_ajaran = TahunAjaran::find($request->segment(4));
-        $pendaftaran = Pendaftaran::where('tahun_ajaran_id', $request->segment(4))->latest()->get();
+        $pendaftaran = Pendaftaran::where('status_pendaftaran','diterima')->where('tahun_ajaran_id', $request->segment(4))->latest()->get();
         return view('frontend.pengumuman_detail', compact('pendaftaran','tahun_ajaran'));
     }
 }

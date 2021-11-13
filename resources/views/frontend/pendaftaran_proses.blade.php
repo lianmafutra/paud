@@ -68,7 +68,11 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="mu-title">
-                            {{-- <h3>Pilih Jenis Pendaftaran</h3><br> --}}
+                            @if(session()->has('error'))
+                                <div class="alert alert-danger">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                         </div>
                         <div style="margin-top: 20px">
                             <form id="form_pendaftaran" method="POST" action="{{ url('pendaftaran/kirim') }}" enctype="multipart/form-data">
@@ -86,13 +90,13 @@
                                     </div>
 
 
-                                    <div style="display: none" class="form_paket_tpa form-group">
+                                    <div  style="display: none" class="form_paket_tpa form-group">
                                         <p>Paket TPA Junior <span class="simbol_wajib">*</span></p>
-                                        <input  type="text" class="form-control"
+                                        <input readonly="readonly"  type="text" class="form-control"
                                             value="{{ $data->nama ?? ""}}">
                                     </div>
 
-                                    <div style="display: none" class="form_paket_tpa form-group">
+                                    <div style="display: none" class="form_paket_tpa_id form-group">
                                         <p>Paket TPA Junior <span class="simbol_wajib">*</span></p>
                                         <input  name="paket_tpa_id" type="text" class="form-control"
                                             value="{{ $data->id ?? ""}}">
@@ -115,10 +119,11 @@
                                         <input required name="tanggal_lahir" type="date" class="form-control">
                                     </div>
 
+
                                     <div style="display: none" id="jenis_tk" class="form-group">
                                         <p for="exampleFormControlSelect12">Jenis TK<span class="simbol_wajib">*</span>
                                         </p>
-                                        <select required name="jenis_tk" class="form-control" id="exampleFormControlSelect12">
+                                        <select @if ($jenis == 'tk') required @endif  name="jenis_tk" class="form-control" id="exampleFormControlSelect12">
                                             <option value="" hidden>Pilih Jenis TK sesuai umur anak</option>
                                             <option value="A">TK A (Untuk Umur 3-4 Tahun)</option>
                                             <option value="B">TK B (Untuk Umur 5-6 Tahun)</option>

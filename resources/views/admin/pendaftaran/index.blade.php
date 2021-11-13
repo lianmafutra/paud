@@ -196,6 +196,8 @@
             tbl_pendaftaran.draw();
         });
 
+      
+
          //destroy
          $(document).on('click', '.btn_delete', function (e) {
             e.preventDefault();

@@ -38,7 +38,7 @@
                       <thead style="background-color: #f1f1f1">
                         <tr>
                              <th   rowspan="2" style="max-width: 40px; vertical-align : middle;">No</th>
-                              <th  rowspan="2" style="text-align: center;  vertical-align : middle;" >Tahun Ajaran</th>
+                              <th  rowspan="2" style="text-align: center;  vertical-align : middle; max-width: 20px" >Tahun </th>
                               <th  rowspan="2" style=" vertical-align : middle;">Priode Bulan</th>
                               <th  rowspan="2"  style=" vertical-align : middle;">Kuota KB</th>
                               <th  rowspan="2" style=" vertical-align : middle;">Kuota TK</th>
@@ -124,7 +124,130 @@
 
         });
 
-    
+        
+
+        $(document).on('click', '.btn_selesai', function (e) {
+            e.preventDefault();
+            let data =  $('#tbl_tahun_ajaran').DataTable().row( $(this).parents('tr')).data();
+            let tahun_ajaran_id = $(this).data('id');
+            let url = $(this).data('url');
+            Swal.fire({
+                title: 'Apakah anda yakin ingin mengumumkan hasil pendaftaran tahun ajaran '+data.priode_tahun+' ?',
+                html: "<span style='color:red'>Pastikan seluruh pendaftaran masuk telah di verifikasi</span>",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Lanjutkan',
+                cancelButtonText: 'Batal'
+                }).then((result) => {
+                if (result.value) {
+                    // alert(tahun_ajaran_id);
+                    $.ajax({
+                        url: url,
+                        data:{
+                            status_pengumuman : "selesai"
+                        },
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR) {
+
+                            Swal.fire({
+                                icon: 'success',
+                                title: "Berhasil",
+                                text: jqXHR.responseJSON.message,
+                                showCancelButton: true,
+                                allowOutsideClick: false,
+                                confirmButtonText: 'Lihat Halaman Pengumuman',
+                                cancelButtonText: 'Ok'
+                                }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.open("/pendaftaran/pengumuman", '_blank').focus();
+                                }else{
+                                    location.reload();
+                                }
+                                })
+                          
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            if(jqXHR.responseJSON.error_code=='001'){
+                                Swal.fire({
+                                icon: 'error',
+                                title: "Gagal",
+                                text: jqXHR.responseJSON.message,
+                             });
+                            }else{
+                                Swal.fire({
+                                icon: 'error',
+                                title: jqXHR.responseJSON.message,
+                                text: 'Something went wrong!',
+                             });
+                            }
+                          
+                        }
+                    });
+                }
+                })
+        });
+
+        $(document).on('click', '.btn_batalkan', function (e) {
+            e.preventDefault();
+            let data =  $('#tbl_tahun_ajaran').DataTable().row( $(this).parents('tr')).data();
+            let tahun_ajaran_id = $(this).data('id');
+            let url = $(this).data('url');
+            Swal.fire({
+                title: 'Apakah anda yakin ingin membatalkan pengumuman hasil pendaftaran tahun ajaran '+data.priode_tahun+' ?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Batalkan',
+                cancelButtonText: 'Batal'
+                }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: url,
+                        data:{
+                            status_pengumuman : "proses"
+                        },
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: "Berhasil",
+                                text: jqXHR.responseJSON.message,
+                                showCancelButton: true,
+                                allowOutsideClick: false,
+                                confirmButtonText: 'Lihat Halaman Pengumuman',
+                                cancelButtonText: 'Ok'
+                                }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.open("/pendaftaran/pengumuman", '_blank').focus();
+                                }else{
+                                    location.reload();
+                                }
+                                })
+                          
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            if(jqXHR.responseJSON.error_code=='001'){
+                                Swal.fire({
+                                icon: 'error',
+                                title: "Gagal",
+                                text: jqXHR.responseJSON.message,
+                             });
+                            }else{
+                                Swal.fire({
+                                icon: 'error',
+                                title: jqXHR.responseJSON.message,
+                                text: 'Something went wrong!',
+                             });
+                            }
+                          
+                        }
+                    });
+                }
+                })
+        });
     
          //destroy
          $(document).on('click', '.btn_delete', function (e) {
