@@ -381,10 +381,12 @@
             <div class="modal-footer">
                 <center>
                     <button type="button" id="btn_download" class="btn btn-primary">Download</button>
-                    <button type="button" id="btn_halaman_pengumuman" class="btn btn-success">Halaman
-                        Pengumuman</button>
+                    <a href="/pendaftaran/pengumuman"> <button type="button" id="btn_halaman_pengumuman" class="btn btn-success">Halaman
+                        Pengumuman</button></a>
                     <button type="button" id="btn_daftar_ulang" class="btn btn-danger" data-dismiss="modal">Daftar
                         Ulang</button>
+                        <a href="/"> <button type="button" id="btn_halaman_pengumuman" class="btn btn-secondary">Beranda</button></a>
+                        
                 </center>
             </div>
         </div>

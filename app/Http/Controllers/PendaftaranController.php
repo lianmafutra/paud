@@ -15,7 +15,7 @@ class PendaftaranController extends Controller
         if (request()->ajax()) {
             $pendaftaran = Pendaftaran::latest()
             ->where('jenis_pendaftaran', 'LIKE', '%' . $request->jenis_pendaftaran . '%')
-            ->where('status_pendaftaran', 'LIKE', '%' . $request->status_pendaftaran . '%');;
+            ->where('status_pendaftaran', 'LIKE', '%' . $request->status_pendaftaran . '%');
             return datatables()->of($pendaftaran)
                 ->addIndexColumn()
                 ->addColumn('action', function($pendaftaran){

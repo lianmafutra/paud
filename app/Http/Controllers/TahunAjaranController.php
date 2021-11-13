@@ -69,7 +69,18 @@ class TahunAjaranController extends Controller
                 ->addColumn('action', function($pendaftaran){
                     return view('admin.pendaftaran.action', compact('pendaftaran'));
                  })
-                ->rawColumns(["action"])
+                 ->addColumn('status_pendaftaran', function($pendaftaran){
+                    if($pendaftaran->status_pendaftaran=='diterima'){
+                        return '<span class="badge badge-success right">'.$pendaftaran->status_pendaftaran.'</span>';
+                     }
+                     if($pendaftaran->status_pendaftaran=='diproses'){
+                        return '<span class="badge badge-info right">'.$pendaftaran->status_pendaftaran.'</span>';
+                    }
+                    if($pendaftaran->status_pendaftaran=='ditolak'){
+                         return '<span class="badge badge-danger right">'.$pendaftaran->status_pendaftaran.'</span>';
+                    }
+                 })
+                ->rawColumns(['action','status_pendaftaran'])
                 ->make(true);    
         }
         

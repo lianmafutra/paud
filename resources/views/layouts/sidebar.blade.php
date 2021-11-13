@@ -42,8 +42,8 @@
             <a href="#" class="nav-link   {{ Request::is('admin/pendaftaran*') ? 'active' : '' }}" >
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
-             Pendaftaran
-                <i class="right fas fa-angle-left"></i>
+                Data Pendaftaran
+                <span class="badge badge-info right">{{ $data_pendaftaran_notif }}</span>
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: {{ Request::is('admin/pendaftaran*') ? 'block' : 'none' }};">
@@ -51,7 +51,7 @@
                 <a href="{{ route('tahun-ajaran.index') }}" class="nav-link ">
                   <i class="nav-icon far fa-file"></i>
                   <p>
-                   Tahun Ajaran
+                    Data Pendaftaran
                   </p>
                 </a>
               </li>

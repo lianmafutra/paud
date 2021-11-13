@@ -10,69 +10,69 @@
     <link rel="stylesheet" href="{{ URL::asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <style>
         .filter-form {
-  margin-bottom: 30px;
-}
+            margin-bottom: 30px;
+        }
 
-.filter-form div {
-  margin-bottom: 10px;
-}
+        .filter-form div {
+            margin-bottom: 10px;
+        }
 
-/* search */
-
-
+        /* search */
 
 
-.search {
-    margin: auto;
-    padding: 10px 0px 10px 0px;
-    text-align: center;
-  width: 60%;
-  position: relative;
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
 
-.searchTerm {
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 10px;
 
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
-}
+        .search {
+            margin: auto;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            width: 60%;
+            position: relative;
+            display: flex;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
 
-.searchTerm:focus{
-  color: #00B4CC;
-}
+        .searchTerm {
+            width: 100%;
+            border: 3px solid #00B4CC;
+            border-right: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            color: #9DBFAF;
+        }
 
-.searchButton {
-    padding: 10px;
-  width: 40px;
-  height: 48px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
+        .searchTerm:focus {
+            color: #000000;
+        }
 
-/*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+        .searchButton {
+            padding: 10px;
+            width: 40px;
+            height: 48px;
+            border: 1px solid #00B4CC;
+            background: #00B4CC;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
 
-#tabel_pengumuman_detail_filter {
-    display: none;
-}
+        /*Resize the wrap to see the search bar change!*/
+        .wrap {
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #tabel_pengumuman_detail_filter {
+            display: none;
+        }
+
     </style>
 @endpush()
 @section('content')
@@ -100,7 +100,8 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div style=" text-align: center " class="mu-about-us-left">
-                                    <span  style="font-size:20px; margin-bottom: 20px">Berikut adalah hasil nama nama siswa yang lolos seleksi tahun ajaran: {{ $tahun_ajaran->priode_tahun }} </span>
+                                    <span style="font-size:20px; margin-bottom: 20px">Berikut adalah hasil nama nama siswa
+                                        yang lolos seleksi tahun ajaran: {{ $tahun_ajaran->priode_tahun }} </span>
                                     <h4>
                                         <!-- CSS Code: Place this code in the document's head (between the <head> -- </head> tags) -->
                                         <style>
@@ -158,14 +159,15 @@
 
 
 
-                                        <div style="overflow-y: hidden;"  class="table-responsive">
+                                        <div style="overflow-y: hidden;" class="table-responsive">
                                             <div class="search">
-                                                <input type="text" id="myInputTextField" class="searchTerm" placeholder="Cari Nama Siswa Disini...">
+                                                <input type="text" id="myInputTextField" class="searchTerm"
+                                                    placeholder="Cari Nama Siswa atau Kode Pendaftaran Disini...">
                                                 <button type="submit" class="searchButton">
-                                                  <i class="fa fa-search"></i>
-                                               </button>
-                                             </div>
-                                            <table  id="tabel_pengumuman_detail"
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <table id="tabel_pengumuman_detail"
                                                 class="table-bordered table table-hover row-border"
                                                 style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
                                                 <thead style="background-color: #f1f1f1">
@@ -173,6 +175,7 @@
                                                         <th>No</th>
                                                         <th>Kode Pendaftaran</th>
                                                         <th style="min-width: 200px">Nama Siswa</th>
+                                                        <th>Kelas</th>
                                                         <th>Tanggal Lahir</th>
                                                         <th>Alamat</th>
                                                     </tr>
@@ -180,9 +183,15 @@
                                                 <tbody>
                                                     @foreach ($pendaftaran as $index => $item)
                                                         <tr>
-                                                            <td>{{ $index+1 }}</td>
+                                                            <td>{{ $index + 1 }}</td>
                                                             <td>{{ $item->kode_pendaftaran }}</td>
                                                             <td>{{ $item->nama_lengkap }}</td>
+                                                            @if ($item->jenis_pendaftaran=="kb")
+                                                                 <td>KB (Kelompok Bermain)</td>
+                                                            @else
+                                                                <td>TK (Taman Kanak-Kanak) - Kelas {{ $item->jenis_tk }}</td>
+                                                            @endif
+                                                          
                                                             <td>{{ $item->tanggal_lahir }}</td>
                                                             <td>{{ $item->alamat }}</td>
                                                         </tr>
@@ -203,8 +212,6 @@
 
 @endsection
 @push('js')
-
-
     <script src="{{ URL::asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -216,55 +223,18 @@
     <script src="{{ URL::asset('plugins/moment/moment.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script>
+        let tabel = $('#tabel_pengumuman_detail').DataTable({
+            searching: true,
+            paginate: false,
+            info: false,
+            language: {
+                zeroRecords: "Maaf Data Anda Tidak Ditemukan"
+            }
+        });
 
-  let tabel = $('#tabel_pengumuman_detail').DataTable( {
-        searching: true,
-        paginate: false,
-        info: false,
-
-    } );
-
-    // oTable = $('#tabel_pengumuman_detail').DataTable();   //pay attention to capital D, which is mandatory to retrieve "api" datatables' object, as @Lionel said
-$('#myInputTextField').keyup(function(){
-    tabel.search($(this).val()).draw() ;
-})
-
-
-            // DataTable
-            // alert();
-
-        // let tabel_pengumuman_detail = $("#tabel_pengumuman_detail").DataTable({
-        //     processing: true,
-        //     deferRender: true,
-        //     serverSide: true,
-        //     paginate: false,
-        //     info: false,
-
-        //     ajax : "{{ url('pendaftaran/pengumuman/detail/') }}",
-        //     columns: [{
-        //             data: "DT_RowIndex",
-        //             orderable: false,
-        //             searchable: false
-        //         },
-        //         {
-        //             data: 'kode_pendaftaran'
-        //         },
-        //         {
-        //             data: 'nama_lengkap'
-        //         },
-        //         {
-        //             data: 'tanggal_lahir'
-        //         },
-        //         {
-        //             data: 'alamat',
-        //         },
-        //     ]
-
-        // });
-
-
-
-
+        $('#myInputTextField').keyup(function() {
+            tabel.search($(this).val()).draw();
+        });
     </script>
 
 @endpush
