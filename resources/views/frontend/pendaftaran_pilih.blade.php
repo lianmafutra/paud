@@ -306,8 +306,9 @@
 				<div class="mu-about-us-area">
 					<div class="row">
 						<div class="col-lg-12 col-md-12">
+							
 							<div class="mu-title">
-								<h3>Pilih Jenis Pendaftaran</h3><br>
+								<h3>Pilih Jenis Pendaftaran </h3><br>
 							</div>
 							<div style="margin-top: 20px" class="mu-about-us-left">
 								<div class="container">

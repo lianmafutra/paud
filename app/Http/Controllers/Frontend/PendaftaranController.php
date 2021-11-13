@@ -8,7 +8,7 @@ use App\Pendaftaran;
 use App\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\URL;
+
 use Throwable;
 
 class PendaftaranController extends Controller

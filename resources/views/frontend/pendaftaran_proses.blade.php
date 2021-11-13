@@ -49,6 +49,7 @@
 
                     <ol class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/pendaftaran/pilih') }}">Jenis Pendaftaran</a></li>
                         <li class="active">Pendaftaran</li>
                     </ol>
                 </div>
@@ -103,21 +104,21 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Nama Panggilan<span class="simbol_wajib">*</span></p>
-                                        <input name="nama_panggilan" type="text" class="form-control">
+                                        <input required name="nama_panggilan" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Tempat Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tempat_lahir" type="text" class="form-control">
+                                        <input required name="tempat_lahir" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Tanggal Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tanggal_lahir" type="date" class="form-control">
+                                        <input required name="tanggal_lahir" type="date" class="form-control">
                                     </div>
 
                                     <div style="display: none" id="jenis_tk" class="form-group">
                                         <p for="exampleFormControlSelect12">Jenis TK<span class="simbol_wajib">*</span>
                                         </p>
-                                        <select name="jenis_tk" class="form-control" id="exampleFormControlSelect12">
+                                        <select required name="jenis_tk" class="form-control" id="exampleFormControlSelect12">
                                             <option value="" hidden>Pilih Jenis TK sesuai umur anak</option>
                                             <option value="A">TK A (Untuk Umur 3-4 Tahun)</option>
                                             <option value="B">TK B (Untuk Umur 5-6 Tahun)</option>
@@ -125,15 +126,15 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Anak ke-<span class="simbol_wajib">*</span></p>
-                                        <input name="anak_ke" type="number" class="form-control">
+                                        <input required name="anak_ke" type="number" class="form-control">
                                     </div>
 
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Jenis Kelamin <span
                                                 class="simbol_wajib">*</span> </p>
-                                        <select name="jenis_kelamin" class="form-control"
+                                        <select required name="jenis_kelamin" class="form-control"
                                             id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                            <option value="" hidden>Pilih</option>
                                             <option value="L">Laki-Laki</option>
                                             <option value="P">Perempuan</option>
                                         </select>
@@ -141,8 +142,8 @@
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Agama<span class="simbol_wajib">*</span>
                                         </p>
-                                        <select name="agama" class="form-control" id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                        <select required name="agama" class="form-control" id="exampleFormControlSelect1">
+                                            <option value="" hidden>Pilih</option>
                                             <option value="islam">Islam</option>
                                             <option value="protestan">Protestan</option>
                                             <option value="katolik">Katolik</option>
@@ -154,19 +155,19 @@
 
                                     <div class="form-group">
                                         <p>Jumlah Saudara Kandung<span class="simbol_wajib">*</span></p>
-                                        <input name="jumlah_saudara" type="number" class="form-control">
+                                        <input required name="jumlah_saudara" type="number" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Status Dalam Keluarga<span class="simbol_wajib">*</span></p>
-                                        <input name="status_dalam_keluarga" type="text" class="form-control">
+                                        <input required name="status_dalam_keluarga" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Kewarganegaraan<span class="simbol_wajib">*</span></p>
-                                        <input name="kewarganegaraan" type="text" class="form-control">
+                                        <input required name="kewarganegaraan" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Alamat<span class="simbol_wajib">*</span></p>
-                                        <input name="alamat" type="text" class="form-control">
+                                        <input required name="alamat" type="text" class="form-control">
                                     </div>
 
                                     <br>
@@ -175,13 +176,13 @@
                                     <div class="form-group">
 
                                         <p>Nama Ayah <span class="simbol_wajib">*</span></p>
-                                        <input name="nama_ayah" type="text" class="form-control">
+                                        <input required name="nama_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Status Ayah<span
                                                 class="simbol_wajib">*</span> </p>
                                         <select name="status_ayah" class="form-control" id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                            <option value="" hidden>Pilih</option>
                                             <option value="kandung">Kandung</option>
                                             <option value="tiri">Tiri</option>
                                             <option value="angkat">Angkat</option>
@@ -190,17 +191,17 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Tempat Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tempat_lahir_ayah" type="text" class="form-control">
+                                        <input required name="tempat_lahir_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Tanggal Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tanggal_lahir_ayah" type="date" class="form-control">
+                                        <input required name="tanggal_lahir_ayah" type="date" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Agama<span class="simbol_wajib">*</span>
                                         </p>
                                         <select name="agama_ayah" class="form-control" id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                            <option value="" hidden>Pilih</option>
                                             <option value="islam">Islam</option>
                                             <option value="protestan">Protestan</option>
                                             <option value="katolik">Katolik</option>
@@ -211,27 +212,27 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Kewarganegaraan<span class="simbol_wajib">*</span></p>
-                                        <input name="kewarganegaraan_ayah" type="text" class="form-control">
+                                        <input required name="kewarganegaraan_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Pekerjaan<span class="simbol_wajib">*</span></p>
-                                        <input name="pekerjaan_ayah" type="text" class="form-control">
+                                        <input required name="pekerjaan_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Pendidikan<span class="simbol_wajib">*</span></p>
-                                        <input name="pendidikan_ayah" type="text" class="form-control">
+                                        <input required name="pendidikan_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Alamat<span class="simbol_wajib">*</span></p>
-                                        <input aria-label="alamat_ayah" type="text" class="form-control">
+                                        <input required aria-label="alamat_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>No. Hp<span class="simbol_wajib">*</span></p>
-                                        <input name="no_hp_ayah" type="text" class="form-control">
+                                        <input required name="no_hp_ayah" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Gaji Perbulan<span class="simbol_wajib">*</span></p>
-                                        <input name="gaji_perbulan_ayah" type="text" class="form-control">
+                                        <input required name="gaji_perbulan_ayah" type="text" class="form-control">
                                     </div>
                                     <br>
                                     <p> <strong>B. Data Orang Tua/Wali (Ibu)</strong> </p>
@@ -239,13 +240,13 @@
                                     <div class="form-group">
 
                                         <p>Nama Ibu <span class="simbol_wajib">*</span></p>
-                                        <input name="nama_ibu" type="text" class="form-control">
+                                        <input required name="nama_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Status Ibu<span class="simbol_wajib">*</span>
                                         </p>
                                         <select name="status_ibu" class="form-control" id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                            <option value="" hidden>Pilih</option>
                                             <option value="kandung">Kandung</option>
                                             <option value="tiri">Tiri</option>
                                             <option value="angkat">Angkat</option>
@@ -254,17 +255,17 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Tempat Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tempat_lahir_ibu" type="text" class="form-control">
+                                        <input required name="tempat_lahir_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Tanggal Lahir<span class="simbol_wajib">*</span></p>
-                                        <input name="tanggal_lahir_ibu" type="date" class="form-control">
+                                        <input required name="tanggal_lahir_ibu" type="date" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p for="exampleFormControlSelect1">Agama<span class="simbol_wajib">*</span>
                                         </p>
                                         <select name="agama_ibu" class="form-control" id="exampleFormControlSelect1">
-                                            <option hidden>Pilih</option>
+                                            <option value="" hidden>Pilih</option>
                                             <option value="islam">Islam</option>
                                             <option value="protestan">Protestan</option>
                                             <option value="katolik">Katolik</option>
@@ -275,27 +276,27 @@
                                     </div>
                                     <div class="form-group">
                                         <p>Kewarganegaraan<span class="simbol_wajib">*</span></p>
-                                        <input name="kewarganegaraan_ibu" type="text" class="form-control">
+                                        <input required name="kewarganegaraan_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Pekerjaan<span class="simbol_wajib">*</span></p>
-                                        <input name="pekerjaan_ibu" type="text" class="form-control">
+                                        <input required name="pekerjaan_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Pendidikan<span class="simbol_wajib">*</span></p>
-                                        <input name="pendidikan_ibu" type="text" class="form-control">
+                                        <input required name="pendidikan_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Alamat<span class="simbol_wajib">*</span></p>
-                                        <input name="alamat_ibu" type="text" class="form-control">
+                                        <input required name="alamat_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>No. Hp<span class="simbol_wajib">*</span></p>
-                                        <input name="no_hp_ibu" type="text" class="form-control">
+                                        <input required name="no_hp_ibu" type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <p>Gaji Perbulan<span class="simbol_wajib">*</span></p>
-                                        <input name="gaji_perbulan_ibu" type="text" class="form-control">
+                                        <input required name="gaji_perbulan_ibu" type="text" class="form-control">
                                     </div>
                                     <br>
 
@@ -306,7 +307,7 @@
                                         <p>Upload File Akte Kelahiran<span
                                                 style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                                                 file : jpg, png | Max : 5 MB)</span> </p>
-                                        <input type="file" data-max-file-size="5 MB" class="filepond"
+                                        <input required type="file" data-max-file-size="5 MB" class="filepond"
                                             accept="image/jpeg, image/png" name="file_akte">
                                     </div>
                                     <br>
@@ -315,7 +316,7 @@
                                         <p>Upload File KK (Kartu Keluarga)<span
                                                 style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                                                 file : jpg, png | Max : 5 MB)</span> </p>
-                                        <input type="file" data-max-file-size="5 MB" class="filepond "
+                                        <input required type="file" data-max-file-size="5 MB" class="filepond "
                                             accept="image/jpeg, image/png" name="file_kk">
                                     </div>
                                     <div style="margin-top: 120px" class="form-group">
