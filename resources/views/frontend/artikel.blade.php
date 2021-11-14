@@ -38,9 +38,9 @@
                       </figcaption>
                     </figure>
                     <div class="mu-blog-meta">
-                      <a href="#">By Admin</a>
+                      {{-- <a href="#">By Admin</a> --}}
                       <a href="#">{{ $item->created_at }}</a>
-                      <span><i class="fa fa-comments-o"></i>87</span>
+                      {{-- <span><i class="fa fa-comments-o"></i>87</span> --}}
                     </div>
                     <div class="mu-blog-description">
                       {{-- <p>{{ \Illuminate\Support\Str::limit($item->isi, 150, $end='...') }}</p> --}}

@@ -86,9 +86,9 @@
               <li><a href="{{ url('pendaftaran/pengumuman') }}">Hasil Pengumuman</a></li>
             </ul>
           </li>
-          <li><a href="#">Kontak</a></li>
+          {{-- <li><a href="#">Kontak</a></li> --}}
 
-          <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
+          {{-- <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li> --}}
         </ul>
       </div><!--/.nav-collapse -->
     </div>

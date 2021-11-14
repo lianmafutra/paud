@@ -12,7 +12,7 @@ class Berita extends Model
 
     protected function getCreatedAtAttribute()
     {
-        return \Carbon\Carbon::parse($this->attributes["created_at"])->format("d-m-Y H:i:s");
+        return \Carbon\Carbon::parse($this->attributes["created_at"])->format("d-m-Y H:i");
     }
 
     

@@ -3,8 +3,8 @@
 @push('css')
 <link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/>
-
-  
+<link href="{{ URL::asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet"/>
 @endpush()
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('title') Admin Dashboard @endsection
@@ -56,6 +56,19 @@
                         <input required value="{{old("kuota_tk") }}" placeholder="" name="kuota_tk" type="text" 
                             class="input form-control">
                     </div>
+
+                   <!-- Date -->
+                   <div class="form-group">
+                    <label>Jadwal Pengumuman<span style="color: rgb(230, 67, 67)">*</span></label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input name="jadwal_pengumuman" placeholder="dd-mm-yyyy" type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+               
                    
                     
                   </div>
@@ -76,7 +89,24 @@
 @endsection
 @push('js')
 
+
+<script src="{{ URL::asset("plugins/moment/moment.min.js") }}"></script>
+<script src="{{ URL::asset("plugins/inputmask/jquery.inputmask.min.js") }}"></script>
+<script src="{{ URL::asset("plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js") }}"></script>
+<script src="{{ URL::asset("plugins/daterangepicker/daterangepicker.js") }}"></script>
+ 
 <script type="text/javascript">
+             //Date picker
+             $('#reservationdate').datetimepicker({
+                    format: 'DD-MM-YYYY'
+                });
+
+                //Date and time picker
+                $('#reservationdatetime').datetimepicker({
+                    icons: {
+                        time: 'far fa-clock'
+                    }
+                });
 
 </script>
 @endpush

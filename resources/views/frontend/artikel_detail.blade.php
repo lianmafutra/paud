@@ -34,9 +34,9 @@
                             <h2><a style="font-weight: bold" href="#">{{ $berita->judul }}</a></h2>
                           </figcaption>
                           <div class="mu-blog-meta">
-                            <a href="#">By Admin</a>
+                            {{-- <a href="#">By Admin</a> --}}
                             <a href="#">{{ $berita->created_at }}</a>
-                            <span><i class="fa fa-comments-o"></i>87</span>
+                            {{-- <span><i class="fa fa-comments-o"></i>87</span> --}}
                           </div>
                          <figure class="mu-blog-single-img">
                            <a href="#"><img alt="img" src="{{URL::asset('/uploads/'.$berita->poster)}}"></a>

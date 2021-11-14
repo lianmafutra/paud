@@ -1,6 +1,6 @@
 {{-- <a href="{{ url('admin/pendaftaran/detail', $pendaftaran->id) }}"><button type="button" class="btn btn-success waves-effect waves-light btn_edit"><i class="fas fa-edit">Aksi</i></i></button></a> --}}
 <a href="{{ route('tahun-ajaran.edit', $tahun_ajaran->id) }}"><button type="button" class="btn btn-secondary waves-effect waves-light "><i class="fas fa-edit"> Edit</i></i></button></a>
-<a href="{{ route('tahun-ajaran.show', $tahun_ajaran->id) }}"><button type="button" class="btn btn-secondary waves-effect waves-light btn_edit"><i class="fas fa-edit"> Detail</i></i></button></a>
+<a href="{{ route('tahun-ajaran.show', $tahun_ajaran->id) }}"><button type="button" class="btn btn-secondary waves-effect waves-light btn_edit"><i class="fas fa-eye"> Detail</i></i></button></a>
 @if ($tahun_ajaran->status_pengumuman=="proses")
     <button data-url="{{ url('admin/tahun-ajaran/selesai/'.$tahun_ajaran->id) }}" data-id="{{ $tahun_ajaran->id }}" type="button" class="btn btn-primary waves-effect waves-light btn_selesai"><i class="fas fa-edit">Umumkan</i></i></button>    
 @else

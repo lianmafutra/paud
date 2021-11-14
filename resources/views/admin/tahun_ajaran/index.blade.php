@@ -32,14 +32,15 @@
          
             <div class="card-body">
           
-                <div class="tbl_tahun_ajaran">
+                <div class="tbl_tahun_ajaran table-responsive">
                     <table id="tbl_tahun_ajaran" class="table-bordered table table-hover row-border nowrap"
                       style="border-collapse: collapse; cursor:pointer; border-spacing: 0; width: 100%;">
                       <thead style="background-color: #f1f1f1">
                         <tr>
-                             <th   rowspan="2" style="max-width: 40px; vertical-align : middle;">No</th>
+                              <th  rowspan="2" style="max-width: 40px; vertical-align : middle;">No</th>
                               <th  rowspan="2" style="text-align: center;  vertical-align : middle; max-width: 20px" >Tahun </th>
                               <th  rowspan="2" style=" vertical-align : middle;">Priode Bulan</th>
+                              <th  rowspan="2" style=" vertical-align : middle;">Tgl Pengumuman</th>
                               <th  rowspan="2"  style=" vertical-align : middle;">Kuota KB</th>
                               <th  rowspan="2" style=" vertical-align : middle;">Kuota TK</th>
                               <th  colspan="4"  style="text-align: center">Pendaftaran Masuk</th>
@@ -96,8 +97,12 @@
 
     let tbl_tahun_ajaran = $("#tbl_tahun_ajaran").DataTable({
             processing: true,
+            filter:false,
+            paginate: false,
+            // responsive : true,
             deferRender: true,
             serverSide: true,
+            info: false,
             ajax:  "{{ route('tahun-ajaran.index')}}",
             columns: [{
                     data: "DT_RowIndex",
@@ -106,6 +111,7 @@
                 },
                 {data : 'priode_tahun'},
                 {data : 'priode_bulan'},
+                {data : 'jadwal_pengumuman'},
                 {data: 'kuota_tk'},
                 {data: 'kuota_kb'},
                 {data: 'pendaftaran_masuk'},

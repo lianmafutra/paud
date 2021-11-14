@@ -79,7 +79,7 @@
             <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}">
               <i class="nav-icon <i far fa-newspaper"></i>
               <p>
-              Berita
+              Artikel
               </p>
             </a>
           </li>
