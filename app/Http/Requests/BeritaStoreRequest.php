@@ -26,6 +26,7 @@ class BeritaStoreRequest extends FormRequest
         return [
             'judul' => 'required',
              'isi' => 'required', 
+             'poster' => 'required', 
          ];
     }
 
@@ -33,8 +34,8 @@ class BeritaStoreRequest extends FormRequest
     {
         return [
            'judul.required' => "judul wajib di isi",
-           'isi.required' => "isi berita wajib di isi",
-
+           'isi.required' => "isi Artikel wajib di isi",
+           'poster.required' => "Poster Artikel wajib di isi",
         ];
     }
 }

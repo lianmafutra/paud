@@ -91,7 +91,7 @@ class GaleriController extends Controller
            
             return redirect()->back()->with('message', 'Data Berhasil Dihapus');
         } catch (\Throwable $th) {
-            toastr()->success('Gagal Berhasil Dihapus!');
+            toastr()->success('Gagal hapus!');
             return redirect()->back();
         }
 

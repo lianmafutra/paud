@@ -79,7 +79,7 @@
 
   </style>
 
- <span>Hasil Seleksi Penerimaan Siswa Baru KB (Kelompok Bermain) dan TK (Taman Kanak-Kanak) <br><br>akan di umumkan pada tanggal 09-11-2021</span>
+ <span style="line-height: 30px">Hasil Seleksi Penerimaan Siswa Baru KB (Kelompok Bermain) dan TK (Taman Kanak-Kanak) <br>Tahun Ajaran {{ $tahun_ajaran->first()->priode_tahun }} akan di umumkan pada tanggal {{ $tahun_ajaran->first()->jadwal_pengumuman }}</span>
  <br>
  <br>
  <br>
@@ -93,6 +93,7 @@
         <th  style="text-align: center">Hasil</th>
       </tr>
     </thead>
+
     <tbody>
       @foreach ($tahun_ajaran as $item => $value)
       <tr>

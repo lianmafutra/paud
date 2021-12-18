@@ -3,25 +3,12 @@
 @push('css')
 <link href="{{ URL::asset('plugins/filepond/filepond.css') }}" rel="stylesheet" />
 <link href="{{ URL::asset('plugins/filepond/filepond-plugin-image-preview.css') }} " rel="stylesheet"/>
-<link rel="stylesheet" href="{{ URL::asset('plugins/lightgallery/css/lightgallery.min.css') }}">
+
 <style>
     img {
   border: 1px solid #555;
 }
 
-.gambar{
-  width: 100px;
-  height: 100px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-/* 
-.center-cropped {
-  width: 100px;
-  height: 100px;
-  background-position: center center;
-  background-repeat: no-repeat;
-} */
 </style>
 @endpush()
 
@@ -38,7 +25,7 @@
     <div class="card">
       <div class="card-header">
         <h3 style="padding-top: 10px" class="card-title">
-          <i class="fas fa-chart-pie mr-1"></i> Edit Album
+          <i class="fas fa-chart-pie mr-1"></i> Buat Album
         </h3>
 
 
@@ -55,17 +42,17 @@
               </ul>
           </div>
         @endif
-        <form action="{{ route('galeri-album.update', $galeri_album->id)  }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('galeri-album/buat-album')  }}" method="POST" enctype="multipart/form-data">
             @csrf
-             @method('PUT')
+             @method('POST')
              <div class="form-group">
-           <input name="id" value="{{ $galeri_album->id }}" hidden>
+           <input name="id" value="" hidden>
           </div>
           
 
                 <div class="col-lg-6 form-group">
                     <label for="example-text-input" class="col-form-label">Nama Album <span style="color: rgb(230, 67, 67)">*</span> </label>
-                    <input  required value="{{ $galeri_album->nama }}"  placeholder="Nama Album" name="nama" type="text" id="nama" class="input form-control">
+                    <input  required value=""  placeholder="Nama Album" name="nama" type="text" id="nama" class="input form-control">
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -85,7 +72,7 @@
             </div>
             <div class="card-footer">
                 <a class="btn btn-success waves-effect waves-light" style="margin-right:10px; float:left ;right: 10px; z-index: 40" href="{{ route('galeri-album.index') }}">Kembali</a>
-          <button type="submit" class="btn_update btn btn-primary waves-effect waves-light" style="float:left ;right: 10px; z-index: 40">Update</button>
+          <button type="submit" class="btn_update btn btn-primary waves-effect waves-light" style="float:left ;right: 10px; z-index: 40">Buat Album</button>
 
       </div>
         </form>
@@ -95,31 +82,7 @@
 
       </div>
 
-      <div class="card">
-        <div class="card-header">
-            <h3 style="padding-top: 10px" class="card-title">
-              <i class="fas fa-chart-pie mr-1"></i>File Foto
-            </h3>
-            <button  class="btn_upload btn btn-success waves-effect waves-light" style="float:right ;right: 10px; z-index: 40">Upload</button>
-           </div>
-        <div class="card-body">
-            <div class="row"  id="lightgallery">
-                @foreach ($galeri_album->galeri as $item)
-                <div class="col-md-3">
-                    <figure class="" style="margin-bottom:30px;">
-                        <a href="{{URL::asset('/uploads/'.$item->gambar)}}"><img class="gambar" style="width: 250px; height:250px;" src="{{URL::asset('/uploads/'.$item->gambar)}}" alt="img"></a>
-                        <figcaption style="margin-top: 0px">
-                            <input type="checkbox" class="cek_gambar" id="{{ $item->id }}">
-                        </figcaption>
-                      </figure>
-                </div>
-
-                @endforeach
-
-            </div>
-        </div>
-      </div>
-    </div>
+  
   </section>
 </div>
 <div class="col-sm-6 col-md-4 col-xl-3">
@@ -141,7 +104,7 @@
                   <form id="form_upload" action="{{ route('galeri-album.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
 
-                    <input name="galeri_album_id" value="{{ $galeri_album->id }}" hidden>
+                    <input name="galeri_album_id" value="" hidden>
                     <div class="form-group">
                         <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
                                 file : jpg, png | Max : 5 MB)</span> </label>
@@ -177,24 +140,13 @@
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-encode.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-size.js') }} "></script>
-{{-- <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script> --}}
-<script src="{{ URL::asset('plugins/lightgallery/js/lightgallery.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-pager.min.js') }}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-autoplay.min.js')}}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-fullscreen.min.js')}}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-zoom.min.js')}}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-hash.min.js')}}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-share.min.js')}}"></script>
-<script src="{{ URL::asset('plugins/lightgallery/js/lg-rotate.min.js')}}"></script>
+
 
 <script type="text/javascript">
 
 $(function(){
 
-  lightGallery(document.getElementById('lightgallery'), {
-    selector: 'a' 
-});
-
+ 
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -205,8 +157,7 @@ $(function(){
  
 
     var editor = CKEDITOR.instances.deskripsi;
-    editor.setData({!! json_encode($galeri_album->deskripsi) !!});
-
+  
     $('.btn_upload').click(function(e) {
         e.preventDefault();
         $('.modal_upload').modal('show');
@@ -264,15 +215,7 @@ $(function(){
     FilePondPluginFileValidateType,
     FilePondPluginFileValidateSize);
 
-    const pond = FilePond.create( document.querySelector('input[name="gambar"]'),{
-        storeAsFile: true,
-        files: [
-        {
-            source: '/uploads/'+{!! json_encode($galeri_album->gambar) !!},
-        },
-    ],
-
-    });
+ 
 
 
 const inputElements = document.querySelectorAll('input.filepond');

@@ -38,6 +38,20 @@ class DataPaudController extends Controller
         return redirect()->back();
     }
 
+
+    public function indexPaketPaud(Request $request){
+        $paket_paud = DataPaud::first();
+        return view('admin.paket_paud', compact('paket_paud'));
+    }
+
+    public function updatePaketPaud(Request $request){
+
+        $data_paud = DataPaud::find(1);
+        $data_paud->update($request->all());
+        toastr()->success('Data Berhasil Diperbarui!');
+        return redirect()->back();
+    }
+
     public function indexLatarBelakang(){
         $data_paud = DataPaud::first();
         return view('admin.latar_belakang', compact('data_paud'));

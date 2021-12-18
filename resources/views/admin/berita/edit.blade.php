@@ -20,7 +20,7 @@
     <div class="card">
       <div class="card-header">
         <h3 style="padding-top: 10px" class="card-title">
-          <i class="fas fa-chart-pie mr-1"></i> Edit Data berita
+          <i class="fas fa-chart-pie mr-1"></i> Edit Data Artikel
         </h3>
 
       </div>
@@ -54,8 +54,8 @@
 
           <div class="form-group">
             <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
-                    file : jpg, png | Max : 1 MB)</span> </label>
-            <input type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                    file : jpg, png | Max : 5 MB)</span> </label>
+            <input type="file" data-max-file-size="5 MB" class="filepond" accept="image/jpeg, image/png"
                 name="poster">
         </div>
              </div>

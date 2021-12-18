@@ -118,22 +118,22 @@
                 </a>
               </li>
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="nav-icon  far fa-file"></i>
                   <p>
                  Struktur Organisasi
                   </p>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="nav-icon far fa-file"></i>
                   <p>
                 Lokasi
                   </p>
                 </a>
-              </li>
+              </li> --}}
 
                 <li class="nav-item">
                   <a href="{{ url('admin/halaman/visi-misi') }}" class="nav-link ">
@@ -144,7 +144,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{ url('admin/halaman/paket-paud') }}" class="nav-link">
                     <i class="nav-icon far fa-file"></i>
                     <p>
                     Paket Biaya TPA

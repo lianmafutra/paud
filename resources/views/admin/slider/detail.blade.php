@@ -57,7 +57,7 @@
 
                       <div class="form-group">
                           <label>Upload Gambar  </label>
-                          <input disabled  type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
+                          <input disabled  type="file" data-max-file-size="5 MB" class="filepond" accept="image/jpeg, image/png"
                               name="poster">
                       </div>
                   </div>
@@ -83,8 +83,9 @@
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-encode.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-type.js') }}"></script>
 <script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-validate-size.js') }} "></script>
-<script src="{{ URL::asset('plugins/filepond-plugin-file-poster.js')}}"></script>
-<script src="{{ URL::asset('plugins/filepond-plugin-get-file.js')}}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-file-poster.js')}}"></script>
+<script src="{{ URL::asset('plugins/filepond/filepond-plugin-get-file.js')}}"></script>
+
 <script type="text/javascript">
 
 FilePond.registerPlugin(

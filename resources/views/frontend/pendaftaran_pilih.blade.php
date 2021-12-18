@@ -320,14 +320,8 @@
 												<div class="panel-heading  text-center">
 													<h3>KB (Kelompok Bermain)</h3>
 												</div>
-												<ul style="margin-top:10px">
-													<li>Usia : 2-4 Tahun </li>
-													<li>3 kali Seminggu</li>
-													<li>Waktu Belajar Pagi</li>
-													<li>SPP : Rp. 40.000</li>
-													<li>Uang Baju Seragam & Alat Tulis: Rp. 350.000</li>
-												</ul>
-
+											
+												{!! $paket_paud->paket_kb !!}
 												<div class="panel-footer">
 													<a class="btn btn-lg btn-block btn-danger"
 														href="{{ url('pendaftaran/proses/kb') }}">Daftar</a>
@@ -345,14 +339,7 @@
 												<div class="panel-heading arrow_box text-center">
 													<h3>TK (Taman Kanak-Kanak)</h3>
 												</div>
-												<ul style="margin-top:10px">
-													<li>Usia : 4-6 Tahun </li>
-													<li>3 kali Seminggu</li>
-													<li>Waktu Belajar Pagi</li>
-													<li>SPP : Rp. 65.000</li>
-													<li>Uang Baju Seragam & Alat Tulis: Rp. 700.000</li>
-													<li>Baju : Putih biru, Batik, Olahraga, Polisi</li>
-												</ul>
+												{!! $paket_paud->paket_tk !!}
 												<div class="panel-footer">
 													<a class="btn btn-lg btn-block btn-info"
 														href="{{ url('pendaftaran/proses/tk') }}">Daftar</a>
@@ -370,12 +357,7 @@
 												<div class="panel-heading arrow_box text-center">
 													<h3>TPA (Taman Penitipan Anak)</h3>
 												</div>
-												<ul style="margin-top:10px">
-													<li>Usia : 4-6 Tahun </li>
-													<li>Waktu Fleksibel</li>
-													<li>SPP : Perbulan/Perjam</li>
-
-												</ul>
+												{!! $paket_paud->paket_tpa !!}
 												<div class="panel-footer">
 													{{-- <a class="btn btn-lg btn-block btn-success"
 														href="{{ url('pendaftaran/proses/tpa') }}">Daftar</a> --}}

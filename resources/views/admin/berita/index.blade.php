@@ -17,9 +17,9 @@
         <div class="card">
             <div class="card-header">
                 <h3 style="padding-top: 10px" class="card-title">
-                    <i class="fas fa-chart-pie mr-1"></i>Berita</h3>
+                    <i class="fas fa-chart-pie mr-1"></i>Data Artikel</h3>
                <a href="{{ route('berita.create') }}"><button type="button" class="btn_tambah btn btn-primary waves-effect waves-light"
-                    style="float:right ;right: 10px; z-index: 40">Tambah Berita</button></a>
+                    style="float:right ;right: 10px; z-index: 40">Tambah Artikel</button></a>
             </div>
             <div class="card-body">
 
@@ -30,7 +30,7 @@
                       <tr>
                            <th>No</th>
                             <th>judul</th>
-                           <th>Created_At</th>
+                           <th>Tanggal</th>
                            <th>Action</th>
                       </tr>
                     </thead>

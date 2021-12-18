@@ -31,7 +31,7 @@
                            <th>No</th>
                             <th>Slider</th>
                             <th>Poster</th>
-                           <th>Created_At</th>
+                           <th>Tanggal</th>
                            <th>Action</th>
                       </tr>
                     </thead>

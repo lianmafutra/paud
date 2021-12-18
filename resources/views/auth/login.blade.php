@@ -99,7 +99,7 @@ body {
     <form method="POST" action="{{ route('login') }}">
     @csrf
 		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-    	<h4 class="modal-title">Login Admin</h4>
+    	<h4 class="modal-title">Login Admin </h4>
         <div class="form-group">
             <input id="username" type="text" value="{{ old('username') }}" name="username"  class="form-control @error('username') is-invalid @enderror" placeholder="Username" required  autofocus>
         @error('username')
@@ -121,7 +121,7 @@ body {
         </div>
         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
     </form>
-    <div class="text-center small">Developed By : </div> </div>
+    <div class="text-center small"</div> </div>
 </div>
 <!-- /.login-box -->
 

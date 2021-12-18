@@ -20,8 +20,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin',], function () {
 
 Route::resource('berita', 'BeritaController');
 Route::resource('slider', 'SliderController');
+Route::post('galeri-album/buat-album', 'GaleriAlbumController@buatAlbum')->name('galeri-album/buat-album');
 Route::resource('galeri-album', 'GaleriAlbumController');
+Route::post('galeri-album/hapus', 'GaleriAlbumController@hapusAlbum');
 Route::post('galeri/destroy-multi', 'GaleriController@destroyMulti');
+
 Route::resource('galeri', 'GaleriController');
 Route::get('dashboard', 'DashboardController@index');
 Route::group(['prefix' => 'halaman',], function () {
@@ -30,6 +33,9 @@ Route::group(['prefix' => 'halaman',], function () {
 
     Route::get('latar-belakang', 'DataPaudController@indexLatarBelakang');
     Route::post('latar-belakang/update', 'DataPaudController@updateLatarBelakang');
+
+    Route::get('paket-paud', 'DataPaudController@indexPaketPaud');
+    Route::post('paket-paud/update', 'DataPaudController@updatePaketPaud');
 });
 
 Route::get('pengaturan', 'DataPaudController@index');
@@ -68,6 +74,7 @@ Route::get('/galeri', 'Frontend\\HomeController@galeri');
 Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
 
 Route::get('/galeri/detail/{id}', 'Frontend\\HomeController@galeriDetail');
+
 
 Route::group(['prefix' => 'pendaftaran'], function () {
     Route::get('pilih', 'Frontend\\PendaftaranController@pilihPendaftaran');

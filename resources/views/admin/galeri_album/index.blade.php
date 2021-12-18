@@ -113,10 +113,10 @@
                         type: 'DELETE',
                         success: function(data, textStatus, jqXHR) {
                             table_galeri_album.draw();
-                            toastr.success('Data Berhasil Dihapus');
+                            toastr.success('Album Berhasil Dihapus');
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
-                            toastr.success('Data Gagal Dihapus');
+                            toastr.error('Album Gagal Dihapus');
                         }
                     });
                 }

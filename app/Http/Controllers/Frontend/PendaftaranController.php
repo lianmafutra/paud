@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\DataPaud;
 use App\Http\Controllers\Controller;
 use App\PaketTPA;
 use App\Pendaftaran;
@@ -15,12 +16,14 @@ class PendaftaranController extends Controller
 {
     public function pilihPendaftaran(){
        $paket_tpa = PaketTPA::all();
-        return view('frontend.pendaftaran_pilih', compact('paket_tpa'));
+       $paket_paud = DataPaud::find(1);
+        return view('frontend.pendaftaran_pilih', compact(['paket_tpa','paket_paud']));
     }
 
     public function prosesPendaftaran($jenis, $paket_tpa=""){
 
         $data = PaketTPA::find($paket_tpa);
+   
         $tahun_ajaran = TahunAjaran::latest()->first();
 
         return view('frontend.pendaftaran_proses', compact(['jenis','data', 'tahun_ajaran']));

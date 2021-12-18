@@ -21,6 +21,12 @@ class GaleriAlbumController extends Controller
         if (request()->ajax()) {
             return datatables()->of($galeri_album)
                 ->addIndexColumn()
+                ->addColumn('jumlah_foto', function($galeri_album){
+                    if($galeri_album->jumlah_foto == 0){
+                        return "Album belum memiliki foto";
+                    }
+                   return $galeri_album->jumlah_foto;
+                 })
                 ->addColumn('action', function($galeri_album){
                     return view('admin.galeri_album.action', compact('galeri_album'));
                  })
@@ -37,7 +43,28 @@ class GaleriAlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.galeri_album.create');
+    }
+    
+    public  function buatAlbum(Request $request)
+    {
+        try {
+
+            $file = $request->file('gambar');
+            $input = $request->all();
+
+            $name_uniqe =  uniqid().'-'.now()->timestamp.'.'.$file->getClientOriginalExtension();
+            $file->move('uploads', $name_uniqe);
+            $input['gambar'] = $name_uniqe;
+    
+            GaleriAlbum::create($input);
+            toastr()->success('Berhasil Membuat Album');
+            return redirect('/admin/galeri-album');
+        } catch (\Throwable $th) {
+            toastr()->success('Gagal Membuat Album');
+            return redirect()->back();
+        }
+      
     }
 
     /**
@@ -126,6 +153,12 @@ class GaleriAlbumController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            GaleriAlbum::destroy($id);
+        } catch (\Throwable $th) {
+            return $this->errorResponse("Terjadi Kesalahan" . $th, 400);
+        }
     }
+
+    // public function hapusAlbum($id){}
 }
