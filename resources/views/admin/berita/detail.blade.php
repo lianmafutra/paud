@@ -42,7 +42,7 @@
                       </div>
                       <div class="form-group">
                           <label>Upload Poster <span style="font-size: 10px; color:#ff7272; font-style : italic"> (Jenis
-                                  file : jpg, png | Max : 1 MB)</span> </label>
+                                  file : jpg, png | Max : 5 MB)</span> </label>
                           <input disabled type="file" data-max-file-size="1 MB" class="filepond" accept="image/jpeg, image/png"
                               name="poster">
                       </div>

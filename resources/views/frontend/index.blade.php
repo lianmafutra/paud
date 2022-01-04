@@ -40,23 +40,23 @@
           <div class="mu-service-area">
             <!-- Start single service -->
             <div class="mu-service-single">
-              <span class="fa fa-book"></span>
-              <h3>Learn Online</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
+              <span style="margin-bottom: 20px" class="fa fa-book"></span>
+              {{-- <h3>Learn Online</h3> --}}
+              <p>Menumbuhkan generasi anak anak usia dini tumbuh sehat cerdas kreatif dan berakhlak mulia</p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
-              <span class="fa fa-users"></span>
-              <h3>Expert Teachers</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
+              <span style="margin-bottom: 20px" class="fa fa-users"></span>
+              {{-- <h3>Expert Teachers</h3> --}}
+              <p>Mencetak generasi yang cerdas dengan penguatan pendidikan berkarakter dan kepribadian anak </p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
-              <span class="fa fa-table"></span>
-              <h3>Best Classrooms</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima officiis, deleniti dolorem exercitationem praesentium, est!</p>
+              <span style="margin-bottom: 20px" class="fa fa-table"></span>
+              {{-- <h3>Best Classrooms</h3> --}}
+              <p>Menumbuhkan sikap mandiri pada anak dengan berbagai kegiatan yang mendukung pola berpikir dalam memecahkan masalah</p>
             </div>
             <!-- Start single service -->
           </div>
@@ -77,25 +77,17 @@
                 <div class="mu-about-us-left">
                   <!-- Start Title -->
                   <div class="mu-title">
-                    <h2>About Us</h2>
+                    <h2>Tentang PAUD</h2>
                   </div>
                   <!-- End Title -->
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum pariatur fuga eveniet soluta aspernatur rem, nam voluptatibus voluptate voluptates sapiente, inventore. Voluptatem, maiores esse molestiae.</p>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-                    <li>Saepe a minima quod iste libero rerum dicta!</li>
-                    <li>Voluptas obcaecati, iste porro fugit soluta consequuntur. Veritatis?</li>
-                    <li>Ipsam deserunt numquam ad error rem unde, omnis.</li>
-                    <li>Repellat assumenda adipisci pariatur ipsam eos similique, explicabo.</li>
-                  </ul>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quaerat harum facilis excepturi et? Mollitia!</p>
+                 {!! $data_paud->latar_belakang !!}
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">
-                <a id="mu-abtus-video" href="https://www.youtube.com/embed/HN3pm9qYAUs" target="mutube-video">
-                  <img src="{{ URL::asset('template/assets/img/about-us.jpg')}}" alt="img">
-                </a>
+               
+                  <img width="100%" src="{{ URL::asset('uploads/gambar_home.jpg')}}" alt="img">
+               
                 </div>
               </div>
             </div>
@@ -317,7 +309,7 @@
   <!-- End latest course section -->
 
   <!-- Start our teacher -->
-  <section id="mu-our-teacher">
+  {{-- <section id="mu-our-teacher">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -410,7 +402,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- End our teacher -->
 
   <!-- Start testimonial -->
@@ -439,7 +431,9 @@
                 <div style="margin-top: 20px" class="col-sm-4">
                   <div class="poster">
                     <img style="width: 100%; height: 250px;" src="{{URL::asset('/uploads/'.$item->poster)}}" alt="img">
-
+                    <figcaption class="mu-blog-caption">
+                      <h3><a href="#">{{ $item->judul }}</a></h3>
+                    </figcaption>
                   </div>
 
                   <article style="margin-bottom: 5px !important" class="mu-blog-single-item">

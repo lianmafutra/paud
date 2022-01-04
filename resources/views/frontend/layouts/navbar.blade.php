@@ -32,7 +32,7 @@
                     <li><a href="{{$contents->facebook}}" target="_blank"><span class="fa fa-facebook"></span></a></li>
                     <li><a href="{{$contents->instagram}}" target="_blank"><span class="fa fa-instagram"></span></a></li>
 
-                    <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                    {{-- <li><a href="#"><span class="fa fa-youtube"></span></a></li> --}}
                   </ul>
                 </nav>
               </div>
@@ -70,12 +70,12 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url('profil/latar-belakang') }}">Latar Belakang</a></li>
               <li><a href="{{ url('profil/visi-misi') }}">Visi & Misi</a></li>
-              <li><a href="course.html">Program & Layanan</a></li>
-              <li><a href="{{ url('profil/struktur-organisasi') }}">Struktur Organisasi</a></li>
+              {{-- <li><a href="course.html">Program & Layanan</a></li> --}}
+              {{-- <li><a href="{{ url('profil/struktur-organisasi') }}">Struktur Organisasi</a></li> --}}
             </ul>
           </li>
         
-          <li><a href="{{ url('artikel') }}">Program</a></li>
+          {{-- <li><a href="{{ url('artikel') }}">Program</a></li> --}}
           <li class="{{ Request::is('artikel') ? 'active' : '' }}"><a href="{{ url('artikel') }}">Artikel</a></li>
           <li class="{{ Request::is('galeri','galeri/*') ? 'active' : '' }}"><a href="{{ url('galeri') }}">Galeri</a></li>
           {{-- <li class="{{ Request::is('pendaftaran') ? 'active' : '' }}"><a href="{{ url('pendaftaran/pilih') }}"><span class="pendaftaran">Pendaftaran</span></a></li> --}}

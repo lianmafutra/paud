@@ -15,7 +15,8 @@ class HomeController extends Controller
     public function index(){
         $berita = Berita::all();
         $slider = Slider::all();
-        return view('frontend.index', compact(['berita','slider']));
+        $data_paud = DataPaud::first();
+        return view('frontend.index', compact(['berita','slider','data_paud']));
     }
 
     public function visiMisi(){

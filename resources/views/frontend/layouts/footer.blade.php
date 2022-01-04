@@ -4,7 +4,7 @@
     <div class="container">
       <div class="mu-footer-top-area">
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          {{-- <div class="col-lg-3 col-md-3 col-sm-3">
             <div class="mu-footer-widget">
               <h4>Information</h4>
               <ul>
@@ -16,8 +16,8 @@
                 <li><a href="">Term Of Use</a></li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          </div> --}}
+          {{-- <div class="col-lg-3 col-md-3 col-sm-3">
             <div class="mu-footer-widget">
               <h4>Student Help</h4>
               <ul>
@@ -28,8 +28,8 @@
                 <li><a href="">Academic News</a></li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          </div> --}}
+          {{-- <div class="col-lg-3 col-md-3 col-sm-3">
             <div class="mu-footer-widget">
               <h4>News letter</h4>
               <p>Get latest update, news & academic offers</p>
@@ -38,8 +38,8 @@
                 <button class="mu-subscribe-btn" type="submit">Subscribe!</button>
               </form>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
+          </div> --}}
+          <div style="text-align: center" class="col-lg-12 col-md-12 col-sm-12">
             <div class="mu-footer-widget">
               <h4>Kontak</h4>
               <address>
@@ -59,7 +59,7 @@
   <div class="mu-footer-bottom">
     <div class="container">
       <div class="mu-footer-bottom-area">
-        <p>&copy; All Right Reserved. Paud </p>
+        <p>&copy;Paud Meccazia Junior </p>
       </div>
     </div>
   </div>

@@ -9,9 +9,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
-    <img src="{{ URL::asset('dist/img/logo_pemkot_circle.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-      style="opacity: .8">
-    <span class="brand-text font-weight-light">App</span>
+    {{-- <img src="{{ URL::asset('dist/img/logo_pemkot_circle.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      style="opacity: .8"> --}}
+    <span class="brand-text font-weight-light">MECCAZIA JUNIOR
+    </span>
   </a>
 
 
@@ -38,42 +39,16 @@
               </p>
             </a>
           </li>
-          <li class="nav-item  {{ Request::is('admin/pendaftaran*') ? ' menu-is-opening menu-open' : '' }}">
-            <a href="#" class="nav-link   {{ Request::is('admin/pendaftaran*') ? 'active' : '' }}" >
-              <i class="nav-icon fas fa-user-friends"></i>
+          <li class="nav-item">
+            <a href="{{ route('tahun-ajaran.index') }}" class="nav-link {{ Request::is('admin/tahun-ajaran*') ? 'active' : '' }}">
+             <i class="nav-icon fas fa-user-friends"></i>
               <p>
-                Data Pendaftaran
+                Data Pendaftaran  
                 <span class="badge badge-info right">{{ $data_pendaftaran_notif }}</span>
               </p>
             </a>
-            <ul class="nav nav-treeview" style="display: {{ Request::is('admin/pendaftaran*') ? 'block' : 'none' }};">
-              <li class="nav-item">
-                <a href="{{ route('tahun-ajaran.index') }}" class="nav-link ">
-                  <i class="nav-icon far fa-file"></i>
-                  <p>
-                    Data Pendaftaran
-                  </p>
-                </a>
-              </li>
-              {{-- <li class="nav-item">
-                <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
-                  <i class="nav-icon far fa-file"></i>
-                  <p>
-                    Pendaftaran Masuk
-                  </p>
-                </a>
-              </li> --}}
-              {{-- <li class="nav-item">
-                <a href="{{ url('admin/pendaftaran/') }}" class="nav-link ">
-                  <i class="nav-icon far fa-file"></i>
-                  <p>
-                  Atur Waktu Pendaftaran
-                  </p>
-                </a>
-              </li> --}}
-
-            </ul>
           </li>
+     
 
           <li class="nav-item">
             <a href="{{ route('berita.index') }}" class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}">
