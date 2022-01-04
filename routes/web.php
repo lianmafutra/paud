@@ -51,6 +51,7 @@ Route::get('/', 'AdminController@index');
     });
 
 Route::get('pendaftaran', 'PendaftaranController@index');
+
 Route::post('pendaftaran/destroy/{id}', 'PendaftaranController@destroy');
 Route::get('pendaftaran/detail/{id}', 'PendaftaranController@detail');
 Route::post('pendaftaran/update-status/', 'PendaftaranController@updateStatus');
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'pendaftaran'], function () {
     Route::get('pilih', 'Frontend\\PendaftaranController@pilihPendaftaran');
     Route::get('proses/{jenis}', 'Frontend\\PendaftaranController@prosesPendaftaran');
     Route::get('proses/{jenis}/{paket_tpa}', 'Frontend\\PendaftaranController@prosesPendaftaran');
+    Route::get('cek/{kode_pendaftaran}', 'Frontend\\PendaftaranController@cekQR');
     Route::post('kirim', 'Frontend\\PendaftaranController@kirimPendaftaran');
     Route::get('pengumuman', 'Frontend\\PendaftaranController@pengumuman');
     Route::get('pengumuman/detail/{id}', 'Frontend\\PendaftaranController@pengumumanDetail');

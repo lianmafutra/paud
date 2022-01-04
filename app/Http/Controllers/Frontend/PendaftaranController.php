@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
 class PendaftaranController extends Controller
 {
     public function pilihPendaftaran(){
+     
        $paket_tpa = PaketTPA::all();
        $paket_paud = DataPaud::find(1);
         return view('frontend.pendaftaran_pilih', compact(['paket_tpa','paket_paud']));
@@ -33,11 +34,17 @@ class PendaftaranController extends Controller
 
         try {
 
+
             $input = $request->all();
          
 
             $last_id = Pendaftaran::latest()->first();
-            $last_id = $last_id->id+1;
+            if($last_id!=null){
+                $last_id = $last_id->id+1;
+            }else{
+                $last_id = 1;
+            }
+          
             $kode_pendaftaran = $request->jenis_pendaftaran.'-'.$last_id.'-'.Carbon::now()->format('d').Carbon::now()->format('m').Carbon::now()->format('y');
 
            //upload file
@@ -89,5 +96,11 @@ class PendaftaranController extends Controller
         $tahun_ajaran = TahunAjaran::find($request->segment(4));
         $pendaftaran = Pendaftaran::where('status_pendaftaran','diterima')->where('tahun_ajaran_id', $request->segment(4))->latest()->get();
         return view('frontend.pengumuman_detail', compact('pendaftaran','tahun_ajaran'));
+    }
+
+    public function cekQR($kode_pendaftaran){
+       $pendaftaran = Pendaftaran::where('kode_pendaftaran', $kode_pendaftaran)->first();
+       
+        return view('frontend.cekQR', compact('pendaftaran'));
     }
 }

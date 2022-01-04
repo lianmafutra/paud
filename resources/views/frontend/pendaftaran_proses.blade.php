@@ -381,8 +381,7 @@
                         <center>
                             <div style="margin-top: 10px;" id="qrcode"></div>
                             <center>
-                                <br><br> <strong>Pastikan Simpan bukti pendaftaran anda untuk <br> verifikasi daftar
-                                    ulang berikutnya</strong></strong>
+                                <br><br> <strong>Pastikan Simpan bukti pendaftaran anda <br> </strong></strong>
             </div>
             <div class="modal-footer">
                 <center>

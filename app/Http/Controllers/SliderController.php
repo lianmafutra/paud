@@ -128,10 +128,7 @@ class SliderController extends Controller
 
                 $filepath = public_path("/uploads".$slider->poster);
 
-                if (File::exists($filepath)) {
-                   File::delete(  $filepath);
-                }
-
+            
                 $slider->update([
                     'judul' => $request->judul,
                     'text1' => $request->text1,
