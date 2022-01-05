@@ -494,7 +494,7 @@
 
         function showQrCode(key) {
             const qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: localStorage.getItem(key),
+                text: "http://localhost:8000/pendaftaran/cek/"+localStorage.getItem(key),
                 width: 180,
                 height: 180,
                 colorDark: "#000000",
