@@ -43,7 +43,7 @@ Route::group(['prefix' => 'halaman',], function () {
 
 Route::get('pengaturan', 'DataPaudController@index');
 Route::post('pengaturan/update_nomor_wa', 'DataPaudController@UpdateNoWhatsapp');
-Route::get('/', 'AdminController@index');
+Route::get('/dashboard', 'AdminController@index');
 
     Route::group(['middleware' => 'auth', 'prefix' => 'user_management',], function () {
         Route::group(['prefix' => 'user',], function () {
