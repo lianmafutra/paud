@@ -24,7 +24,7 @@
         <span></span>
         <h2>{{ $item->text2 }}</h2>
         <p>{{ $item->text3 }}</p>
-        <a href="" class="mu-read-more-btn">Selengkapnya</a>
+        {{-- <a href="" class="mu-read-more-btn">Selengkapnya</a> --}}
       </div>
     </div>
     @endforeach

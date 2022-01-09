@@ -24,7 +24,7 @@
           </div>
         </div>
         <div style="opacity: 1;" class="WhatsappChat__Message-sc-1wqac52-4 kAZgZq">
-          <div class="WhatsappChat__Author-sc-1wqac52-3 bMIBDo">Admin MECCAZIA JUNIOR</div>
+          <div class="WhatsappChat__Author-sc-1wqac52-3 bMIBDo">Admin PAUD JUNIOR</div>
           <div class="WhatsappChat__Text-sc-1wqac52-2 iSpIQi">Hi there 👋<br><br>Tim CS kami ada di sini untuk menjawab pertanyaan Anda. Tanya kami apa saja </div>
           {{-- <div class="WhatsappChat__Time-sc-1wqac52-5 cqCDVm">1:40</div> --}}
         </div>

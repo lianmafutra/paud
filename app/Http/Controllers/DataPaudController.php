@@ -57,7 +57,25 @@ class DataPaudController extends Controller
         return view('admin.latar_belakang', compact('data_paud'));
     }
 
+
+
     public function updateLatarBelakang(Request $request){
+
+        $data_paud = DataPaud::find(1);
+        $data_paud->update($request->all());
+        toastr()->success('Data Berhasil Diperbarui!');
+        return redirect()->back();
+
+    }
+
+    
+    public function indexFasilitas(){
+        $data_paud = DataPaud::first();
+        return view('admin.fasilitas', compact('data_paud'));
+    }
+
+
+    public function updateFasilitas(Request $request){
 
         $data_paud = DataPaud::find(1);
         $data_paud->update($request->all());

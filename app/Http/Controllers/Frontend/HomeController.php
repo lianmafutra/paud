@@ -37,6 +37,12 @@ class HomeController extends Controller
     public function strukturOrganisasi(){
         return view('frontend.struktur_organisasi');
     }
+    
+    public function fasilitas(){
+        $data_paud = DataPaud::first();
+        return view('frontend.fasilitas', compact('data_paud'));
+    }
+    
 
     public function latarBelakang(){
         $data_paud = DataPaud::first();

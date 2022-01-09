@@ -11,7 +11,7 @@
   <a href="#" class="brand-link">
     {{-- <img src="{{ URL::asset('dist/img/logo_pemkot_circle.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
       style="opacity: .8"> --}}
-    <span class="brand-text font-weight-light">MECCAZIA JUNIOR
+    <span class="brand-text font-weight-light">PAUD JUNIOR
     </span>
   </a>
 
@@ -115,6 +115,15 @@
                     <i class="nav-icon far fa-file"></i>
                     <p>
                     Visi & Misi
+                    </p>
+                  </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a href="{{ url('admin/halaman/fasilitas') }}" class="nav-link ">
+                    <i class="nav-icon far fa-file"></i>
+                    <p>
+                   Fasilitas
                     </p>
                   </a>
                 </li>

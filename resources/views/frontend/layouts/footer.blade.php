@@ -59,7 +59,7 @@
   <div class="mu-footer-bottom">
     <div class="container">
       <div class="mu-footer-bottom-area">
-        <p>&copy;Paud Meccazia Junior </p>
+        <p>&copy;Paud Junior </p>
       </div>
     </div>
   </div>

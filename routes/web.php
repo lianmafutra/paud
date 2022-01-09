@@ -34,6 +34,9 @@ Route::group(['prefix' => 'halaman',], function () {
     Route::get('latar-belakang', 'DataPaudController@indexLatarBelakang');
     Route::post('latar-belakang/update', 'DataPaudController@updateLatarBelakang');
 
+    Route::get('fasilitas', 'DataPaudController@indexFasilitas');
+    Route::post('fasilitas/update', 'DataPaudController@updateFasilitas');
+
     Route::get('paket-paud', 'DataPaudController@indexPaketPaud');
     Route::post('paket-paud/update', 'DataPaudController@updatePaketPaud');
 });
@@ -64,7 +67,7 @@ Route::post('tahun-ajaran/selesai/{id}', 'TahunAjaranController@selesai');
 Route::group(['prefix' => 'profil',], function () {
     Route::get('/visi-misi', 'Frontend\\HomeController@visiMisi');
     Route::get('/latar-belakang', 'Frontend\\HomeController@latarBelakang');
-    Route::get('/struktur-organisasi', 'Frontend\\HomeController@strukturOrganisasi');
+    Route::get('/fasilitas', 'Frontend\\HomeController@fasilitas');
 });
 Route::get('/', 'Frontend\\HomeController@index');
 

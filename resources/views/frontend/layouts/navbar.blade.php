@@ -58,7 +58,7 @@
         </button>
         <!-- LOGO -->
         <!-- TEXT BASED LOGO -->
-        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-university"></i><span>Meccazia Junior</span></a>
+        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-university"></i><span>PAUD JUNIOR</span></a>
         <!-- IMG BASED LOGO  -->
         <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
       </div>
@@ -70,7 +70,7 @@
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url('profil/latar-belakang') }}">Latar Belakang</a></li>
               <li><a href="{{ url('profil/visi-misi') }}">Visi & Misi</a></li>
-              {{-- <li><a href="course.html">Program & Layanan</a></li> --}}
+              <li><a href="{{ url('profil/fasilitas') }}">Fasilitas</a></li>
               {{-- <li><a href="{{ url('profil/struktur-organisasi') }}">Struktur Organisasi</a></li> --}}
             </ul>
           </li>

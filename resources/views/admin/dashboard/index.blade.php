@@ -18,7 +18,7 @@
 
       </div>
       <div class="card-body">
-          <h5 style="text-align: center" >Selamat Datang di halaman admin Paud MECCAZIA JUNIOR
+          <h5 style="text-align: center" >Selamat Datang di halaman admin Paud Junior
           </h5>
 
       </div>
