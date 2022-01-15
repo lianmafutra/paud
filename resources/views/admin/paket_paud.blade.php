@@ -29,7 +29,7 @@
               <div class="form-group">
                 <label>Paket KB (Kelompok Bermain)<span style="color: rgb(230, 67, 67)">*</span></label>
                 <textarea  name="paket_kb" class="ckeditor form-control" rows="3" placeholder=""
-                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("visi_misi")}}</textarea>
+                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("paket_kb")}}</textarea>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
               <div class="form-group">
                 <label>Paket TK (Taman Kanak-Kanak)<span style="color: rgb(230, 67, 67)">*</span></label>
                 <textarea name="paket_tk" class="ckeditor form-control" rows="3" placeholder=""
-                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("visi_misi")}}</textarea>
+                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("paket_tk")}}</textarea>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
               <div class="form-group">
                 <label>Paket TPA (Taman Penitipan Anak)<span style="color: rgb(230, 67, 67)">*</span></label>
                 <textarea name="paket_tpa" class="ckeditor form-control" rows="3" placeholder=""
-                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("visi_misi")}}</textarea>
+                    style="margin-top: 0px; margin-bottom: 0px; height: 99px;">{{old("paket_tpa")}}</textarea>
             </div>
           </div>
         </div>

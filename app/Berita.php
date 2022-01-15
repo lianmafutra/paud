@@ -15,6 +15,10 @@ class Berita extends Model
         return \Carbon\Carbon::parse($this->attributes["created_at"])->format("d-m-Y H:i");
     }
 
-    
+    protected function getWaktuAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes["created_at"])->format("d-m-Y H:i");
+    }
+
 
 }
